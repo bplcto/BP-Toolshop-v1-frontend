@@ -25,7 +25,6 @@ const __DataTable = () => {
                         whiteSpace: 'pre',
                         justifyContent: 'center',
                         padding: '0px 2px',
-                        whiteSpace: 'pre',
                     }
                 },
                 cells: {

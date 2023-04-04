@@ -1,23 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FileText, LogIn, Mail, PlusCircle, Settings, ShoppingCart, User } from 'react-feather';
-import man from '../../../assets/images/dashboard/profile.png';
+import { LogIn, PlusCircle, Settings, ShoppingCart } from 'react-feather';
+// import man from '../../../assets/images/dashboard/profile.png';
 
-import { LI, UL, Image, P } from '../../../AbstractElements';
+import { LI, UL } from '../../../AbstractElements';
 import CustomizerContext from '../../../_helper/Customizer';
-import { Account, Admin, Inbox, LogOut, Taskboard } from '../../../Constant';
+import { LogOut } from '../../../Constant';
 
 const UserHeader = () => {
   const history = useNavigate();
-  const [profile, setProfile] = useState('');
-  const [name, setName] = useState('Emay Walter');
+  // const [profile, setProfile] = useState('');
+  // const [name, setName] = useState('Emay Walter');
   const { layoutURL } = useContext(CustomizerContext);
-  const authenticated = JSON.parse(localStorage.getItem('authenticated'));
-  const auth0_profile = JSON.parse(localStorage.getItem('auth0_profile'));
+  // const authenticated = JSON.parse(localStorage.getItem('authenticated'));
+  // const auth0_profile = JSON.parse(localStorage.getItem('auth0_profile'));
 
   useEffect(() => {
-    setProfile(localStorage.getItem('profileURL') || man);
-    setName(localStorage.getItem('Name') ? localStorage.getItem('Name') : name);
+    // setProfile(localStorage.getItem('profileURL') || man);
+    // setName(localStorage.getItem('Name') ? localStorage.getItem('Name') : name);
   }, []);
 
   const Logout = () => {
@@ -26,7 +26,7 @@ const UserHeader = () => {
     localStorage.removeItem('auth0_profile');
     localStorage.removeItem('Name');
     localStorage.setItem('authenticated', false);
-    history(`${process.env.PUBLIC_URL}/login`);
+    history(`/login`);
   };
 
   const UserMenuRedirect = (redirect) => {

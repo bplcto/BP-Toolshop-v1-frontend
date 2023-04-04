@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Col, FormGroup, Input, Label, Row } from 'reactstrap'
 import { Btn } from '../../AbstractElements'
-import { Country, Description, Filter, Seller, SiteName } from '../../Constant'
+import { Country, Filter, Seller, SiteName } from '../../Constant'
 
 const __Filter = () => {
   return(

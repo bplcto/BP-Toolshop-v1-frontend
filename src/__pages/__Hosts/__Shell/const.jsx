@@ -7,7 +7,6 @@ import {
     Checker, 
     Country, 
     DetectHosting, 
-    Domain, 
     Price, 
     SSL, 
     Seller, 

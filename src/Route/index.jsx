@@ -40,7 +40,8 @@ const Routers = () => {
             {login || authenticated || jwt_token ? (
               <>
                 <Route exact path={`${process.env.PUBLIC_URL}`} element={<Navigate to={`${process.env.PUBLIC_URL}/dashboard/default/${layout}`} />} />
-                <Route exact path={`/`} element={<Navigate to={`${process.env.PUBLIC_URL}/dashboard/default/${layout}`} />} />
+                <Route exact path={`/`} element={<Navigate to={`/dashboard/${layout}`} />} />
+                {/* <Route exact path={`/`} element={<Navigate to={`${process.env.PUBLIC_URL}/dashboard/default/${layout}`} />} /> */}
               </>
             ) : (
               ''

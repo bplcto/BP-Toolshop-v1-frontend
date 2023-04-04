@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Navigate, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Routers from './Route';
 import ChartistProvider from './_helper/Chartist/ChartistProvider';
@@ -27,7 +27,6 @@ import CustomizerProvider from './_helper/Customizer/CustomizerProvider';
 
 import __Login from './__pages/__auth/__Login';
 import __Register from './__pages/__auth/__Register';
-import __Dashboard from './__pages/__Dashboard';
 import __ForgetPwd from './__pages/__auth/__ForgetPwd';
 
 const App = () => (

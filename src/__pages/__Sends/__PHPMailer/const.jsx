@@ -5,12 +5,10 @@ import {
     Buy,  
     Country, 
     DetectHosting, 
-    Domain, 
     Price, 
     Seller, 
     Send,
     ID,
-    WebMail,
     TestTo
 } from '../../../Constant';
 

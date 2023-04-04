@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Fragment } from 'react'
 import { Row } from 'reactstrap';
 import __Tabs from './__Tabs';
 import __DataTable from './__DataTable'
@@ -6,10 +6,12 @@ import __DataTable from './__DataTable'
 const __SMTP = () => {
 
   return (
-    <Row>
-      <__Tabs />
-      <__DataTable />
-    </Row>
+    <Fragment>
+      <Row>
+        <__Tabs />
+        <__DataTable />
+      </Row>
+    </Fragment>
   )
 }
 

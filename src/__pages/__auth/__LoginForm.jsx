@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useContext } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { Form, FormGroup, Input, Label } from 'reactstrap';
 import { Btn, H4, P } from '../../AbstractElements';
@@ -12,7 +12,6 @@ import {
 } from '../../Constant';
 
 import { useNavigate } from 'react-router-dom';
-import CustomizerContext from '../../_helper/Customizer';
 
 const __LoginForm = () => {
   const [email, setEmail] = useState('test@gmail.com');
@@ -66,7 +65,7 @@ const __LoginForm = () => {
           <Btn attrBtn={{ 
             color: 'primary', 
             className: 'd-block w-100 mt-2', 
-            onClick: (e) => {history('/dashboard')} 
+            onClick: (e) => {history('/dashboard/Dubai')} 
           }}>{LOGIN}</Btn>
         </FormGroup>
         <P attrPara={{ className: 'text-center mb-0 mt-4' }}>

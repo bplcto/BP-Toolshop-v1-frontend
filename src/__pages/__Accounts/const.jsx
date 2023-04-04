@@ -1,6 +1,6 @@
 import React from 'react';
 import { Btn } from '../../AbstractElements';
-import { Country, Description, EmailN, Buy, Seller, Addedon, Price, SiteName, AvailableInformation } from '../../Constant';
+import { Country, Buy, Seller, Addedon, Price, SiteName, AvailableInformation } from '../../Constant';
 
 export const dummytabledata = 
 {

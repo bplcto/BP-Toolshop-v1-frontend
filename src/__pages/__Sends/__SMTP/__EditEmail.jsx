@@ -1,16 +1,16 @@
-import React, { useState } from "react"
+import React from "react"
 import { FormGroup, Input, InputGroup, InputGroupText, Label } from "reactstrap"
 import { Change, CheckerEmail } from "../../../Constant"
 import { Btn } from "../../../AbstractElements"
 
 const __EditEmail = () => {
 
-  const { email, setEmail } = useState('james.gaylor721@gmail.com');
+  // const { email, setEmail } = useState('james.gaylor721@gmail.com');
   return (
     <FormGroup className=" m-form__group">
       <Label>{CheckerEmail}</Label>
       <InputGroup>
-        <Input className="form-control" type="text" placeholder="Email" value={email} />
+        <Input className="form-control" type="text" placeholder="Email" />
         <InputGroupText>
           <Btn>{Change}<i className="fa fa-pencil"></i></Btn>
         </InputGroupText>

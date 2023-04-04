@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Card, CardBody, Col } from "reactstrap";
+import { Card, CardBody } from "reactstrap";
 import { DonutChart } from "../../../Constant";
 import HeaderCard from "../../Common/Component/HeaderCard";
 import Chart from 'react-apexcharts';
