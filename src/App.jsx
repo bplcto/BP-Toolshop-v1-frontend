@@ -54,13 +54,6 @@ const App = () => (
                                             <ChartistProvider>
                                               <AnimationThemeProvider>
                                                 <Routers />
-                                                <Router>
-                                                  <Routes>
-                                                    <Route path='/login' Component={__Login} />
-                                                    <Route path='/register' Component={__Register} />
-                                                    <Route path='/forget_password' Component={__ForgetPwd} />
-                                                  </Routes>
-                                                </Router>
                                               </AnimationThemeProvider>
                                             </ChartistProvider>
                                           </ChartjsProvider>

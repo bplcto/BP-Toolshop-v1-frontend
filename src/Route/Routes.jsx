@@ -197,6 +197,7 @@ import __Leads from '../__pages/__Leads';
 import __Accounts from '../__pages/__Accounts';
 import __Programs from '../__pages/__Others/__Programs';
 import __Methods from '../__pages/__Others/__Methods';
+import __Ticket from '../__pages/__User/__Ticket';
 
 export const routes = [
   //dashboard
@@ -393,4 +394,5 @@ export const routes = [
   { path: '/product/premium_shop_dating/:layout', Component: <__Accounts /> },
   { path: '/product/programsscripts/:layout', Component: <__Programs /> },
   { path: '/product/bank/:layout', Component: <__Methods /> },
+  { path: '/user/tickets/:layout', Component: <__Ticket /> },
 ];

@@ -1,13 +1,19 @@
 import React, { Fragment } from 'react'
 import DataTable from 'react-data-table-component';
-import { dummytabledata, tableColumns } from './const';
+import { tableColumns } from './const';
 
 const __DataTable = () => {
-    let temp = [];
-
-    for (let i = 0; i < 20; i++) {
-        temp.push(dummytabledata);
-    }
+    let temp = [
+        {
+            index: 1,
+            date_created: "2023/04/03 02:14:52 PM",
+            title: 'Test Ticket',
+            conversion: 'Test Conversion',
+            status: 'Peding',
+            last_reply: '2023/04/03 02:14:52 PM',
+            last_updated: "2023/04/03 02:14:52 PM",
+        }
+    ];
 
     return (
         <Fragment>

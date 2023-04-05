@@ -1602,3 +1602,12 @@ export const Change =  'Change';
 export const EmailN =  'EmailN';
 export const SiteName = "Site Name";
 export const AvailableInformation = "Available Information";
+
+export const Ticket = "Ticket";
+export const MyTicket = "My Ticket";
+export const NewTicket = "New Ticket";
+export const DateCreated = "Date Created";
+export const Conversion = "Conversion";
+export const LastReply = "Last Reply";
+export const LastUpdated = "Last Updated";
+export const SubmitTicket = "Submit Ticket";

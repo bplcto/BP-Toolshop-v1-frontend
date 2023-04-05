@@ -61,8 +61,8 @@ export const MENUITEMS = [
         type: 'sub',
         active: false,
         children: [
-          { path: `product/programsscripts`, title: 'Tickets', type: 'link', icon: 'fa fa-ticket', badge: 'badge badge-light-primary', badgetxt: '5' },
-          { path: `product/bank`, title: 'Reports', type: 'link', icon: 'fa fa-bug', badge: 'badge badge-light-danger', badgetxt: '5' },
+          { path: `user/tickets`, title: 'Tickets', type: 'link', icon: 'fa fa-ticket', badge: 'badge badge-light-primary', badgetxt: '5' },
+          { path: `user/reports`, title: 'Reports', type: 'link', icon: 'fa fa-bug', badge: 'badge badge-light-danger', badgetxt: '5' },
         ],
       },
     ],

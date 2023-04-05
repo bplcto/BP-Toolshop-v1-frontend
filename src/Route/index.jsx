@@ -6,7 +6,11 @@ import Callback from '../Auth/Callback';
 import Loader from '../Layout/Loader';
 import { authRoutes } from './AuthRoutes';
 import LayoutRoutes from '../Route/LayoutRoutes';
-import Signin from '../Auth/Signin';
+
+import __Login from '../__pages/__auth/__Login';
+import __Register from '../__pages/__auth/__Register';
+import __ForgetPwd from '../__pages/__auth/__ForgetPwd';
+
 import PrivateRoute from './PrivateRoute';
 import { classes } from '../Data/Layouts';
 
@@ -40,8 +44,8 @@ const Routers = () => {
             {login || authenticated || jwt_token ? (
               <>
                 <Route exact path={`${process.env.PUBLIC_URL}`} element={<Navigate to={`${process.env.PUBLIC_URL}/dashboard/default/${layout}`} />} />
-                <Route exact path={`/`} element={<Navigate to={`/dashboard/${layout}`} />} />
                 {/* <Route exact path={`/`} element={<Navigate to={`${process.env.PUBLIC_URL}/dashboard/default/${layout}`} />} /> */}
+                <Route exact path={`/`} element={<Navigate to={`/login`} />} />
               </>
             ) : (
               ''
@@ -49,7 +53,9 @@ const Routers = () => {
             <Route path={`/*`} element={<LayoutRoutes />} />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/callback`} render={() => <Callback />} />
-          <Route exact path={`${process.env.PUBLIC_URL}/login`} element={<Signin />} />
+          <Route exact path={`/login`} element={<__Login />} />
+          <Route exact path={`/register`} element={<__Register />} />
+          <Route exact path={`/forget_password`} element={<__ForgetPwd />} />
           {authRoutes.map(({ path, Component }, i) => (
             <Route path={path} element={Component} key={i} />
           ))}

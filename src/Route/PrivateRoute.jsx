@@ -15,7 +15,8 @@ const PrivateRoute = () => {
     localStorage.setItem('authenticated', authenticated);
     localStorage.setItem('login', login);
   }, []);
-  return login || authenticated || jwt_token ? <Outlet /> : <Navigate exact to={`/login`} />;
+  // return login || authenticated || jwt_token ? <Outlet /> : <Navigate exact to={`/login`} />;
+  return <Outlet />;
 };
 
 export default PrivateRoute;
