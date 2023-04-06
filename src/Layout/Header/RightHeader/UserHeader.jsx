@@ -47,21 +47,21 @@ const UserHeader = () => {
       <UL attrUL={{ className: 'simple-list profile-dropdown onhover-show-div' }}>
         <LI
           attrLI={{
-            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/app/users/userProfile/${layoutURL}`),
+            onClick: () => UserMenuRedirect(`/user-edit-profile/${layoutURL}`),
           }}>
           <Settings />
           <span>Settings</span>
         </LI>
         <LI
           attrLI={{
-            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/app/email-app/${layoutURL}`),
+            onClick: () => UserMenuRedirect(`/add-balance/${layoutURL}`),
           }}>
           <PlusCircle />
           <span>Add Balance</span>
         </LI>
         <LI
           attrLI={{
-            onClick: () => UserMenuRedirect(`${process.env.PUBLIC_URL}/app/todo-app/todo/${layoutURL}`),
+            onClick: () => UserMenuRedirect(`user/order/${layoutURL}`),
           }}>
           <ShoppingCart />
           <span>My Orders</span>

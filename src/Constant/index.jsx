@@ -1616,3 +1616,9 @@ export const OrderID = "Order ID";
 export const ItemType = "Item Type";
 export const ReportState = "Report State";
 export const ReportChat = "Report Chat";
+
+export const AccountSetting = "Account Setting";
+export const EditInformation = "Edit Information";
+
+export const CurrentPassword = "Current Password";
+export const UpdateInformation = "Update Information";
