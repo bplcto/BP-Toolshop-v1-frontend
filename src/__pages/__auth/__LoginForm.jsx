@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Form, FormGroup, Input, Label } from 'reactstrap';
 import { Btn, H4, P } from '../../AbstractElements';
@@ -12,17 +13,38 @@ import {
 } from '../../Constant';
 
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../redux/actions/auth';
 
 const __LoginForm = () => {
-  const [email, setEmail] = useState('test@gmail.com');
-  const [password, setPassword] = useState('test123');
-  const [togglePassword, setTogglePassword] = useState(false);
+
+  const dispatch = useDispatch();
   
   const history = useNavigate();
 
+  const [togglePassword, setTogglePassword] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const { email, password } = formData;
+  const { isAuthenticated } = useSelector(state => state.auth);
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(email, password));
+  };
+
+  if (isAuthenticated) {
+    history('/dashboard/Dubai');
+  }
+
   return (
     <Fragment>
-      <Form className='theme-form'>
+      <Form className='theme-form' onSubmit={onSubmit}>
         <H4 attrH4={{ className: 'text-center' }}>
           <i className="fa fa-shopping-cart"></i>&nbsp;
           bpltoolshop - Login
@@ -32,8 +54,10 @@ const __LoginForm = () => {
           <Input 
             className='form-control' 
             type='email' 
-            onChange={(e) => setEmail(e.target.value)} 
+            name='email'
+            onChange={onChange} 
             value={email} 
+            required
             />
         </FormGroup>
         <FormGroup className='position-relative'>
@@ -42,8 +66,10 @@ const __LoginForm = () => {
             <Input 
               className='form-control' 
               type={togglePassword ? 'text' : 'password'} 
-              onChange={(e) => setPassword(e.target.value)} 
+              name='password'
+              onChange={onChange} 
               value={password} 
+              required
               />
             <div className='show-hide' onClick={() => setTogglePassword(!togglePassword)}>
               {togglePassword ? <i className='fa fa fa-eye-slash'></i> : <i className='fa fa-eye'></i>}
@@ -64,8 +90,7 @@ const __LoginForm = () => {
         <FormGroup>
           <Btn attrBtn={{ 
             color: 'primary', 
-            className: 'd-block w-100 mt-2', 
-            onClick: (e) => {history('/dashboard/Dubai')} 
+            className: 'd-block w-100 mt-2'
           }}>{LOGIN}</Btn>
         </FormGroup>
         <P attrPara={{ className: 'text-center mb-0 mt-4' }}>

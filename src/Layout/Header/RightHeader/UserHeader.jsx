@@ -1,32 +1,24 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LogIn, PlusCircle, Settings, ShoppingCart } from 'react-feather';
-// import man from '../../../assets/images/dashboard/profile.png';
 
 import { LI, UL } from '../../../AbstractElements';
 import CustomizerContext from '../../../_helper/Customizer';
 import { LogOut } from '../../../Constant';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../redux/actions/auth';
 
 const UserHeader = () => {
   const history = useNavigate();
-  // const [profile, setProfile] = useState('');
-  // const [name, setName] = useState('Emay Walter');
+  const dispatch = useDispatch();
+
   const { layoutURL } = useContext(CustomizerContext);
-  // const authenticated = JSON.parse(localStorage.getItem('authenticated'));
-  // const auth0_profile = JSON.parse(localStorage.getItem('auth0_profile'));
 
   useEffect(() => {
-    // setProfile(localStorage.getItem('profileURL') || man);
-    // setName(localStorage.getItem('Name') ? localStorage.getItem('Name') : name);
   }, []);
 
   const Logout = () => {
-    localStorage.removeItem('profileURL');
-    localStorage.removeItem('token');
-    localStorage.removeItem('auth0_profile');
-    localStorage.removeItem('Name');
-    localStorage.setItem('authenticated', false);
-    history(`/login`);
+    dispatch(logout())
   };
 
   const UserMenuRedirect = (redirect) => {

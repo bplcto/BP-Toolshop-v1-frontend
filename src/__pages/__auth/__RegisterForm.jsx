@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form';
 import { Form, FormGroup, Input, Label } from 'reactstrap';
 import { Btn, H4, P } from '../../AbstractElements';
 
@@ -9,25 +11,53 @@ import {
   Login, 
   Password, 
   REGISTER, 
-  Username,  
+  Username, 
 } from '../../Constant';
 
+import { register } from '../../redux/actions/auth';
 
 import { useNavigate } from 'react-router-dom';
 
 const __RegisterForm = () => {
-  const [email, setEmail] = useState('test@gmail.com');
-  const [password, setPassword] = useState('test123');
-  const [userName, setUserName] = useState('test');
+
+  const dispatch = useDispatch();
   
   const [togglePassword, setTogglePassword] = useState(false);
   const [toggleConfirmPassword, setToggleConfirmPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
 
-  const history = useNavigate();
+  const { name, email, password, confirmPassword } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const {
+    // register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("hello");
+    if (data !== '') {
+      dispatch(register({name, email, password}));
+    } else {
+      errors.showMessages();
+    }
+  };
 
   return (
     <Fragment>
-      <Form className='theme-form'>
+      {/* handleSubmit(onSubmit) */}
+      {/* was-validated */}
+      <Form className='theme-form' onSubmit={handleSubmit(onSubmit)}>
         <H4 attrH4={{ className: 'text-center' }}>
           <i className="fa fa-shopping-cart"></i>&nbsp;
           bpltoolshop - Register
@@ -37,18 +67,24 @@ const __RegisterForm = () => {
           <Input 
             className='form-control' 
             type='text' 
-            onChange={(e) => setUserName(e.target.value)} 
-            value={userName} 
+            name='name'
+            required
+            onChange={onChange} 
+            value={name} 
             />
+          {/* <div className="invalid-feedback">{"Please input name"}</div> */}
         </FormGroup>
         <FormGroup>
           <Label className='col-form-label'>{EmailAddress}</Label>
           <Input 
             className='form-control' 
             type='email' 
-            onChange={(e) => setEmail(e.target.value)} 
+            name='email'
+            onChange={onChange}
             value={email} 
+            required
             />
+          {/* <div className="invalid-feedback">{"Please input email or valid email"}</div> */}
         </FormGroup>
         <FormGroup className='position-relative'>
           <Label className='col-form-label'>{Password}</Label>
@@ -56,9 +92,13 @@ const __RegisterForm = () => {
             <Input 
               className='form-control' 
               type={togglePassword ? 'text' : 'password'} 
-              onChange={(e) => setPassword(e.target.value)} 
-              value={password} 
+              name='password'
+              value={password}
+              onChange={onChange}
+              required
+              minLength={6}
               />
+            {/* <div className="invalid-feedback">{"Please input at least 6 characters"}</div> */}
             <div className='show-hide' onClick={() => setTogglePassword(!togglePassword)}>
               {togglePassword ? <i className='fa fa fa-eye-slash'></i> : <i className='fa fa-eye'></i>}
             </div>
@@ -70,19 +110,21 @@ const __RegisterForm = () => {
             <Input 
               className='form-control' 
               type={toggleConfirmPassword ? 'text' : 'password'} 
-              onChange={(e) => setPassword(e.target.value)} 
-              value={password} 
+              name='confirmPassword'
+              onChange={onChange}
+              value={confirmPassword} 
+              required
               />
             <div className='show-hide' onClick={() => setToggleConfirmPassword(!toggleConfirmPassword)}>
               {toggleConfirmPassword ? <i className='fa fa fa-eye-slash'></i> : <i className='fa fa-eye'></i>}
             </div>
+            {/* <div className="invalid-feedback">{"Please input at least 6 characters"}</div> */}
           </div>
         </FormGroup>
         <div className='position-relative form-group mb-0'>
           <Btn attrBtn={{ 
             color: 'primary', 
-            className: 'd-block w-100 mt-2', 
-            onClick: (e) => {history('/login')}
+            className: 'd-block w-100 mt-2'
           }}>{REGISTER}</Btn>
         </div>
         <P attrPara={{ className: 'text-center mb-0 mt-4' }}>

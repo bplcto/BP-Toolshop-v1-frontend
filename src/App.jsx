@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import Routers from './Route';
 import ChartistProvider from './_helper/Chartist/ChartistProvider';
@@ -25,58 +25,87 @@ import FaqProvider from './_helper/Faq/FaqProvider';
 import AnimationThemeProvider from './_helper/AnimationTheme/AnimationThemeProvider';
 import CustomizerProvider from './_helper/Customizer/CustomizerProvider';
 
-import __Login from './__pages/__auth/__Login';
-import __Register from './__pages/__auth/__Register';
-import __ForgetPwd from './__pages/__auth/__ForgetPwd';
+// Redux
+import { Provider } from 'react-redux';
+import store from './redux/store'
+import { LOGOUT } from './redux/actions/types';
+import { loadUser } from './redux/actions/auth';
+import setAuthToken from './utils/setAuthToken';
+import Alert from './__components/Alert';
 
-const App = () => (
-  <div className='App'>
-    <CustomizerProvider>
-      <FaqProvider>
-        <LearningProvider>
-          <JobSearchProvider>
-            <WishListProvider>
-              <FilterProvider>
-                <CartProvider>
-                  <ProductProvider>
-                    <SearchResultProvider>
-                      <EmailProvider>
-                        <TodoProvider>
-                          <BookmarkProvider>
-                            <TableProvider>
-                              <GalleryProvider>
-                                <TaskProvider>
-                                  <ContactProvider>
-                                    <ChatProvider>
-                                      <ProjectProvider>
-                                        <GoogleChartProvider>
-                                          <ChartjsProvider>
-                                            <ChartistProvider>
-                                              <AnimationThemeProvider>
-                                                <Routers />
-                                              </AnimationThemeProvider>
-                                            </ChartistProvider>
-                                          </ChartjsProvider>
-                                        </GoogleChartProvider>
-                                      </ProjectProvider>
-                                    </ChatProvider>
-                                  </ContactProvider>
-                                </TaskProvider>
-                              </GalleryProvider>
-                            </TableProvider>
-                          </BookmarkProvider>
-                        </TodoProvider>
-                      </EmailProvider>
-                    </SearchResultProvider>
-                  </ProductProvider>
-                </CartProvider>
-              </FilterProvider>
-            </WishListProvider>
-          </JobSearchProvider>
-        </LearningProvider>
-      </FaqProvider>
-    </CustomizerProvider>
-  </div>
-);
+const App = () => {
+  useEffect(() => {
+    // check for token in LS when app first runs
+    if (localStorage.token) {
+      // if there is a token set axios headers for all requests
+      setAuthToken(localStorage.token);
+    } 
+    // try to fetch a user, if no token or invalid token we
+    // will get a 401 response from our API
+    store.dispatch(loadUser());
+
+    // log user out from all tabs if they log out in one tab
+    window.addEventListener('storage', () => {
+      if (!localStorage.token) {
+        store.dispatch({ type: LOGOUT });
+      }
+    });
+  }, []);
+
+  // if(isAuthenticated)
+
+  return (
+    <Provider store={store}>
+      <div className='App'>
+        <CustomizerProvider>
+          <FaqProvider>
+            <LearningProvider>
+              <JobSearchProvider>
+                <WishListProvider>
+                  <FilterProvider>
+                    <CartProvider>
+                      <ProductProvider>
+                        <SearchResultProvider>
+                          <EmailProvider>
+                            <TodoProvider>
+                              <BookmarkProvider>
+                                <TableProvider>
+                                  <GalleryProvider>
+                                    <TaskProvider>
+                                      <ContactProvider>
+                                        <ChatProvider>
+                                          <ProjectProvider>
+                                            <GoogleChartProvider>
+                                              <ChartjsProvider>
+                                                <ChartistProvider>
+                                                  <AnimationThemeProvider>
+                                                    {/* <Alert /> */}
+                                                    <Routers />
+                                                  </AnimationThemeProvider>
+                                                </ChartistProvider>
+                                              </ChartjsProvider>
+                                            </GoogleChartProvider>
+                                          </ProjectProvider>
+                                        </ChatProvider>
+                                      </ContactProvider>
+                                    </TaskProvider>
+                                  </GalleryProvider>
+                                </TableProvider>
+                              </BookmarkProvider>
+                            </TodoProvider>
+                          </EmailProvider>
+                        </SearchResultProvider>
+                      </ProductProvider>
+                    </CartProvider>
+                  </FilterProvider>
+                </WishListProvider>
+              </JobSearchProvider>
+            </LearningProvider>
+          </FaqProvider>
+        </CustomizerProvider>
+      </div>
+    </Provider>
+  )
+}
 
 export default App;

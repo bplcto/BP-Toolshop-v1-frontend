@@ -1,9 +1,16 @@
 import React, { Fragment } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { routes } from './Routes';
 import AppLayout from '../Layout/Layout';
 
 const LayoutRoutes = () => {
+
+  const { isAuthenticated } = useSelector(state => state.auth);
+
+  if (!isAuthenticated) {
+    window.location.href = "/login";
+  }
 
   return (
     <>
