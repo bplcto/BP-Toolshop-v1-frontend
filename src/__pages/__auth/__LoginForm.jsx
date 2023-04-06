@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Form, FormGroup, Input, Label } from 'reactstrap';
@@ -30,6 +30,12 @@ const __LoginForm = () => {
   const { email, password } = formData;
   const { isAuthenticated } = useSelector(state => state.auth);
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      history('/dashboard/Dubai');
+    }
+  }, [isAuthenticated]);
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -37,10 +43,6 @@ const __LoginForm = () => {
     e.preventDefault();
     dispatch(login(email, password));
   };
-
-  if (isAuthenticated) {
-    history('/dashboard/Dubai');
-  }
 
   return (
     <Fragment>

@@ -198,6 +198,7 @@ import __Accounts from '../__pages/__Accounts';
 import __Programs from '../__pages/__Others/__Programs';
 import __Methods from '../__pages/__Others/__Methods';
 import __Ticket from '../__pages/__User/__Ticket';
+import __Report from '../__pages/__User/__Report';
 
 export const routes = [
   //dashboard
@@ -395,4 +396,5 @@ export const routes = [
   { path: '/product/programsscripts/:layout', Component: <__Programs /> },
   { path: '/product/bank/:layout', Component: <__Methods /> },
   { path: '/user/tickets/:layout', Component: <__Ticket /> },
+  { path: '/user/reports/:layout', Component: <__Report /> },
 ];

@@ -1611,3 +1611,8 @@ export const Conversion = "Conversion";
 export const LastReply = "Last Reply";
 export const LastUpdated = "Last Updated";
 export const SubmitTicket = "Submit Ticket";
+
+export const OrderID = "Order ID";
+export const ItemType = "Item Type";
+export const ReportState = "Report State";
+export const ReportChat = "Report Chat";
