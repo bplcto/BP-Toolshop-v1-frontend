@@ -1,13 +1,14 @@
 import React from 'react';
 import { 
     ID,
-    Seller,
-    Type,
-    Item,
-    OpenView,
-    Price,
-    Date,
-    Report
+    DateCreated,
+    OrderID,
+    ItemType,
+    ReportState,
+    ReportChat,
+    LastReply,
+    LastUpdated,
+    Seller
 } from '../../../Constant';
 
 export const dummytabledata = 
@@ -24,59 +25,66 @@ export const dummytabledata =
 
 export const tableColumns = [
     {
-        name: `${ID}`,
+        name: `#`,
         selector: row => `${row.index}`,
         sortable: true,
         center: false,
-        width: '10%'
+        width: '5%'
     },
     {
-        name: `${Type}`,
-        selector: row => row.type,
+        name: `${DateCreated}`,
+        selector: row => row.date_created,
+        sortable: true,
+        center: false,
+        width: '15%'
+    },
+    {
+        name: `${OrderID}`,
+        selector: row => row.order_id,
         sortable: true,
         center: false,
         width: '10%'
     },
     {
-        name: `${Item}`,
-        selector: row => row.item,
+        name: `${ItemType}`,
+        selector: row => row.item_type,
         sortable: true,
         center: false,
-        width: '10%'
-    },
-    {
-        name: `${OpenView}`,
-        selector: row => row.open_view,
-        sortable: true,
-        center: false,
-        width: '20%'
-    },
-    {
-        name: `${Price}`,
-        selector: row => row.price,
-        sortable: true,
-        center: false,
-        width: '10%'
+        width: '8%'
     },
     {
         name: `${Seller}`,
         selector: row => row.seller,
         sortable: true,
         center: false,
-        width: '10%'
+        width: '7%'
     },
     {
-        name: `${Report}`,
-        selector: row => row.report,
+        name: `${ReportState}`,
+        selector: row => row.report_state,
         sortable: true,
         center: false,
         width: '10%'
     },
     {
-        name: `${Date}`,
-        selector: row => row.date,
+        name: `${ReportChat}`,
+        selector: row => row.report_chat,
+        sortable: true,
+        center: false,
+        width: '15%'
+    },
+    {
+        name: `${LastReply}`,
+        selector: row => row.last_reply,
         sortable: false,
         center: false,
-        width: '20%'
+        width: '15%'
+    },
+    {
+        name: `${LastUpdated}`,
+        selector: row => row.last_updated,
+        sortable: false,
+        center: false,
+        width: '15%'
     },
 ];

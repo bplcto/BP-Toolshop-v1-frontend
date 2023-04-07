@@ -18,7 +18,6 @@ import { login } from '../../redux/actions/auth';
 const __LoginForm = () => {
 
   const dispatch = useDispatch();
-  
   const history = useNavigate();
 
   const [togglePassword, setTogglePassword] = useState(false);
@@ -32,7 +31,7 @@ const __LoginForm = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      history('/dashboard/Dubai');
+      history('/dashboard/Singapore');
     }
   }, [isAuthenticated]);
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Callback from '../Auth/Callback';
 import Loader from '../Layout/Loader';
@@ -14,25 +14,12 @@ import PrivateRoute from './PrivateRoute';
 
 const Routers = () => {
 
-  useEffect(() => {
-    // let abortController = new AbortController();
-    // const requestOptions = { method: 'GET', headers: authHeader() };
-    // fetch('/users', requestOptions).then(handleResponse);
-
-    // setAuthenticated(JSON.parse(localStorage.getItem('authenticated')));
-    // console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
-    // console.disableYellowBox = true;
-    // return () => {
-    //   abortController.abort();
-    // };
-  }, []);
-
   return (
     <BrowserRouter basename={'/'}>
       <Suspense fallback={<Loader />}>
         <Routes>
+          <Route exact path={`/`} element={<Navigate to={`/login`} />} />
           <Route path={'/'} element={<PrivateRoute />}>
-            <Route exact path={`/`} element={<Navigate to={`/login`} />} />
             {/* {login || authenticated || jwt_token ? (
               <>
                 <Route exact path={`/`} element={<Navigate to={`/login`} />} />

@@ -4,12 +4,12 @@ import __DataTable from './__DataTable'
 import { Card, CardBody, CardHeader } from 'reactstrap'
 import { H4 } from '../../../AbstractElements'
 
-const __Report = () => {
+const __Order = () => {
   return (
     <Fragment>
       <Card>
         <CardHeader>
-          <H4><i className='fa fa-bug'></i>Reports</H4>
+          <H4><i className='fa fa-shopping-cart'></i>My Order</H4>
         </CardHeader>
         <CardBody>
           <__DataTable />
@@ -19,4 +19,4 @@ const __Report = () => {
   )
 }
 
-export default __Report
+export default __Order

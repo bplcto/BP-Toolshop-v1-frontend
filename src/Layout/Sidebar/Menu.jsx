@@ -5,7 +5,7 @@ export const MENUITEMS = [
     Items: [
       {
         title: 'Hosts',
-        icon: 'icofont icofont-server',
+        icon: 'learning',
         type: 'sub',
         badge: 'badge badge-light-primary',
         // badgetxt: '5',
@@ -13,51 +13,54 @@ export const MENUITEMS = [
         children: [
           { path: '/product/rdps', title: 'RDPS', type: 'link', icon: 'fa fa-laptop', badge: 'badge badge-light-primary', badgetxt: '5' },
           { path: `product/root-sshwhmvps`, title: 'Root SSh/WHM/VPS', type: 'link', icon: 'fa fa-cogs', badge: 'badge badge-light-primary', badgetxt: '5' },
-          { path: `product/cpanels`, title: 'cPanels', type: 'link', icon: 'fa fa-user', badge: 'badge badge-light-primary', badgetxt: '5' },
+          { path: `product/cpanels`, title: 'cPanels', type: 'link', icon: 'icofont icofont-drwaing-tablet', badge: 'badge badge-light-primary', badgetxt: '5' },
           { path: `product/shells`, title: 'Shells', type: 'link', icon: 'fa fa-code', badge: 'badge badge-light-primary', badgetxt: '5' },
         ],
       },
       {
         title: 'Sends',
-        icon: 'fa fa-envelope',
+        icon: 'button',
         type: 'sub',
         active: false,
         children: [
-          { path: `product/smtpswebmail`, title: 'SMTPs/Webmail', type: 'link', icon: 'fa fa-paper-plane', badge: 'badge badge-light-primary', badgetxt: '5' },
-          { path: `product/phpmailers`, title: 'PHPMailers', type: 'link', icon: 'fa fa-leaf', badge: 'badge badge-light-primary', badgetxt: '5' },
+          { path: `product/smtpswebmail`, title: 'SMTPs/Webmail', type: 'link', icon: 'fa fa-envelope-o', badge: 'badge badge-light-primary', badgetxt: '5' },
+          { path: `product/phpmailers`, title: 'PHPMailers', type: 'link', icon: 'fa fa-paper-plane-o', badge: 'badge badge-light-primary', badgetxt: '5' },
         ],
       },
       {
         title: 'Leads',
-        icon: 'fa fa-address-book',
-        type: 'sub',
+        icon: 'board',
+        type: 'link',
+        path: `product/leads`,
+        badge: 'badge badge-light-primary',
+        badgetxt: '5',
         active: false,
-        children: [
-          { path: `product/leads`, title: 'Leads', type: 'link', icon: 'fa fa-at', badge: 'badge badge-light-primary', badgetxt: '5' },
-        ],
+        // children: [
+        //   { path: `product/leads`, title: 'Leads', type: 'link', icon: 'fa fa-at', badge: 'badge badge-light-primary', badgetxt: '5' },
+        // ],
       },
       {
         title: 'Accounts',
-        icon: 'fa fa-users',
+        icon: 'user',
         type: 'sub',
         active: false,
         children: [
-          { path: `product/premium_shop_dating`, title: 'Premium/Shop/Dating', type: 'link', icon: 'icofont icofont-meteor', badge: 'badge badge-light-primary', badgetxt: '5' },
+          { path: `product/premium_shop_dating`, title: 'Premium/Shop/Dating', type: 'link', icon: 'icofont icofont-basket', badge: 'badge badge-light-primary', badgetxt: '5' },
         ],
       },
       {
         title: 'Others',
-        icon: 'icofont icofont-fire',
+        icon: 'others',
         type: 'sub',
         active: false,
         children: [
           { path: `product/programsscripts`, title: 'Programs/Scripts', type: 'link', icon: 'fa fa-file-code-o', badge: 'badge badge-light-primary', badgetxt: '5' },
-          { path: `product/bank`, title: 'Methods & Others', type: 'link', icon: 'icofont icofont-brand-android-robot', badge: 'badge badge-light-primary', badgetxt: '5' },
+          { path: `product/bank`, title: 'Methods & Others', type: 'link', icon: 'icofont icofont-tools-bag', badge: 'badge badge-light-primary', badgetxt: '5' },
         ],
       },
       {
         title: 'Tickets',
-        icon: 'fa fa-inbox',
+        icon: 'landing-page',
         type: 'sub',
         active: false,
         children: [
@@ -65,6 +68,17 @@ export const MENUITEMS = [
           { path: `user/reports`, title: 'Reports', type: 'link', icon: 'fa fa-bug', badge: 'badge badge-light-danger', badgetxt: '5' },
         ],
       },
+      // {
+      //   title: 'My Account',
+      //   icon: 'user',
+      //   type: 'sub',
+      //   active: false,
+      //   children: [
+      //     { path: `user-edit-profile`, title: 'Settings', type: 'link', icon: 'user', badge: 'badge badge-light-primary', badgetxt: '5' },
+      //     { path: `add-balance`, title: 'Add Balance', type: 'link', icon: 'fa fa-plus', badge: 'badge badge-light-danger', badgetxt: '5' },
+      //     { path: `user/order`, title: 'My Orders', type: 'link', icon: 'fa fa-shopping-cart', badge: 'badge badge-light-danger', badgetxt: '5' },
+      //   ],
+      // },
     ],
   },
   {

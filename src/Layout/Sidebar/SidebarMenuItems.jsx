@@ -69,9 +69,8 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
                     setNavActive(menuItem);
                     activeClass(menuItem.active);
                   }}>
-                  {/* <SvgIcon className='stroke-icon' iconId={`stroke-${menuItem.icon}`} />
-                  <SvgIcon className='fill-icon' iconId={`fill-${menuItem.icon}`} /> */}
-                  {menuItem.icon ? <i className={menuItem.icon}></i> : ''}
+                  <SvgIcon className='stroke-icon' iconId={`stroke-${menuItem.icon}`} />
+                  <SvgIcon className='fill-icon' iconId={`fill-${menuItem.icon}`} />
                   <span>{t(menuItem.title)}</span>
                   {menuItem.badge ? <label className={menuItem.badge}>{menuItem.badgetxt}</label> : ''}
                   <div className='according-menu'>{menuItem.active ? <i className='fa fa-angle-down'></i> : <i className='fa fa-angle-right'></i>}</div>
@@ -119,10 +118,11 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
                         {childrenItem.type === 'link' ? (
                           <Link
                             to={childrenItem.path + '/' + layoutId}
-                            className={`${CurrentPath.includes(childrenItem?.title?.toLowerCase()) ? 'active' : ''}`}
+                            className={`sidebar-link sidebar-title link-nav ${CurrentPath.includes(childrenItem?.title?.toLowerCase()) ? 'active' : ''}`}
                             // className={`${childrenItem.active ? 'active' : ''}`} bonusui
                             onClick={() => toggletNavActive(childrenItem)}>
-                            {childrenItem.icon ? <i className={childrenItem.icon}></i> : ''}
+                            {childrenItem.icon ? <i className={`${childrenItem.icon}`}></i> : ''}
+                            &nbsp;
                             {t(childrenItem.title)}
                             {childrenItem.badge ? <label style={{position: 'unset'}} className={childrenItem.badge}>{childrenItem.badgetxt}</label> : ''}
                           </Link>

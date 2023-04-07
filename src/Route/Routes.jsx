@@ -200,6 +200,8 @@ import __Methods from '../__pages/__Others/__Methods';
 import __Ticket from '../__pages/__User/__Ticket';
 import __Report from '../__pages/__User/__Report';
 import __Profile from '../__pages/__User/__Profile';
+import __Balance from '../__pages/__User/__Balance';
+import __Order from '../__pages/__User/__Order';
 
 export const routes = [
   //dashboard
@@ -399,4 +401,6 @@ export const routes = [
   { path: '/user/tickets/:layout', Component: <__Ticket /> },
   { path: '/user/reports/:layout', Component: <__Report /> },
   { path: '/user-edit-profile/:layout', Component: <__Profile /> },
+  { path: '/add-balance/:layout', Component: <__Balance /> },
+  { path: '/user/order/:layout', Component: <__Order /> },
 ];

@@ -435,7 +435,7 @@ export const VincentPorter = 'Vincent Porter';
 export const Active = 'Active';
 export const ChataApp_p1 = 'Established fact that a reader will be distracted';
 export const ChataApp_p2 = 'Dolore magna aliqua';
-export const Send = 'SEND';
+export const Send = 'Send';
 
 // email
 export const MARKJENCO = 'MARK JENCO';
@@ -1622,3 +1622,10 @@ export const EditInformation = "Edit Information";
 
 export const CurrentPassword = "Current Password";
 export const UpdateInformation = "Update Information";
+
+export const Item = "Item";
+export const OpenView = "Open(View)";
+export const Report = "Report";
+
+export const INPUTS = "INPUTS";
+export const LOGS = "LOGS";

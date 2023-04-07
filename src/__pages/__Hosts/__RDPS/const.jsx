@@ -15,6 +15,17 @@ export const dummytabledata =
     price: '$ 10',
     added_on: "2023/04/03 02:14:52 PM",
     buy: <Btn attrBtn={{size: 'xs'}}><i className='fa fa-shopping-cart'></i>Buy</Btn>
+    // country: <span><i className="flag-icon flag-icon-us"></i>United States</span>,
+    // ip:"123",
+    // windows:"123",
+    // ram: '16 GB ✅✅🔥🔥Fresh/ ✅✅🔥🔥 Speed/ ✅✅🔥🔥 Clean ✅✅🔥🔥 / ✅✅🔥🔥 Chrome Instaled✅✅🔥🔥',
+    // access:"123",
+    // user:"123",
+    // detect_hosting:"123",
+    // seller:"123",
+    // price:"123",
+    // added_on: "2023/04/03 02:14:52 PM",
+    // buy:"123"
 };
 
 export const tableColumns = [
@@ -51,14 +62,14 @@ export const tableColumns = [
         selector: row => row.access,
         sortable: false,
         center: false,
-        width: '5%'
+        width: '7%'
     },
     {
         name: 'User',
         selector: row => `${row.user}`,
         sortable: false,
         center: false,
-        width: '5%'
+        width: '8%'
     },
     {
         name: 'Detect Hosting',

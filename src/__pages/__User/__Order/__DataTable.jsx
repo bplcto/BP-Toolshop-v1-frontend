@@ -6,13 +6,14 @@ const __DataTable = () => {
     let temp = [
         {
             index: 1,
-            type: "Test Type",
-            item: "test item",
-            open_view: 'test view',
-            price: '$ 10',
+            date_created: "2023/04/03 02:14:52 PM",
+            order_id: '89652',
+            item_type: 'test type',
             seller: 'seller1',
-            report: 'Peding',
-            date: "2023/04/03 02:14:52 PM",
+            report_state: 'Peding',
+            report_chat: 'Test chat',
+            last_reply: '2023/04/03 02:14:52 PM',
+            last_updated: "2023/04/03 02:14:52 PM",
         }
     ];
 

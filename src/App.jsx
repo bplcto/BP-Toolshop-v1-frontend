@@ -32,6 +32,7 @@ import { LOGOUT } from './redux/actions/types';
 import { loadUser } from './redux/actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import Alert from './__components/Alert';
+import { useNavigate } from 'react-router-dom';
 
 const App = () => {
   useEffect(() => {
@@ -39,7 +40,7 @@ const App = () => {
     if (localStorage.token) {
       // if there is a token set axios headers for all requests
       setAuthToken(localStorage.token);
-    } 
+    }
     // try to fetch a user, if no token or invalid token we
     // will get a 401 response from our API
     store.dispatch(loadUser());
@@ -51,8 +52,6 @@ const App = () => {
       }
     });
   }, []);
-
-  // if(isAuthenticated)
 
   return (
     <Provider store={store}>

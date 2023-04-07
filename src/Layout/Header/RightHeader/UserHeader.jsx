@@ -5,7 +5,7 @@ import { LogIn, PlusCircle, Settings, ShoppingCart } from 'react-feather';
 import { LI, UL } from '../../../AbstractElements';
 import CustomizerContext from '../../../_helper/Customizer';
 import { LogOut } from '../../../Constant';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../../redux/actions/auth';
 
 const UserHeader = () => {
@@ -25,6 +25,8 @@ const UserHeader = () => {
     history(redirect);
   };
 
+  const { user, isAuthenticated } = useSelector(state => state.auth);
+
   return (
     <li className='profile-nav onhover-dropdown pe-0 py-0'>
       <div className='media profile-media'>
@@ -36,8 +38,7 @@ const UserHeader = () => {
           }}
         /> */}
         <div className='media-body'>
-          {/* <span>{authenticated ? auth0_profile.name : name}</span> */}
-          <span>My Account</span>
+          <span>{user ? user.name : ''}</span>&nbsp;
           <i className='middle fa fa-angle-down'></i>
           {/* <P attrPara={{ className: 'mb-0 font-roboto' }}>
             {Admin} <i className='middle fa fa-angle-down'></i>

@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'reactstrap';
 import __Greeting from './__Greeting';
 import __News from './__News';
 import __Donut from './__Donut';
+import SvgIcon from '../../Components/Common/Component/SvgIcon';
 
 const __Dashboard = () => {
 

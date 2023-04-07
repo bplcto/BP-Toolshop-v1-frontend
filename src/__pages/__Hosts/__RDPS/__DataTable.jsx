@@ -17,20 +17,19 @@ const __DataTable = () => {
               striped={true}
               center={false}
               pagination
-              responsive={true}
+            //   responsive={true}
               highlightOnHover
               customStyles={{
                 headCells: {
                     style: {
                         whiteSpace: 'pre',
-                        justifyContent: 'center',
-                        padding: '0px 2px',
+                        // padding: '0px 4px',
                     }
                 },
                 cells: {
                     style: {
-                        padding: '0px 2px!important',
-                        whiteSpace: 'pre!important',
+                        // padding: '0px 1px!important',
+                        whiteSpace: 'break-spaces!important',
                     }
                 }
               }}

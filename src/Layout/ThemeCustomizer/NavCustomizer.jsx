@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
-import { BuyNow, CheckFeatures, Document, QuickOption, Support } from '../../Constant';
+import { QuickOption } from '../../Constant';
 
 const NavCustomizer = ({ callbackNav, selected }) => {
   return (
@@ -22,7 +22,7 @@ const NavCustomizer = ({ callbackNav, selected }) => {
             <span>{QuickOption}</span>
           </NavLink>
         </NavItem>
-        <a className='nav-link' href='https://pixelstrap.freshdesk.com/' target='_blank' rel='noopener noreferrer'>
+        {/* <a className='nav-link' href='https://pixelstrap.freshdesk.com/' target='_blank' rel='noopener noreferrer'>
           <div>
             <i className='icon-support'></i>
           </div>
@@ -45,7 +45,7 @@ const NavCustomizer = ({ callbackNav, selected }) => {
             <i className='icon-shopping-cart-full'></i>
           </div>
           <span>{BuyNow}</span>
-        </a>
+        </a> */}
       </Nav>
     </Fragment>
   );

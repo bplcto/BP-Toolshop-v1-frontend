@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badges, Btn } from '../../../AbstractElements';
+import { Btn } from '../../../AbstractElements';
 import { 
     Addedon, 
     Buy,  
@@ -11,8 +11,9 @@ import {
     Send,
     ID,
     WebMail,
-    TestTo
+    Action
 } from '../../../Constant';
+import { ButtonGroup } from 'reactstrap';
 
 export const dummytabledata = 
 {
@@ -24,87 +25,76 @@ export const dummytabledata =
     seller: 'seller20',
     price: '$ 10',
     added_on: "2023/04/03 02:14:52 PM",
-    testto: <Btn attrBtn={{size: 'xs', color: 'info'}}><i className='fa fa-paper-plane'></i>{Send}</Btn>,
-    buy: <Btn attrBtn={{size: 'xs'}}><i className='fa fa-shopping-cart'></i>{Buy}</Btn>
+    action: <div className="btn-group-showcase">
+                <ButtonGroup className='btn-group-pill' style={{ display: 'contents' }}>
+                    <Btn attrBtn={{  size: 'sm', className: 'p-1', color: 'success', outline: false }} >{Send}</Btn>
+                    <Btn attrBtn={{  size: 'sm', className: 'p-1', color: 'info', outline: false }} >{Buy}</Btn>
+                </ButtonGroup>
+            </div>,
 };
 
 export const tableColumns = [
     {
         name: `${ID}`,
         selector: row => `${row.index}`,
-        sortable: false,
-        center: false,
+        sortable: true,
+        
         width: '5%'
     },
     {
         name: `${Country}`,
         selector: row => row['country'],
-        sortable: false,
-        center: false,
+        sortable: true,
+        
         width: '10%'
     },
     {
         name: `${Domain}`,
         selector: row => `${row.domain}`,
-        sortable: false,
-        center: false,
+        sortable: true,
+        
         width: '20%'
     },
     {
         name: `${WebMail}`,
         selector: row => `${row.webmail}`,
-        sortable: false,
-        center: false,
-        width: '5%'
+        sortable: true,
+        
+        width: '10%'
     },
     {
         name: `${DetectHosting}`,
         selector: row => row.detect_hosting,
-        sortable: false,
-        center: false,
+        sortable: true,
+        
         width: '15%'
     },
     {
         name: `${Seller}`,
         selector: row => row.seller,
-        sortable: false,
-        center: false,
-        width: '5%'
+        sortable: true,
+        
+        width: '6%'
     },
     {
         name: `${Price}`,
         selector: row => row.price,
-        sortable: false,
-        center: false,
-        width: '5%'
+        sortable: true,
+        
+        width: '6%'
     },
     {
         name: `${Addedon}`,
         selector: row => row.added_on,
-        sortable: false,
-        center: false,
+        sortable: true,
+        
         width: '15%'
     },
     {
-        name: (
-            <span>{`${TestTo}`}
-                <Badges attrBadge={{ 
-                    className: 'badge rounded-pill', 
-                    color: 'dark tag-pills-sm-mb', 
-                    pill: true 
-                }} >james.gaylor721@gmail.com</Badges>
-            </span>
-        ),
-        selector: row => row['testto'],
-        sortable: false,
-        center: true,
-        width: '15%'
-    },
-    {
-        name: `${Buy}`,
-        selector: row => row['buy'],
-        sortable: false,
-        center: true,
-        width: '5%'
+        name: `${Action}`,
+        selector: row => row['action'],
+        sortable: true,
+        
+        width: '8%'
     },
 ];

@@ -41,7 +41,7 @@ const __Filter = () => {
             </Input>
           </FormGroup>
         </Col>
-        <Col xl="2" lg='2' md='4' sm='12'>
+        <Col xl="2" lg='4' md='4' sm='12'>
           <FormGroup>
             <Label htmlFor="exampleFormControlInput1"><i className="fa fa-globe"></i><b>Detected Hosting</b></Label>
             <Input type="text" name="detected_hosting" className="form-control" />

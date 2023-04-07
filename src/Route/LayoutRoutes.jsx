@@ -1,16 +1,23 @@
 import React, { Fragment } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { routes } from './Routes';
 import AppLayout from '../Layout/Layout';
+import { useEffect } from 'react';
+import { loadUser } from '../redux/actions/auth';
 
 const LayoutRoutes = () => {
 
+  const dispatch = useDispatch();
   const { isAuthenticated } = useSelector(state => state.auth);
 
-  if (!isAuthenticated) {
-    window.location.href = "/login";
-  }
+  // dispatch(loadUser());
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      window.location.href = "/login";
+    }
+  }, [isAuthenticated]);
 
   return (
     <>
