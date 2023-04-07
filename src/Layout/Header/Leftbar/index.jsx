@@ -34,14 +34,16 @@ const Leftbar = () => {
     if (width <= 991) {
       document.querySelector('.page-header').className = 'page-header';
       document.querySelector('.sidebar-wrapper').className = 'sidebar-wrapper ';
-      document.querySelector('.bg-overlay').classList.add('active');
+      // document.querySelector('.bg-overlay').classList.add('active');
     } else {
       if (toggle) {
+        console.log('world');
         setSidebartoggle(!toggle);
         document.querySelector('.page-header').className = 'page-header close_icon';
         document.querySelector('.sidebar-wrapper').className = 'sidebar-wrapper close_icon ';
         document.querySelector('.mega-menu-container').classList.remove('d-block');
       } else {
+        console.log('!');
         setSidebartoggle(!toggle);
         document.querySelector('.page-header').className = 'page-header';
         document.querySelector('.sidebar-wrapper').className = 'sidebar-wrapper ';
@@ -53,7 +55,7 @@ const Leftbar = () => {
     <Fragment>
       <Col className='header-logo-wrapper col-auto p-0' id='out_side_click'>
         <div className='logo-wrapper'>
-          <Link to={`${process.env.PUBLIC_URL}/dashboard/default/${layoutURL}`}>
+          <Link to={`/dashboard/${layoutURL}`}>
             <Image
               attrImage={{
                 className: 'img-fluid for-light',
@@ -73,9 +75,6 @@ const Leftbar = () => {
         <div className='toggle-sidebar' onClick={() => responsive_openCloseSidebar(sidebartoggle)} style={window.innerWidth <= 991 ? { display: 'block' } : { display: 'none' }}>
           <AlignCenter className='status_toggle middle sidebar-toggle' id='sidebar-toggle' />
         </div>
-      </Col>
-      <Col xxl='5' xl='6' lg='5' md='4' sm='3' className='left-header p-0'>
-        <NotificationSlider />
       </Col>
     </Fragment>
   );

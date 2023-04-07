@@ -186,22 +186,22 @@ import FAQContent from '../Components/FAQ';
 // import FooterFixed from '../Components/PageLayout/FooterFixed';
 
 // User defined
-import __Dashboard from '../__pages/__Dashboard';
-import __RDPS from '../__pages/__Hosts/__RDPS';
-import __RSWV from '../__pages/__Hosts/__RSWV';
-import __Cpanel from '../__pages/__Hosts/__Cpanel';
-import __Shell from '../__pages/__Hosts/__Shell';
-import __SMTP from '../__pages/__Sends/__SMTP';
-import __PHPMailer from '../__pages/__Sends/__PHPMailer';
-import __Leads from '../__pages/__Leads';
-import __Accounts from '../__pages/__Accounts';
-import __Programs from '../__pages/__Others/__Programs';
-import __Methods from '../__pages/__Others/__Methods';
-import __Ticket from '../__pages/__User/__Ticket';
-import __Report from '../__pages/__User/__Report';
-import __Profile from '../__pages/__User/__Profile';
-import __Balance from '../__pages/__User/__Balance';
-import __Order from '../__pages/__User/__Order';
+import Dashboard from '../__pages/Dashboard';
+import RDPS from '../__pages/Hosts/RDPS';
+import RSWV from '../__pages/Hosts/RSWV';
+import Cpanel from '../__pages/Hosts/Cpanel';
+import Shell from '../__pages/Hosts/Shell';
+import SMTP from '../__pages/Sends/SMTP';
+import PHPMailer from '../__pages/Sends/PHPMailer';
+import Leads from '../__pages/Leads';
+import Accounts from '../__pages/Accounts';
+import Programs from '../__pages/Others/Programs';
+import Methods from '../__pages/Others/Methods';
+import Ticket from '../__pages/User/Ticket';
+import Report from '../__pages/User/Report';
+import Profile from '../__pages/User/Profile';
+import Balance from '../__pages/User/Balance';
+import Order from '../__pages/User/Order';
 
 export const routes = [
   //dashboard
@@ -387,20 +387,20 @@ export const routes = [
   { path: `${process.env.PUBLIC_URL}/app/faq/:layout`, Component: <FAQContent /> },
 
   // //User Defined
-  { path: '/dashboard/:layout', Component: <__Dashboard /> },
-  { path: '/product/rdps/:layout', Component: <__RDPS /> },
-  { path: '/product/root-sshwhmvps/:layout', Component: <__RSWV /> },
-  { path: '/product/cpanels/:layout', Component: <__Cpanel /> },
-  { path: '/product/shells/:layout', Component: <__Shell /> },
-  { path: '/product/smtpswebmail/:layout', Component: <__SMTP /> },
-  { path: '/product/phpmailers/:layout', Component: <__PHPMailer /> },
-  { path: '/product/leads/:layout', Component: <__Leads /> },
-  { path: '/product/premium_shop_dating/:layout', Component: <__Accounts /> },
-  { path: '/product/programsscripts/:layout', Component: <__Programs /> },
-  { path: '/product/bank/:layout', Component: <__Methods /> },
-  { path: '/user/tickets/:layout', Component: <__Ticket /> },
-  { path: '/user/reports/:layout', Component: <__Report /> },
-  { path: '/user-edit-profile/:layout', Component: <__Profile /> },
-  { path: '/add-balance/:layout', Component: <__Balance /> },
-  { path: '/user/order/:layout', Component: <__Order /> },
+  { path: '/dashboard/:layout', Component: <Dashboard /> },
+  { path: '/product/rdps/:layout', Component: <RDPS /> },
+  { path: '/product/root-sshwhmvps/:layout', Component: <RSWV /> },
+  { path: '/product/cpanels/:layout', Component: <Cpanel /> },
+  { path: '/product/shells/:layout', Component: <Shell /> },
+  { path: '/product/smtpswebmail/:layout', Component: <SMTP /> },
+  { path: '/product/phpmailers/:layout', Component: <PHPMailer /> },
+  { path: '/product/leads/:layout', Component: <Leads /> },
+  { path: '/product/premium_shop_dating/:layout', Component: <Accounts /> },
+  { path: '/product/programsscripts/:layout', Component: <Programs /> },
+  { path: '/product/bank/:layout', Component: <Methods /> },
+  { path: '/user/tickets/:layout', Component: <Ticket /> },
+  { path: '/user/reports/:layout', Component: <Report /> },
+  { path: '/user-edit-profile/:layout', Component: <Profile /> },
+  { path: '/add-balance/:layout', Component: <Balance /> },
+  { path: '/user/order/:layout', Component: <Order /> },
 ];
