@@ -1,5 +1,5 @@
 import api from '../../utils/api';
-import { setAlert } from './alert';
+import { toast } from 'react-toastify';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -42,12 +42,15 @@ export const register = (formData) => async (dispatch) => {
       type: REGISTER_SUCCESS,
       payload: res.data
     });
-    dispatch(loadUser());
+    // dispatch(loadUser());
+    toast.success("Registered Successfully! Please Login.", {autoClose: 3000})
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach((error) => {
+        toast.error(error.msg, {autoClose: 2000})
+      });
     }
 
     dispatch({
@@ -73,7 +76,9 @@ export const login = (email, password) => async (dispatch) => {
     const errors = err.response.data.errors;
 
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach((error) => {
+        toast.error(error.msg, {autoClose: 2000})
+      });
     }
 
     dispatch({

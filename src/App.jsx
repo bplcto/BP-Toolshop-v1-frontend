@@ -25,6 +25,8 @@ import FaqProvider from './_helper/Faq/FaqProvider';
 import AnimationThemeProvider from './_helper/AnimationTheme/AnimationThemeProvider';
 import CustomizerProvider from './_helper/Customizer/CustomizerProvider';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 // Redux
 import { Provider } from 'react-redux';
 import store from './redux/store'
@@ -51,7 +53,7 @@ const App = () => {
         store.dispatch({ type: LOGOUT });
       }
     });
-  }, []);
+  });
 
   return (
     <Provider store={store}>
@@ -78,7 +80,6 @@ const App = () => {
                                               <ChartjsProvider>
                                                 <ChartistProvider>
                                                   <AnimationThemeProvider>
-                                                    {/* <Alert /> */}
                                                     <Routers />
                                                   </AnimationThemeProvider>
                                                 </ChartistProvider>

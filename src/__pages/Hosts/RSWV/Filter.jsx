@@ -8,7 +8,7 @@ const Filter = () => {
       <Row>
         <Col xl="2" lg='2' md='2' sm='12'>
           <FormGroup>
-            <Label htmlFor="exampleFormControlInput1"><i className="fa fa-globe"></i><b>Country</b></Label>
+            <Label htmlFor="exampleFormControlInput1"><b>Country</b></Label>
             <Input type="select" name="country" className="form-control digits" defaultValue="All">
               <option>{'All'}</option>
               <option>{'United States'}</option>
@@ -20,19 +20,19 @@ const Filter = () => {
         </Col>
         <Col xl="3" lg='3' md='3' sm='12'>
           <FormGroup>
-            <Label htmlFor="exampleFormControlInput1"><i className="fa fa-globe"></i><b>System Information</b></Label>
+            <Label htmlFor="exampleFormControlInput1"><b>System Information</b></Label>
             <Input type="text" name="system_information" className="form-control" />
           </FormGroup>
         </Col>
         <Col xl="3" lg='3' md='3' sm='12'>
           <FormGroup>
-            <Label htmlFor="exampleFormControlInput1"><i className="fa fa-globe"></i><b>Detected Hosting</b></Label>
+            <Label htmlFor="exampleFormControlInput1"><b>Detected Hosting</b></Label>
             <Input type="text" name="detected_hosting" className="form-control" />
           </FormGroup>
         </Col>
         <Col xl="2" lg='2' md='2' sm='12'>
           <FormGroup>
-            <Label htmlFor="exampleFormControlInput1"><i className="fa fa-fire"></i><b>Seller</b></Label>
+            <Label htmlFor="exampleFormControlInput1"><b>Seller</b></Label>
             <Input type="select" name="seller" className="form-control digits" defaultValue="1">
               <option value={'All'}>{'All'}</option>
               <option value={'Seller1'}>{'Seller1'}</option>

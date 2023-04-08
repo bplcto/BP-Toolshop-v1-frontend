@@ -12,14 +12,14 @@ const Tabs = () => {
       <Nav className='border-tab nav-primary' tabs>
         <NavItem>
           <NavLink style={{cursor:"pointer"}} className={PrimarycolorLineTab === 'filter' ? 'active' : ''} onClick={() => setPrimarycolorLineTab('filter')}>
-            <i className='fa fa-filter'></i>
-            Filter
+            &nbsp;<i className='fa fa-filter'></i>
+            {FilterTxt}
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink style={{cursor:"pointer"}} className={PrimarycolorLineTab === 'editEmail' ? 'active' : ''} onClick={() => setPrimarycolorLineTab('editEmail')}>
             <i className='fa fa-edit'></i>
-            {EditEmail}
+            {EditEmailTxt}
           </NavLink>
         </NavItem>
       </Nav>

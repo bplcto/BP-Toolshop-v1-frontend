@@ -12,7 +12,7 @@ const EditEmail = () => {
       <InputGroup>
         <Input className="form-control" type="text" placeholder="Email" />
         <InputGroupText>
-          <Btn>{Change}<i className="fa fa-pencil"></i></Btn>
+          <Btn><i className="fa fa-pencil"></i>&nbsp;{Change}</Btn>
         </InputGroupText>
       </InputGroup>
     </FormGroup>

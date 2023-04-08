@@ -21,7 +21,7 @@ function Add() {
   ]
   return (
     <Fragment>
-      <Btn attrBtn={{className: "shadow-sm shadow-showcase", style : addBtnStyle, onClick: toggle}}>Add</Btn>
+      <Btn attrBtn={{className: "shadow-sm shadow-showcase", style : addBtnStyle, onClick: toggle}}><i className="fa fa-plus"></i></Btn>
         <Modal isOpen={modal} toggle={toggle} size='lg' centered>
           <ModalHeader toggle={toggle}>
             Add Smtps
