@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component";
 import { dummytabledata, tableColumns } from "./const";
 import { Card } from "reactstrap";
 
-const DataTable = () => {
+const Table = () => {
   let temp = [];
 
   for (let i = 0; i < 20; i++) {
@@ -26,12 +26,12 @@ const DataTable = () => {
               style: {
                 whiteSpace: "pre",
                 justifyContent: "center",
-                padding: "0px 2px",
+                // padding: "0px 2px",
               },
             },
             cells: {
               style: {
-                padding: "0px 2px!important",
+                // padding: "0px 2px!important",
                 whiteSpace: "pre!important",
               },
             },
@@ -41,4 +41,4 @@ const DataTable = () => {
     </Fragment>
   );
 };
-export default DataTable;
+export default Table;

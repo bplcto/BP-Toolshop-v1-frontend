@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { Card, CardBody, Col, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap'
-import { AccountInformation, AccountSetting, EditInformation } from '../../../Constant'
+import { AccountInformation, AccountSettingTxt, EditInformationTxt } from '../../../Constant'
 import HeaderCard from '../../../Components/Common/Component/HeaderCard'
 import Account from './Account'
 import EditAccount from './EditAccount'
@@ -10,10 +10,10 @@ const Profile = () => {
 
   return (
     <Fragment>
-      <Row>
+      <Row className='pt-5'>
         <Col lg="12" className='xl-100 box-col-12' xl="12">
           <Card>
-            <HeaderCard title={AccountSetting} />
+            <HeaderCard title={AccountSettingTxt} />
               <CardBody>
                 <div className="tabbed-card">
                   <Nav className='pull-right  nav-pills nav-primary'>
@@ -24,7 +24,7 @@ const Profile = () => {
                     </NavItem>
                     <NavItem style={{cursor: 'pointer'}}>
                         <NavLink className={activeTab === 'edit_information' ? 'active' : ''} onClick={() => setActiveTab('edit_information')}>
-                            <i className='fa fa-edit'></i>{EditInformation}
+                            <i className='fa fa-edit'></i>{EditInformationTxt}
                         </NavLink>
                     </NavItem>
                   </Nav>

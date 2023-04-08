@@ -8,7 +8,7 @@ const SMTP = () => {
 
   return (
     <Fragment>
-      <Row className='pt-3'>
+      <Row className='pt-5'>
         <Card>
           <CardHeader>
             <Tabs />

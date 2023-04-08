@@ -7,7 +7,7 @@ import AddBalance from './AddBalance'
 const Balance = () => {
   return (
     <Fragment>
-      <Row>
+      <Row className='pt-5'>
         <Col>
           <Card>
             <CardHeader><H2>Add Balance</H2></CardHeader>

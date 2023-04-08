@@ -1,6 +1,7 @@
 import React from 'react';
 import { Btn } from '../../../AbstractElements';
-import { Country, Description, Buy, Seller, Addedon, Price } from '../../../Constant';
+import { Country, Description, Buy, Seller, Addedon, Price, Action } from '../../../Constant';
+import { ButtonGroup } from 'reactstrap';
 
 export const dummytabledata = 
 {
@@ -9,7 +10,12 @@ export const dummytabledata =
     seller: 'seller20',
     price: '$ 10',
     added_on: "2023/04/03 02:14:52 PM",
-    buy: <Btn attrBtn={{size: 'xs'}}><i className='fa fa-shopping-cart'></i>{Buy}</Btn>
+    action: <div className="btn-group-showcase">
+                <ButtonGroup className='btn-group-pill' style={{ display: 'contents' }}>
+                    <Btn attrBtn={{  size: 'sm', className: 'p-2', color: 'success', outline: true }} ><i className="fa fa-edit"></i></Btn>
+                    <Btn attrBtn={{  size: 'sm', className: 'p-2', color: 'info', outline: true }} ><i className="fa fa-shopping-cart"></i></Btn>
+                </ButtonGroup>
+            </div>,
 };
 
 export const tableColumns = [
@@ -49,8 +55,8 @@ export const tableColumns = [
         width: '20%'
     },
     {
-        name: `${Buy}`,
-        selector: row => row['buy'],
+        name: `${Action}`,
+        selector: row => row['action'],
         sortable: false,
         center: true,
         width: '5%'

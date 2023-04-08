@@ -6,9 +6,9 @@ import Loader from '../Layout/Loader';
 import { authRoutes } from './AuthRoutes';
 import LayoutRoutes from '../Route/LayoutRoutes';
 
-import __Login from '../__pages/__auth/__Login';
-import __Register from '../__pages/__auth/__Register';
-import __ForgetPwd from '../__pages/__auth/__ForgetPwd';
+import Login from '../__pages/auth/Login';
+import Register from '../__pages/auth/Register';
+import ForgetPwd from '../__pages/auth/ForgetPwd';
 
 import PrivateRoute from './PrivateRoute';
 
@@ -30,9 +30,9 @@ const Routers = () => {
             <Route path={`/*`} element={<LayoutRoutes />} />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/callback`} render={() => <Callback />} />
-          <Route exact path={`/login`} element={<__Login />} />
-          <Route exact path={`/register`} element={<__Register />} />
-          <Route exact path={`/forget_password`} element={<__ForgetPwd />} />
+          <Route exact path={`/login`} element={<Login />} />
+          <Route exact path={`/register`} element={<Register />} />
+          <Route exact path={`/forget_password`} element={<ForgetPwd />} />
           {authRoutes.map(({ path, Component }, i) => (
             <Route path={path} element={Component} key={i} />
           ))}

@@ -9,8 +9,8 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
   const { layout } = useContext(CustomizerContext);
   const layout1 = localStorage.getItem('sidebar_layout') || layout;
 
-  const id = window.location.pathname.split('/').pop();
-  const layoutId = id;
+  // const id = window.location.pathname.split('/').pop();
+  // const layoutId = id;
   const CurrentPath = window.location.pathname;
 
   const { t } = useTranslation();
@@ -80,7 +80,7 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
               )}
 
               {menuItem.type === 'link' ? (
-                <Link to={menuItem.path + '/' + layoutId} className={`sidebar-link sidebar-title link-nav  ${CurrentPath.includes(menuItem.title.toLowerCase()) ? 'active' : ''}`} onClick={() => toggletNavActive(menuItem)}>
+                <Link to={menuItem.path} className={`sidebar-link sidebar-title link-nav  ${CurrentPath.includes(menuItem.title.toLowerCase()) ? 'active' : ''}`} onClick={() => toggletNavActive(menuItem)}>
                   <SvgIcon className='stroke-icon' iconId={`stroke-${menuItem.icon}`} />
                   <SvgIcon className='fill-icon' iconId={`fill-${menuItem.icon}`} />
                   {/* <i className="fa fa-user"></i> */}
@@ -106,9 +106,9 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
                               toggletNavActive(childrenItem);
                             }}>
                             {t(childrenItem.title)}
-                            <span className='sub-arrow'>
+                            {/* <span className='sub-arrow'>
                               <i className='fa fa-chevron-right'></i>
-                            </span>
+                            </span> */}
                             <div className='according-menu'>{childrenItem.active ? <i className='fa fa-angle-down'></i> : <i className='fa fa-angle-right'></i>}</div>
                           </a>
                         ) : (
@@ -117,7 +117,7 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
 
                         {childrenItem.type === 'link' ? (
                           <Link
-                            to={childrenItem.path + '/' + layoutId}
+                            to={childrenItem.path}
                             className={`sidebar-link sidebar-title link-nav ${CurrentPath.includes(childrenItem?.title?.toLowerCase()) ? 'active' : ''}`}
                             // className={`${childrenItem.active ? 'active' : ''}`} bonusui
                             onClick={() => toggletNavActive(childrenItem)}>
@@ -136,7 +136,7 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
                               <li key={key}>
                                 {childrenSubItem.type === 'link' ? (
                                   <Link
-                                    to={childrenSubItem.path + '/' + layoutId}
+                                    to={childrenSubItem.path}
                                     className={`${CurrentPath.includes(childrenSubItem?.title?.toLowerCase()) ? 'active' : ''}`}
                                     // className={`${childrenSubItem.active ? 'active' : ''}`}
                                     onClick={() => toggletNavActive(childrenSubItem)}>

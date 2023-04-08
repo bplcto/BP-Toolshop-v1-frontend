@@ -30,11 +30,11 @@ const CheckLayout = () => {
   const handlePageLayputs = (type) => {
     let key = Object.keys(type).pop();
     let val = Object.values(type).pop();
-    const url = window.location.pathname.slice(0, window.location.pathname.lastIndexOf('/'));
-    const modifyURL = url + '/' + Object.keys(type);
+    // const url = window.location.pathname.slice(0, window.location.pathname.lastIndexOf('/'));
+    // const modifyURL = url + '/' + Object.keys(type);
     addSidebarLayouts(val);
     localStorage.setItem('layout', key);
-    history(modifyURL);
+    // history(modifyURL);
   };
 
   return (

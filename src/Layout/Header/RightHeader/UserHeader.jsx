@@ -48,21 +48,21 @@ const UserHeader = () => {
       <UL attrUL={{ className: 'simple-list profile-dropdown onhover-show-div' }}>
         <LI
           attrLI={{
-            onClick: () => UserMenuRedirect(`/user-edit-profile/${layoutURL}`),
+            onClick: () => UserMenuRedirect(`/user-edit-profile`),
           }}>
           <Settings />
           <span>Settings</span>
         </LI>
         <LI
           attrLI={{
-            onClick: () => UserMenuRedirect(`/add-balance/${layoutURL}`),
+            onClick: () => UserMenuRedirect(`/add-balance`),
           }}>
           <PlusCircle />
           <span>Add Balance</span>
         </LI>
         <LI
           attrLI={{
-            onClick: () => UserMenuRedirect(`user/order/${layoutURL}`),
+            onClick: () => UserMenuRedirect(`user/order`),
           }}>
           <ShoppingCart />
           <span>My Orders</span>

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import DataTable from 'react-data-table-component';
 import { dummytabledata, tableColumns } from './const';
 
-const DataTable = () => {
+const Table = () => {
     let temp = [];
 
     for (let i = 0; i < 20; i++) {
@@ -38,4 +38,4 @@ const DataTable = () => {
         </Fragment>
     )
 }
-export default DataTable
+export default Table

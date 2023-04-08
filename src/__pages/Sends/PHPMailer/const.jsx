@@ -1,16 +1,15 @@
 import React from 'react';
-import { Badges, Btn } from '../../../AbstractElements';
+import { Btn } from '../../../AbstractElements';
 import { 
     Addedon, 
-    Buy,  
+    Action,
     Country, 
     DetectHosting, 
     Price, 
     Seller, 
-    Send,
     ID,
-    TestTo
 } from '../../../Constant';
+import { ButtonGroup } from 'reactstrap';
 
 export const dummytabledata = 
 {
@@ -20,8 +19,12 @@ export const dummytabledata =
     seller: 'seller20',
     price: '$ 10',
     added_on: "2023/04/03 02:14:52 PM",
-    testto: <Btn attrBtn={{size: 'xs', color: 'info'}}><i className='fa fa-paper-plane'></i>{Send}</Btn>,
-    buy: <Btn attrBtn={{size: 'xs'}}><i className='fa fa-shopping-cart'></i>{Buy}</Btn>
+    action: <div className="btn-group-showcase">
+                <ButtonGroup className='btn-group-pill' style={{ display: 'contents' }}>
+                    <Btn attrBtn={{  size: 'sm', className: 'p-2', color: 'success', outline: true }} ><i className="fa fa-paper-plane-o"></i></Btn>
+                    <Btn attrBtn={{  size: 'sm', className: 'p-2', color: 'info', outline: true }} ><i className="fa fa-shopping-cart"></i></Btn>
+                </ButtonGroup>
+            </div>,
 };
 
 export const tableColumns = [
@@ -58,7 +61,7 @@ export const tableColumns = [
         selector: row => row.price,
         sortable: false,
         center: false,
-        width: '5%'
+        width: '10%'
     },
     {
         name: `${Addedon}`,
@@ -68,25 +71,10 @@ export const tableColumns = [
         width: '20%'
     },
     {
-        name: (
-            <span>{`${TestTo}`}
-                <Badges attrBadge={{ 
-                    className: 'badge rounded-pill', 
-                    color: 'dark tag-pills-sm-mb', 
-                    pill: true 
-                }} >james.gaylor721@gmail.com</Badges>
-            </span>
-        ),
-        selector: row => row['testto'],
+        name: `${Action}`,
+        selector: row => row['action'],
         sortable: false,
-        center: true,
+        center: false,
         width: '15%'
-    },
-    {
-        name: `${Buy}`,
-        selector: row => row['buy'],
-        sortable: false,
-        center: true,
-        width: '5%'
-    },
+    }
 ];

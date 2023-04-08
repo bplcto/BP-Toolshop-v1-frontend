@@ -6,6 +6,23 @@ body {
   &.dark-only {
     color: $dark-all-font-color;
     background-color: $dark-body-background;
+    .border-tab{
+      .nav-tabs{
+        .nav-item {
+          .nav-link {
+            color: $dark-all-font-color;
+          }
+        }
+      }
+    }
+    .form-control {
+      background-color: $dark-body-background;
+      color: $dark-all-font-color;
+      border: 1px solid $dark-border-color;
+      &.touchspin {
+        background-color: $dark-card-background;
+      }
+    }
     .page-body {
       .bg-light {
         background-color: $dark-body-background !important;

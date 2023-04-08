@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Col, FormGroup, Input, Label, Row } from 'reactstrap'
 import { Btn } from '../../../AbstractElements'
-import { Country, DetectHosting, Filter, ID, Seller, WebMail } from '../../../Constant'
+import { Country, DetectHosting, ID, Seller, WebMail } from '../../../Constant'
 
 const Filter = () => {
   return(
@@ -54,7 +54,7 @@ const Filter = () => {
           </FormGroup>
         </Col>
         <Col xl="2" lg='2' md='2' sm='12' className='d-flex align-items-center'>
-            <Btn attrBtn={{color: 'info'}}>{Filter}<i className='fa fa-filter'></i></Btn>
+            <Btn attrBtn={{color: 'info'}}>Filter<i className='fa fa-filter'></i></Btn>
         </Col>
       </Row>
     </Fragment>

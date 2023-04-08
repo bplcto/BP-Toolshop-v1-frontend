@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import DataTable from 'react-data-table-component';
 import { tableColumns } from './const';
 
-const DataTable = () => {
+const Table = () => {
     let temp = [
         {
             index: 1,
@@ -46,4 +46,4 @@ const DataTable = () => {
         </Fragment>
     )
 }
-export default DataTable
+export default Table

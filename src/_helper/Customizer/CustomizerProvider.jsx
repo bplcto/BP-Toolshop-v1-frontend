@@ -5,14 +5,14 @@ import Context from './index';
 
 const CustomizerProvider = (props) => {
   const customizer = ConfigDB.data;
-  const [layout, setLayout] = useState('');
+  const [layout, setLayout] = useState('Singapore');
   const [sidebarIconType, setSidebarIconType] = useState('');
   const [mix_background_layout, setMixBackgroundLayout] = useState('');
   const [toggleIcon, setToggleIcon] = useState(false);
   const [mixLayout, setMixLayout] = useState(false);
   const [sidebarResponsive, setSidebarResponsive] = useState(false);
   const [IsOpen, setIsClose] = useState(false);
-  const defaultLayoutObj = classes.find((item) => Object.values(item).pop(1) === 'compact-wrapper');
+  const defaultLayoutObj = classes.find((item) => Object.values(item).pop(1) === 'horizontal-wrapper enterprice-type');
   const layoutURL = localStorage.getItem('layout') || Object.keys(defaultLayoutObj).pop();
   const layoutValue = Object.values(defaultLayoutObj).pop();
   const location = window.location.pathname.split('/').pop();

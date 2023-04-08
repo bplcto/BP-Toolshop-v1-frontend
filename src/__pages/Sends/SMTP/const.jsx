@@ -27,8 +27,8 @@ export const dummytabledata =
     added_on: "2023/04/03 02:14:52 PM",
     action: <div className="btn-group-showcase">
                 <ButtonGroup className='btn-group-pill' style={{ display: 'contents' }}>
-                    <Btn attrBtn={{  size: 'sm', className: 'p-1', color: 'success', outline: false }} >{Send}</Btn>
-                    <Btn attrBtn={{  size: 'sm', className: 'p-1', color: 'info', outline: false }} >{Buy}</Btn>
+                    <Btn attrBtn={{  size: 'sm', className: 'p-2', color: 'success', outline: true }} ><i className="fa fa-paper-plane-o"></i></Btn>
+                    <Btn attrBtn={{  size: 'sm', className: 'p-2', color: 'info', outline: true }} ><i className="fa fa-shopping-cart"></i></Btn>
                 </ButtonGroup>
             </div>,
 };

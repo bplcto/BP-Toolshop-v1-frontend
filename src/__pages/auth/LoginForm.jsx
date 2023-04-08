@@ -31,7 +31,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      history('/dashboard/Singapore');
+      history('/dashboard');
     }
   }, [isAuthenticated]);
 

@@ -1592,7 +1592,7 @@ export const TLD = 'TLD';
 export const SSL = 'SSL';
 export const ServerInformation = 'Server Information';
 
-export const EditEmail = 'Edit Email';
+export const EditEmailTxt = 'Edit Email';
 export const ID = 'ID';
 export const WebMail = 'WebMail';
 export const TestTo = 'Test To:';
@@ -1603,9 +1603,10 @@ export const EmailN =  'EmailN';
 export const SiteName = "Site Name";
 export const AvailableInformation = "Available Information";
 
-export const Ticket = "Ticket";
-export const MyTicket = "My Ticket";
-export const NewTicket = "New Ticket";
+export const FilterTxt = "Filter";
+export const TicketTxt = "Ticket";
+export const MyTicketTxt = "My Ticket";
+export const NewTicketTxt = "New Ticket";
 export const DateCreated = "Date Created";
 export const Conversion = "Conversion";
 export const LastReply = "Last Reply";
@@ -1617,8 +1618,8 @@ export const ItemType = "Item Type";
 export const ReportState = "Report State";
 export const ReportChat = "Report Chat";
 
-export const AccountSetting = "Account Setting";
-export const EditInformation = "Edit Information";
+export const AccountSettingTxt = "Account Setting";
+export const EditInformationTxt = "Edit Information";
 
 export const CurrentPassword = "Current Password";
 export const UpdateInformation = "Update Information";
