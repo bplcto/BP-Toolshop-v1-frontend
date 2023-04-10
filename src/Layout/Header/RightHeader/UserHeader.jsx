@@ -1,20 +1,24 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LogIn, PlusCircle, Settings, ShoppingCart } from 'react-feather';
+import { Image, LogIn, PlusCircle, Settings, ShoppingCart } from 'react-feather';
 
 import { LI, UL } from '../../../AbstractElements';
-import CustomizerContext from '../../../_helper/Customizer';
 import { LogOut } from '../../../Constant';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../../redux/actions/auth';
+import man from '../../../assets/images/dashboard/profile.png';
 
 const UserHeader = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
-
-  const { layoutURL } = useContext(CustomizerContext);
+  const [name, setName] = useState('Emay Walter');
+  const [profile, setProfile] = useState('');
+  const authenticated = JSON.parse(localStorage.getItem('authenticated'));
+  const auth0_profile = JSON.parse(localStorage.getItem('auth0_profile'));
 
   useEffect(() => {
+    setProfile(localStorage.getItem('profileURL') || man);
+    setName(localStorage.getItem('Name') ? localStorage.getItem('Name') : name);
   }, []);
 
   const Logout = () => {
@@ -30,15 +34,15 @@ const UserHeader = () => {
   return (
     <li className='profile-nav onhover-dropdown pe-0 py-0'>
       <div className='media profile-media'>
+        <span>{user ? user.name : isAuthenticated}</span>&nbsp;
         {/* <Image
           attrImage={{
             className: 'b-r-10 m-0',
-            src: `${authenticated ? auth0_profile.picture : profile}`,
+            src: `${isAuthenticated ? man : profile}`,
             alt: '',
           }}
         /> */}
         <div className='media-body'>
-          <span>{user ? user.name : ''}</span>&nbsp;
           <i className='middle fa fa-angle-down'></i>
           {/* <P attrPara={{ className: 'mb-0 font-roboto' }}>
             {Admin} <i className='middle fa fa-angle-down'></i>

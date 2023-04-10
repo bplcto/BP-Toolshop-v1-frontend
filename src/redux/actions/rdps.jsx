@@ -1,4 +1,5 @@
 import axios from "axios";
+import { releaseLoading, setLoading } from "./app";
 import { toast } from "react-toastify";
 import { ADD_RDPSDATA, EDIT_RDPSDATA, FETCH_RDPSDATA, FETCH_RDPSSELECTOPTIONS, LOADING } from "./types";
 
@@ -18,14 +19,14 @@ export const fetch_select_options = () => async (dispatch) => {
 }
 
 export const fetch_rdps = (filter) => async (dispatch) => {
-  console.log(filter);
   try {
     dispatch(setLoading());
     const res = await axios.post("/api/rdps/", filter);
-    dispatch({
+    await dispatch({
       type: FETCH_RDPSDATA,
       payload: res.data,
     });
+    dispatch(releaseLoading());
   } catch (err) {
     console.error(err);
     // toast.error(err.response.data.msg, { autoClose });
@@ -59,10 +60,4 @@ export const edit_rdp = (id) => async (dispatch) => {
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });
   }
-};
-
-const setLoading = () => (dispatch) => {
-  dispatch({
-    type: LOADING,
-  });
 };

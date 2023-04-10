@@ -24,7 +24,6 @@ const RightHeader = () => {
           <Notificationbar /> */}
           <Btn attrBtn={{ color: 'primary' }}>$ 0</Btn>
           <UserHeader />
-          <UserHeader />
         </UL>
         {/* </Col> */}
       </Col>

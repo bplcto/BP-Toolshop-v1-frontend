@@ -9,8 +9,8 @@ const PrivateRoute = () => {
   // const [login, setLogin] = useState(JSON.parse(localStorage.getItem('login')));
   // const [authenticated, setAuthenticated] = useState(false);
   const jwt_token = localStorage.getItem('token');
-  // if(jwt_token)
-  //   return <Outlet />
+  if(jwt_token)
+    return <Outlet />
   // if(isAuthenticated)
   //   return <Navigate exact to={`/login`} />
 
@@ -22,7 +22,7 @@ const PrivateRoute = () => {
   //   localStorage.setItem('authenticated', authenticated);
   //   localStorage.setItem('login', login);
   // }, []);
-  return isAuthenticated ? <Outlet /> : <Navigate exact to={`/login`} />;
+  // return isAuthenticated ? <Outlet /> : <Navigate exact to={`/login`} />;
   // return isAuthenticated ? <Outlet /> : <Navigate exact to={`/login`} />;
   // return <Outlet />;
 };

@@ -29,13 +29,13 @@ const Routers = () => {
             )} */}
             <Route path={`/*`} element={<LayoutRoutes />} />
           </Route>
-          <Route path={`${process.env.PUBLIC_URL}/callback`} render={() => <Callback />} />
+          {/* <Route path={`${process.env.PUBLIC_URL}/callback`} render={() => <Callback />} /> */}
           <Route exact path={`/login`} element={<Login />} />
           <Route exact path={`/register`} element={<Register />} />
           <Route exact path={`/forget_password`} element={<ForgetPwd />} />
-          {authRoutes.map(({ path, Component }, i) => (
+          {/* {authRoutes.map(({ path, Component }, i) => (
             <Route path={path} element={Component} key={i} />
-          ))}
+          ))} */}
         </Routes>
       </Suspense>
     </BrowserRouter>
