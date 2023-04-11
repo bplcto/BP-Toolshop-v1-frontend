@@ -17,6 +17,7 @@ import {
 import { register } from '../../redux/actions/auth';
 
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const RegisterForm = () => {
 
@@ -45,11 +46,12 @@ const RegisterForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("hello");
-    if (data !== '') {
+
+    const isMatched = password === confirmPassword;
+    if (isMatched) {
       dispatch(register({name, email, password}));
     } else {
-      errors.showMessages();
+      toast.error("Password does not match!");
     }
   };
 
