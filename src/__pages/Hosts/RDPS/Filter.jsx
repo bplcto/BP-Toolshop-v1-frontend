@@ -142,11 +142,9 @@ const Filter = () => {
           </FormGroup>
         </Col>
         <Col xl="1" lg="1" md="4" sm="12" className="d-flex align-items-center">
-          {/* <FormGroup> */}
-            <Btn attrBtn={{ color: "info", onClick: onFilter }}>
+            <Btn attrBtn={{ color: "info", onClick: onFilter, style: {marginTop: '8px'} }}>
               {FilterTxt}
             </Btn>
-          {/* </FormGroup> */}
         </Col>
       </Row>
     </Fragment>

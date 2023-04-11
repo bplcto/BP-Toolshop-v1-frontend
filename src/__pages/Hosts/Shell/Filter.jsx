@@ -62,7 +62,7 @@ const Filter = () => {
           </FormGroup>
         </Col>
         <Col xl="1" lg='1' md='1' sm='12' className='d-flex align-items-center'>
-            <Btn attrBtn={{color: 'info', className: 'p-1'}}>Filter<i className='fa fa-filter'></i></Btn>
+            <Btn attrBtn={{color: 'info', className: 'p-1', style: {marginTop: '8px'} }}>Filter<i className='fa fa-filter'></i></Btn>
         </Col>
       </Row>
     </Fragment>
