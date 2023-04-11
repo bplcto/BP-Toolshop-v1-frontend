@@ -9,8 +9,7 @@ const PrivateRoute = () => {
   // const [login, setLogin] = useState(JSON.parse(localStorage.getItem('login')));
   // const [authenticated, setAuthenticated] = useState(false);
   const jwt_token = localStorage.getItem('token');
-  if(jwt_token)
-    return <Outlet />
+  return jwt_token ? <Outlet /> : <Navigate exact to={'/login'} />;
   // if(isAuthenticated)
   //   return <Navigate exact to={`/login`} />
 
