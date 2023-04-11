@@ -4,7 +4,8 @@ import DataTable from "react-data-table-component";
 import { ButtonGroup } from "reactstrap";
 import { fetch_rdps } from "../../../redux/actions/rdps";
 import { Btn } from "../../../AbstractElements";
-import { Buy, Send } from "../../../Constant";
+
+const moment = require('moment');
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const Table = () => {
       detect_hosting: item.detect_hosting,
       seller: item.seller,
       price: `$ ${item.price}`,
-      added_on: item.date,
+      added_on: moment(item.date).format("yyyy.MM.DD hh:mm:ss A"),
       action: (
         <div className="btn-group-showcase">
           <ButtonGroup
@@ -38,22 +39,22 @@ const Table = () => {
             <Btn
               attrBtn={{
                 size: "sm",
-                className: "p-1",
+                className: "p-2",
                 color: "success",
                 outline: false,
               }}
             >
-              {Send}
+              <i className="fa fa-paper-plane-o"></i>
             </Btn>
             <Btn
               attrBtn={{
                 size: "sm",
-                className: "p-1",
+                className: "p-2",
                 color: "info",
                 outline: false,
               }}
             >
-              {Buy}
+              <i className="fa fa-shopping-cart"></i>
             </Btn>
           </ButtonGroup>
         </div>
@@ -67,77 +68,77 @@ const Table = () => {
         selector: row => row['country'],
         sortable: false,
         center: false,
-        // width: '10%'
+        width: '7%'
     },
     {
         name: 'IP',
         selector: row => `${row.ip}`,
         sortable: false,
         center: false,
-        // width: '10%'
+        width: '10%'
     },
     {
         name: 'Windows',
         selector: row => `${row.windows}`,
         sortable: false,
         center: false,
-        // width: '7%'
+        width: '10%'
     },
     {
         name: 'RAM',
         selector: row => `${row.ram}`,
         sortable: false,
         center: false,
-        // width: '20%'
+        width: '10%'
     },
     {
         name: 'Access',
         selector: row => row.access,
         sortable: false,
         center: false,
-        // width: '7%'
+        width: '7%'
     },
     {
         name: 'User',
         selector: row => `${row.user}`,
         sortable: false,
         center: false,
-        // width: '8%'
+        width: '10%'
     },
     {
         name: 'Detect Hosting',
         selector: row => row.detect_hosting,
         sortable: false,
         center: false,
-        // width: '8%'
+        width: '10%'
     },
     {
         name: 'Seller',
         selector: row => row.seller,
         sortable: false,
         center: false,
-        // width: '5%'
+        width: '10%'
     },
     {
         name: 'Price',
         selector: row => row.price,
         sortable: false,
         center: false,
-        // width: '5%'
+        width: '6%'
     },
     {
         name: 'Added on',
         selector: row => row.added_on,
         sortable: false,
         center: false,
-        // width: '13%'
+        width: '12%'
     },
     {
         name: 'Action',
         selector: row => row['action'],
         sortable: false,
         center: true,
-        // width: '7%'
+        width: '8%'
     },
 ];
 
@@ -148,23 +149,8 @@ const Table = () => {
         columns={tableColumns}
         striped={true}
         center={false}
+        responsive={true}
         pagination
-        //   responsive={true}
-        highlightOnHover
-        customStyles={{
-          headCells: {
-            style: {
-              whiteSpace: "pre",
-              // padding: '0px 4px',
-            },
-          },
-          cells: {
-            style: {
-              // padding: '0px 1px!important',
-              whiteSpace: "break-spaces!important",
-            },
-          },
-        }}
       />
     </Fragment>
   );

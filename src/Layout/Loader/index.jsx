@@ -1,21 +1,21 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
 const Loader = (props) => {
-  const [show, setShow] = useState(true);
+  // const [show, setShow] = useState(true);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShow(false);
-    }, 3000);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setShow(false);
+  //   }, 3000);
 
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [show]);
+  //   return () => {
+  //     clearTimeout(timeout);
+  //   };
+  // }, [show]);
 
   return (
     <Fragment>
-      <div className={`loader-wrapper ${show ? '' : 'loderhide'}`}>
+      <div className={`loader-wrapper`}>
         <div className='loader-index'>
           <span></span>
         </div>
