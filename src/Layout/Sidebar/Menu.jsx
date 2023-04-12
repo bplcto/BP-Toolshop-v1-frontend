@@ -68,18 +68,29 @@ export const MENUITEMS = [
           { path: `user/reports`, title: 'Reports', type: 'link', icon: 'fa fa-bug', badge: 'badge badge-light-danger', badgetxt: '5' },
         ],
       },
-      // {
-      //   title: 'My Account',
-      //   icon: 'user',
-      //   type: 'sub',
-      //   active: false,
-      //   children: [
-      //     { path: `user-edit-profile`, title: 'Settings', type: 'link', icon: 'user', badge: 'badge badge-light-primary', badgetxt: '5' },
-      //     { path: `add-balance`, title: 'Add Balance', type: 'link', icon: 'fa fa-plus', badge: 'badge badge-light-danger', badgetxt: '5' },
-      //     { path: `user/order`, title: 'My Orders', type: 'link', icon: 'fa fa-shopping-cart', badge: 'badge badge-light-danger', badgetxt: '5' },
-      //   ],
-      // },
     ],
+  },
+  {
+    menutitle: "AdminSide",
+    menucontent: "admin",
+    Items: [
+      {
+        title: "admin",
+        icon: 'user',
+        type: 'sub',
+        active: false,
+        children: [
+          { path: '/admin/user-manager', title: "User Manager", icon: 'fa fa-user-o', type: 'link'},
+          { path: '/admin/manage', title: "Manage", icon: 'fa fa-cog', type: 'link'},
+          { path: '/admin/smtps', title: "Smtps", icon: 'fa fa-envelope-o', type: 'link'},
+          { path: '/admin/phpMailers', title: "PhpMailers", icon: 'fa fa-paper-plane-o', type: 'link'},
+          { path: '/admin/shells', title: "Shells", icon: 'fa fa-code', type: 'link'},
+          { path: '/admin/leads', title: "Leads", icon: 'fa fa-desktop', type: 'link'},
+          { path: '/admin/cpanels', title: "CPanels", icon: 'icofont icofont-drwaing-tablet', type: 'link'},
+          { path: '/admin/rdps', title: "Rdps", icon: 'fa fa-laptop', type: 'link'},
+        ]
+      }
+    ]
   },
   {
     menutitle: 'General',

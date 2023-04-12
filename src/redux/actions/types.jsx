@@ -23,3 +23,8 @@ export const EDIT_RDPSDATA = "EDIT_RDPSDATA"
 //App types
 export const APP_LOADING = "APP_LOADING"
 export const APP_LOADING_END = "APP_LOADING_END"
+
+// User types
+export const FETCH_USERS = 'FETCH_USERS';
+export const USER_CHANGE_STATUS = 'USER_CHANGE_STATUS';
+export const RESET_PASSWORD = 'RESET_PASSWORD';

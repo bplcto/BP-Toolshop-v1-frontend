@@ -55,7 +55,7 @@ const Leftbar = () => {
     <Fragment>
       <Col className='header-logo-wrapper col-auto p-0' id='out_side_click'>
         <div className='logo-wrapper'>
-          <Link to={`/dashboard/${layoutURL}`}>
+          <Link to={`/dashboard`}>
             <Image
               attrImage={{
                 className: 'img-fluid for-light',

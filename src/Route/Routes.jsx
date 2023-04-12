@@ -202,6 +202,7 @@ import Report from '../__pages/User/Report';
 import Profile from '../__pages/User/Profile';
 import Balance from '../__pages/User/Balance';
 import Order from '../__pages/User/Order';
+import UserManagement from '../__pages/Admin/UserManagement'
 
 export const routes = [
   //dashboard
@@ -403,4 +404,5 @@ export const routes = [
   { path: '/user-edit-profile', Component: <Profile /> },
   { path: '/add-balance', Component: <Balance /> },
   { path: '/user/order', Component: <Order /> },
+  { path: '/admin/user-manager', Component: <UserManagement /> },
 ];

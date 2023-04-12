@@ -32,6 +32,7 @@
     "leaflet": "^1.7.1",
     "node-sass": "^7.0.3",
     "pigeon-maps": "^0.21.0",
+    "query-string": "^8.1.0",
     "react-ace": "^9.5.0",
     "react-apexcharts": "^1.4.0",
     "react-big-calendar": "^0.40.0",
@@ -94,6 +95,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.8",
+    "url-search-params-polyfill": "^8.1.1",
     "web-vitals": "^2.1.4",
     "world-map-geojson": "^1.0.2"
   },

@@ -2,6 +2,7 @@ import { ADD_RDPSDATA, EDIT_RDPSDATA, FETCH_RDPSDATA, LOADING, FETCH_RDPSSELECTO
 
 const initialState = {
   rdpsOptionValue: {},
+  cnt: 0,
   rdps: [],
   rdp: {},
   loading: false
@@ -20,7 +21,8 @@ const rdpsReducer = (state = initialState, action) => {
     case FETCH_RDPSDATA:
       return {
         ...state,
-        rdps: payload,
+        cnt: payload.cnt,
+        rdps: payload.data,
         loading: false
       };
     case ADD_RDPSDATA:

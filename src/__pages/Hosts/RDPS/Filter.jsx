@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import "url-search-params-polyfill";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, FormGroup, Input, Label, Row } from "reactstrap";
 import { Btn } from "../../../AbstractElements";
@@ -7,6 +9,9 @@ import { fetch_rdps, fetch_select_options } from "../../../redux/actions/rdps";
 
 const Filter = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const params = useParams();
+  var search = new URLSearchParams();
 
   useEffect(() => {
     dispatch(fetch_select_options());
@@ -24,8 +29,12 @@ const Filter = () => {
     detect_hosting: "",
   });
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setFilter({ ...filter, [e.target.name]: e.target.value });
+    // const newUrl = new URL(window.location.href);
+    // newUrl.searchParams.set(`${e.target.name}`, e.target.value);
+    // window.history.pushState({ path: newUrl.href }, '', newUrl.href);
+  }
 
   const onFilter = () => {
     dispatch(fetch_rdps(filter));
