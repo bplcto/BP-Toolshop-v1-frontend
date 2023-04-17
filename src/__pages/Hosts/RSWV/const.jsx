@@ -1,27 +1,3 @@
-import React from 'react';
-import { Btn } from '../../../AbstractElements';
-import { ButtonGroup } from 'reactstrap';
-import { Buy, Send } from '../../../Constant';
-
-export const dummytabledata = 
-{
-    // id: 1,
-    country: <span><i className="flag-icon flag-icon-us"></i>United States</span>,
-    login: 'adminadmin',
-    information: 'Fresh fast ssh',
-    ram: '64gb',
-    detect_hosting: 'Microsoft Azure Cloud',
-    seller: 'seller20',
-    price: '$ 10',
-    added_on: "2023/04/03 02:14:52 PM",
-    action: <div className="btn-group-showcase">
-                <ButtonGroup className='btn-group-pill' style={{ display: 'contents' }}>
-                    <Btn attrBtn={{  size: 'sm', className: 'p-1', color: 'success', outline: false }} >{Send}</Btn>
-                    <Btn attrBtn={{  size: 'sm', className: 'p-1', color: 'info', outline: false }} >{Buy}</Btn>
-                </ButtonGroup>
-            </div>,
-};
-
 export const tableColumns = [
     {
         name: 'Country',
@@ -56,7 +32,7 @@ export const tableColumns = [
         selector: row => row.detect_hosting,
         sortable: false,
         center: false,
-        width: '15%'
+        width: '13%'
     },
     {
         name: 'Seller',
@@ -70,7 +46,7 @@ export const tableColumns = [
         selector: row => row.price,
         sortable: false,
         center: false,
-        width: '5%'
+        width: '7%'
     },
     {
         name: 'Added on',

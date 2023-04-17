@@ -1,44 +1,108 @@
-import React, { Fragment } from 'react'
-import DataTable from 'react-data-table-component';
-import { dummytabledata, tableColumns } from './const';
-import { Card } from 'reactstrap';
+import React, { Fragment, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import DataTable from "react-data-table-component";
+import { Card, Button, ButtonGroup } from "reactstrap";
+import CustomePagination from "../../../__components/CustomePagination";
+import { fetch_vps, get_vps } from "../../../redux/actions/vps";
+import { Btn } from "../../../AbstractElements";
+import { tableColumns } from './const';
+import EditModal from "./EditModal";
+
+const moment = require("moment");
 
 const Table = () => {
-    let temp = [];
+  const dispatch = useDispatch();
 
-    for (let i = 0; i < 20; i++) {
-        temp.push(dummytabledata);
-    }
+  const [modal, setModal] = useState(false);
+  const searchParams = new URL(window.location.href).searchParams;
+  const filter = {};
+  for (const key of searchParams.keys()) {
+    filter[key] = searchParams.get(key);
+  }
+  const toggle = () => {
+    setModal(!modal);
+  };
 
-    return (
-        <Fragment>
-            <Card className='shadow-lg shadow-showcase'>
-                <DataTable
-                data={temp}
-                columns={tableColumns}
-                striped={true}
-                center={false}
-                pagination
-                responsive={true}
-                highlightOnHover
-                customStyles={{
-                    headCells: {
-                        style: {
-                            whiteSpace: 'pre',
-                            justifyContent: 'center',
-                            // padding: '0px 2px',
-                        }
-                    },
-                    cells: {
-                        style: {
-                            // padding: '0px 2px!important',
-                            whiteSpace: 'pre!important',
-                        }
-                    }
+  useEffect(() => {
+    dispatch(fetch_vps(filter));
+  }, []);
+
+  const { vps, cnt } = useSelector((state) => state.vps);
+  const { user } = useSelector((state) => state.auth);
+
+  let data = [];
+
+  vps.map((item) => {
+    data.push({
+      country: item.country,
+      login: item.login,
+      information: item.information,
+      ram: item.ram,
+      detect_hosting: item.detect_hosting,
+      seller: item.seller,
+      price: item.price,
+      added_on: item.date,
+      action: (
+        <div className="btn-group-showcase">
+          <ButtonGroup
+            className="btn-group-pill"
+            style={{ display: "contents" }}
+          >
+            <Btn
+              attrBtn={{
+                size: "sm",
+                className: "p-2",
+                color: "success",
+                outline: false,
+              }}
+            >
+              <i className="fa fa-paper-plane-o"></i>
+            </Btn>
+            {user && user.role === "admin" ? (
+              <Button
+                size="sm"
+                className="p-2"
+                color="info"
+                outline={false}
+                onClick={() => {
+                  dispatch(get_vps(item));
+                  toggle(item);
                 }}
-                />
-            </Card>
-        </Fragment>
-    )
-}
-export default Table
+              >
+                <i className="fa fa-edit"></i>
+              </Button>
+            ) : (
+              <Btn
+                attrBtn={{
+                  size: "sm",
+                  className: "p-2",
+                  color: "info",
+                  outline: false,
+                  onClick: toggle(item),
+                }}
+              >
+                <i className="fa fa-shopping-cart"></i>
+              </Btn>
+            )}
+          </ButtonGroup>
+        </div>
+      ),
+    });
+  });
+
+  return (
+    <Fragment>
+      <DataTable
+        data={data}
+        columns={tableColumns}
+        striped={true}
+        center={false}
+        responsive={true}
+      />
+      <hr className="mt-4 mb-4" />
+      <CustomePagination cnt={cnt} func={fetch_vps} />
+      <EditModal isOpen={modal} title={"Edit"} toggler={toggle} />
+    </Fragment>
+  );
+};
+export default Table;
