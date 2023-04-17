@@ -85,7 +85,7 @@ const Filter = () => {
           </FormGroup>
         </Col>
         <Col xl="2" lg="2" md="2" sm="12">
-        <FormGroup>
+          <FormGroup>
             <Label htmlFor="exampleFormControlInput1">
               <b>SSL</b>
             </Label>
@@ -108,7 +108,7 @@ const Filter = () => {
           </FormGroup>
         </Col>
         <Col xl="2" lg="2" md="2" sm="12">
-        <FormGroup>
+          <FormGroup>
             <Label htmlFor="exampleFormControlInput1">
               <b>Detected Hosting</b>
             </Label>
@@ -122,7 +122,7 @@ const Filter = () => {
           </FormGroup>
         </Col>
         <Col xl="2" lg="2" md="2" sm="12">
-        <FormGroup>
+          <FormGroup>
             <Label htmlFor="exampleFormControlInput1">
               <b>Seller</b>
             </Label>
@@ -145,7 +145,7 @@ const Filter = () => {
           </FormGroup>
         </Col>
         <Col xl="2" lg="2" md="2" sm="12" className="d-flex align-items-center">
-        <Btn
+          <Btn
             attrBtn={{
               color: "info",
               onClick: onFilter,
