@@ -138,7 +138,7 @@ const Filter = () => {
               value={filter.seller}
               onChange={onChange}
               className="form-control digits"
-              defaultValue="1"
+              defaultValue="All"
             >
               <option value={"All"}>{"All"}</option>
               {seller &&

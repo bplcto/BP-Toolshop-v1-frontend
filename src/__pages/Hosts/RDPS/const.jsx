@@ -1,4 +1,4 @@
-const tableColumns = [
+export const tableColumns = [
   {
     name: "Country",
     selector: (row) => row["country"],

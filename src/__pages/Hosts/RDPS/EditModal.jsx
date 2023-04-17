@@ -152,9 +152,6 @@ const EditModal = (props) => {
         >
           {SaveChanges}
         </Button>
-        {/* <Btn attrBtn={{ color: "primary", onClick: props.toggler }}>
-          {SaveChanges}
-        </Btn> */}
       </ModalFooter>
     </Modal>
   );
