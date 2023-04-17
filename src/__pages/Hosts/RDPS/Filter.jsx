@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "url-search-params-polyfill";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, FormGroup, Input, Label, Row } from "reactstrap";
@@ -9,34 +8,35 @@ import { fetch_rdps, fetch_select_options } from "../../../redux/actions/rdps";
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const params = useParams();
-  var search = new URLSearchParams();
+
+  const searchParams = new URL(window.location.href).searchParams;
 
   useEffect(() => {
     dispatch(fetch_select_options());
   }, []);
 
-  const { country, access, windows, detect_hosting, seller } = useSelector(
+  const { country, access, windows, seller } = useSelector(
     (state) => state.rdps.rdpsOptionValue
   );
 
   const [filter, setFilter] = useState({
-    country: "All",
-    windows: "All",
-    access: "All",
-    seller: "All",
-    detect_hosting: "",
+    country: searchParams.get("country") || "All",
+    windows: searchParams.get("windows") || "All",
+    access: searchParams.get("access") || "All",
+    seller: searchParams.get("seller") || "All",
+    detect_hosting: searchParams.get("detect_hosting") || "",
   });
 
   const onChange = (e) => {
     setFilter({ ...filter, [e.target.name]: e.target.value });
-    // const newUrl = new URL(window.location.href);
-    // newUrl.searchParams.set(`${e.target.name}`, e.target.value);
-    // window.history.pushState({ path: newUrl.href }, '', newUrl.href);
-  }
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set(`${e.target.name}`, e.target.value);
+    window.history.pushState({ path: newUrl.href }, "", newUrl.href);
+  };
 
   const onFilter = () => {
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set("page", 1);
     dispatch(fetch_rdps(filter));
   };
 
@@ -151,9 +151,15 @@ const Filter = () => {
           </FormGroup>
         </Col>
         <Col xl="1" lg="1" md="4" sm="12" className="d-flex align-items-center">
-            <Btn attrBtn={{ color: "info", onClick: onFilter, style: {marginTop: '8px'} }}>
-              {FilterTxt}
-            </Btn>
+          <Btn
+            attrBtn={{
+              color: "info",
+              onClick: onFilter,
+              style: { marginTop: "8px" },
+            }}
+          >
+            {FilterTxt}
+          </Btn>
         </Col>
       </Row>
     </Fragment>

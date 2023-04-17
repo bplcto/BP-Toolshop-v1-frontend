@@ -12,10 +12,9 @@ export const ACCOUNT_DELETED = "ACCOUNT_DELETED";
 export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT = "REMOVE_ALERT";
 
-export const LOADING = "LOADING";
-
 //RDPS types
 export const FETCH_RDPSDATA = "FETCH_RDPSDATA"
+export const GET_RDP = "GET_RDP"
 export const FETCH_RDPSSELECTOPTIONS = "FETCH_RDPSSELECTOPTIONS"
 export const ADD_RDPSDATA = "ADD_RDPSDATA"
 export const EDIT_RDPSDATA = "EDIT_RDPSDATA"

@@ -1,12 +1,19 @@
-import { ADD_RDPSDATA, EDIT_RDPSDATA, FETCH_RDPSDATA, LOADING, FETCH_RDPSSELECTOPTIONS } from '../actions/types';
+import {
+  ADD_RDPSDATA,
+  EDIT_RDPSDATA,
+  FETCH_RDPSDATA,
+  FETCH_RDPSSELECTOPTIONS,
+  GET_RDP,
+} from "../actions/types";
 
 const initialState = {
   rdpsOptionValue: {},
   cnt: 0,
+  rdpsTotalCnt: 0,
   rdps: [],
   rdp: {},
-  loading: false
-}
+  loading: false,
+};
 
 const rdpsReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -16,20 +23,26 @@ const rdpsReducer = (state = initialState, action) => {
       return {
         ...state,
         rdpsOptionValue: payload,
-        loading: false
+        loading: false,
+      };
+    case GET_RDP:
+      return {
+        ...state,
+        rdp: payload,
       };
     case FETCH_RDPSDATA:
       return {
         ...state,
         cnt: payload.cnt,
+        rdpsTotalCnt: payload.totalCnt,
         rdps: payload.data,
-        loading: false
+        loading: false,
       };
     case ADD_RDPSDATA:
       return {
         ...state,
         rdps: [payload, ...state.rdps],
-        loading: false
+        loading: false,
       };
     case EDIT_RDPSDATA:
       return {
@@ -37,13 +50,8 @@ const rdpsReducer = (state = initialState, action) => {
         rdps: state.rdps.map((rdp) =>
           rdp._id === payload.id ? payload.rdp : rdp
         ),
-        loading: false
+        loading: false,
       };
-    case LOADING:
-      return {
-        ...state,
-        loading: true
-      }
     default:
       return state;
   }

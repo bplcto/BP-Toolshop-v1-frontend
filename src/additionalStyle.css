@@ -1,3 +1,39 @@
 .iWmyHs div:first-child {
     white-space: break-spaces!important;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li:not(.break) {
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 50%;
+    border: solid 1px;
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.pagination li:hover {
+    background-color: #7366ff;
+    color: white;
+}
+
+.pagination .break {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.pagination li.active {
+    background-color: #7366ff;
+    color: white;
+}
