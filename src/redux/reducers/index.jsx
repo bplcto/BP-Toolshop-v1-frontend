@@ -6,6 +6,8 @@ import user from './user';
 import rdps from './rdps';
 import vps from './vps';
 import cpanel from './cpanel';
+import shell from './shell';
+import smtp from './smtp';
 
 const rootReducer = combineReducers({
   app,
@@ -14,7 +16,9 @@ const rootReducer = combineReducers({
   user,
   rdps,
   vps,
-  cpanel
+  cpanel,
+  shell,
+  smtp
 });
 
 export default rootReducer;
