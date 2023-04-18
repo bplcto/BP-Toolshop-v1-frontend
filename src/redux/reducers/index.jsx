@@ -8,6 +8,8 @@ import vps from './vps';
 import cpanel from './cpanel';
 import shell from './shell';
 import smtp from './smtp';
+import phpmailer from './phpmailer';
+import lead from './lead';
 
 const rootReducer = combineReducers({
   app,
@@ -18,7 +20,9 @@ const rootReducer = combineReducers({
   vps,
   cpanel,
   shell,
-  smtp
+  smtp,
+  phpmailer,
+  lead,
 });
 
 export default rootReducer;
