@@ -1,48 +1,122 @@
-import React, { Fragment } from 'react'
-import { Col, FormGroup, Input, Label, Row } from 'reactstrap'
-import { Btn } from '../../../AbstractElements'
-import { Country, Description, Seller } from '../../../Constant'
+import React, { Fragment, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Col, FormGroup, Input, Label, Row } from "reactstrap";
+import { Btn } from "../../../AbstractElements";
+import { Country, Description, FilterTxt, Seller } from "../../../Constant";
+import {
+  fetch_methods,
+  fetch_select_options,
+} from "../../../redux/actions/method";
 
 const Filter = () => {
-  return(
+  const dispatch = useDispatch();
+
+  const searchParams = new URL(window.location.href).searchParams;
+
+  useEffect(() => {
+    dispatch(fetch_select_options());
+  }, []);
+
+  const { country, seller } = useSelector(
+    (state) => state.method.methodOptionValue
+  );
+
+  const [filter, setFilter] = useState({
+    country: searchParams.get("country") || "All",
+    description: searchParams.get("description") || "",
+    seller: searchParams.get("seller") || "All",
+  });
+
+  const onChange = (e) => {
+    setFilter({ ...filter, [e.target.name]: e.target.value });
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set(`${e.target.name}`, e.target.value);
+    window.history.pushState({ path: newUrl.href }, "", newUrl.href);
+  };
+
+  const onFilter = () => {
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set("page", 1);
+    dispatch(fetch_methods(filter));
+  };
+
+  return (
     <Fragment>
       <Row>
-        <Col xl="2" lg='2' md='2' sm='12'>
+        <Col xl="2" lg="2" md="2" xs="12">
           <FormGroup>
-            <Label htmlFor="exampleFormControlInput1"><b>{Country}</b></Label>
-            <Input type="select" name="country" className="form-control digits" defaultValue="All">
-              <option>{'All'}</option>
-              <option>{'United States'}</option>
-              <option>{'Canada'}</option>
-              <option>{'India'}</option>
-              <option>{'Brazil'}</option>
+            <Label htmlFor="exampleFormControlInput1">
+              <b>{Country}</b>
+            </Label>
+            <Input
+              type="select"
+              name="country"
+              value={filter.country}
+              onChange={onChange}
+              className="form-control digits"
+              defaultValue="All"
+            >
+              <option>{"All"}</option>
+              {country &&
+                country.map((c, index) => (
+                  <option value={c} key={index}>
+                    {c}
+                  </option>
+                ))}
             </Input>
           </FormGroup>
         </Col>
-        <Col xl="6" lg='6' md='6' sm='12'>
+        <Col xl="6" lg="6" md="6" sm="12">
           <FormGroup>
-            <Label htmlFor="exampleFormControlInput1"><b>{Description}</b></Label>
-            <Input type="text" name="description" className="form-control" />
+            <Label htmlFor="exampleFormControlInput1">
+              <b>{Description}</b>
+            </Label>
+            <Input
+              type="text"
+              name="description"
+              value={filter.description}
+              onChange={onChange}
+              className="form-control"
+            />
           </FormGroup>
         </Col>
-        <Col xl="2" lg='2' md='2' sm='12'>
+        <Col xl="2" lg="2" md="2" sm="12">
           <FormGroup>
-            <Label htmlFor="exampleFormControlInput1"><b>{Seller}</b></Label>
-            <Input type="select" name="seller" className="form-control digits" defaultValue="1">
-              <option value={'All'}>{'All'}</option>
-              <option value={'Seller1'}>{'Seller1'}</option>
-              <option value={'Seller2'}>{'Seller2'}</option>
-              <option value={'Seller3'}>{'Seller3'}</option>
-              <option value={'Seller4'}>{'Seller4'}</option>
+            <Label htmlFor="exampleFormControlInput1">
+              <b>{Seller}</b>
+            </Label>
+            <Input
+              type="select"
+              name="seller"
+              value={filter.seller}
+              onChange={onChange}
+              className="form-control digits"
+              defaultValue="All"
+            >
+              <option value={"All"}>{"All"}</option>
+              {seller &&
+                seller.map((c, index) => (
+                  <option value={c} key={index}>
+                    {c}
+                  </option>
+                ))}
             </Input>
           </FormGroup>
         </Col>
-        <Col xl="2" lg='2' md='2' sm='12' className='d-flex align-items-center'>
-            <Btn attrBtn={{color: 'info', style: {marginTop: '8px'} }}>Filter<i className='fa fa-filter'></i></Btn>
+        <Col xl="2" lg="2" md="2" sm="12" className="d-flex align-items-center">
+          <Btn
+            attrBtn={{
+              color: "info",
+              onClick: onFilter,
+              style: { marginTop: "8px" },
+            }}
+          >
+            {FilterTxt}
+          </Btn>
         </Col>
       </Row>
     </Fragment>
-  )
-}
+  );
+};
 
-export default Filter
+export default Filter;

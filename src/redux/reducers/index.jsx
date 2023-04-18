@@ -10,6 +10,9 @@ import shell from './shell';
 import smtp from './smtp';
 import phpmailer from './phpmailer';
 import lead from './lead';
+import premiumShop from './premiumShop';
+import programScript from './programScript';
+import method from './method';
 
 const rootReducer = combineReducers({
   app,
@@ -23,6 +26,9 @@ const rootReducer = combineReducers({
   smtp,
   phpmailer,
   lead,
+  premiumShop,
+  programScript,
+  method
 });
 
 export default rootReducer;
