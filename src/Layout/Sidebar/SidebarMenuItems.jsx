@@ -14,7 +14,7 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
 
   useEffect(() => {
     dispatch(service());
-  })
+  }, []);
 
   const { counters } = useSelector(state => state.service);
 
