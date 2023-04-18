@@ -37,3 +37,12 @@
     background-color: #7366ff;
     color: white;
 }
+
+.iTfAyo, .dMPDOg {
+    background-color: transparent!important;
+    color: white;
+}
+
+.dark-only .dMPDOg div {
+    color: white;
+}
