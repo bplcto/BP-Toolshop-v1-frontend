@@ -38,7 +38,7 @@ const SidebarMenu = ({ setMainMenu, props, sidebartoogle, setNavActive, activeCl
   return (
     <nav className="sidebar-main" id="sidebar-main">
       <div className="left-arrow" onClick={scrollToLeft}>
-        <ArrowLeft />
+        {/* <ArrowLeft /> */}
       </div>
       <div
         id="sidebar-menu"
@@ -59,7 +59,7 @@ const SidebarMenu = ({ setMainMenu, props, sidebartoogle, setNavActive, activeCl
         </ul>
       </div>
       <div className="right-arrow" onClick={scrollToRight}>
-        <ArrowRight />
+        {/* <ArrowRight /> */}
       </div>
     </nav>
   );

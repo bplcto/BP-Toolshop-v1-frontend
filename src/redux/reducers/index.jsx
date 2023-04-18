@@ -13,6 +13,7 @@ import lead from './lead';
 import premiumShop from './premiumShop';
 import programScript from './programScript';
 import method from './method';
+import service from './service';
 
 const rootReducer = combineReducers({
   app,
@@ -28,7 +29,8 @@ const rootReducer = combineReducers({
   lead,
   premiumShop,
   programScript,
-  method
+  method,
+  service
 });
 
 export default rootReducer;

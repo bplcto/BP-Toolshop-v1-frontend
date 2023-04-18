@@ -1,13 +1,22 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import SvgIcon from '../../Components/Common/Component/SvgIcon';
 import CustomizerContext from '../../_helper/Customizer';
 import { MENUITEMS } from './Menu';
+import { service } from '../../redux/actions/service';
 
 const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClass }) => {
+  const dispatch = useDispatch();
   const { layout } = useContext(CustomizerContext);
   const layout1 = localStorage.getItem('sidebar_layout') || layout;
+
+  useEffect(() => {
+    dispatch(service());
+  })
+
+  const { counters } = useSelector(state => state.service);
 
   // const id = window.location.pathname.split('/').pop();
   // const layoutId = id;
@@ -72,7 +81,7 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
                   <SvgIcon className='stroke-icon' iconId={`stroke-${menuItem.icon}`} />
                   <SvgIcon className='fill-icon' iconId={`fill-${menuItem.icon}`} />
                   <span>{t(menuItem.title)}</span>
-                  {menuItem.badge ? <label className={menuItem.badge}>{menuItem.badgetxt}</label> : ''}
+                  {menuItem.badge ? <label className={menuItem.badge}>{counters[menuItem.badgetxt]}</label> : ''}
                   <div className='according-menu'>{menuItem.active ? <i className='fa fa-angle-down'></i> : <i className='fa fa-angle-right'></i>}</div>
                 </a>
               ) : (
@@ -85,7 +94,7 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
                   <SvgIcon className='fill-icon' iconId={`fill-${menuItem.icon}`} />
                   {/* <i className="fa fa-user"></i> */}
                   <span>{t(menuItem.title)}</span>
-                  {menuItem.badge ? <label className={menuItem.badge}>{menuItem.badgetxt}</label> : ''}
+                  {menuItem.badge ? <label className={menuItem.badge}>{counters[menuItem.badgetxt]}</label> : ''}
                 </Link>
               ) : (
                 ''
@@ -124,7 +133,7 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
                             {childrenItem.icon ? <i className={`${childrenItem.icon}`}></i> : ''}
                             &nbsp;
                             {t(childrenItem.title)}
-                            {childrenItem.badge ? <label style={{position: 'unset'}} className={childrenItem.badge}>{childrenItem.badgetxt}</label> : ''}
+                            {childrenItem.badge ? <label style={{position: 'unset'}} className={childrenItem.badge}>{counters[childrenItem.badgetxt]}</label> : ''}
                           </Link>
                         ) : (
                           ''
