@@ -65,7 +65,7 @@ const Table = () => {
                 size: "sm",
                 className: "p-2",
                 color: "success",
-                outline: false,
+                outline: true,
               }}
             >
               <i className="fa fa-paper-plane-o"></i>
@@ -75,7 +75,7 @@ const Table = () => {
                 size="sm"
                 className="p-2"
                 color="info"
-                outline={false}
+                outline={true}
                 onClick={() => {
                   dispatch(get_shell(item));
                   toggle(item);
@@ -89,7 +89,7 @@ const Table = () => {
                   size: "sm",
                   className: "p-2",
                   color: "info",
-                  outline: false,
+                  outline: true,
                   onClick: toggle(item),
                 }}
               >
