@@ -13,7 +13,9 @@ const moment = require("moment");
 const Table = () => {
   const dispatch = useDispatch();
 
-  const [modal, setModal] = useState(false);
+  const [ modal, setModal ] = useState(false);
+  const [ data, setData ] = useState([]);
+
   const searchParams = new URL(window.location.href).searchParams;
 
   const filter = {};
@@ -33,67 +35,44 @@ const Table = () => {
   const { rdps, cnt } = useSelector((state) => state.rdps);
   const { user } = useSelector((state) => state.auth);
 
-  let data = [];
+  let tempData = [];
 
-  rdps.map((item) => {
-    data.push({
-      country: item.country,
-      ip: item.ip,
-      windows: item.windows,
-      ram: item.ram,
-      access: item.access,
-      user: item.user,
-      detect_hosting: item.detect_hosting,
-      seller: item.seller,
-      price: `$ ${item.price}`,
-      added_on: moment(item.date).format("yyyy.MM.DD hh:mm:ss A"),
-      action: (
-        <div className="btn-group-showcase">
-          <ButtonGroup
-            className="btn-group-pill"
-            style={{ display: "contents" }}
-          >
-            <Btn
-              attrBtn={{
-                size: "sm",
-                className: "p-2",
-                color: "success",
-                outline: true,
-              }}
-            >
-              <i className="fa fa-paper-plane-o"></i>
-            </Btn>
-            {user && user.role === "admin" ? (
-              <Button
-                size="sm"
-                className="p-2"
-                color="info"
-                outline={true}
-                onClick={() => {
-                  dispatch(get_rdp(item));
-                  toggle(item);
-                }}
-              >
-                <i className="fa fa-edit"></i>
-              </Button>
-            ) : (
-              <Btn
-                attrBtn={{
-                  size: "sm",
-                  className: "p-2",
-                  color: "info",
-                  outline: true,
-                  onClick: toggle(item),
-                }}
-              >
-                <i className="fa fa-shopping-cart"></i>
+  useEffect(() => {
+    rdps.map((item) => {
+      tempData.push({
+        country: item.country,
+        ip: item.ip,
+        windows: item.windows,
+        ram: item.ram,
+        access: item.access,
+        user: item.user,
+        detect_hosting: item.detect_hosting,
+        seller: item.seller,
+        price: `$ ${item.price}`,
+        added_on: moment(item.date).format("yyyy.MM.DD hh:mm:ss A"),
+        action: (
+          <div className="btn-group-showcase">
+            <ButtonGroup className="btn-group-pill" style={{ display: "contents" }}>
+              <Btn attrBtn={{ size: "sm", className: "p-2", color: "success", outline: true }}>
+                <i className="fa fa-paper-plane-o"></i>
               </Btn>
-            )}
-          </ButtonGroup>
-        </div>
-      ),
+              {user && user.role === "admin" ? (
+                <Button size="sm" className="p-2" color="info" outline={true} onClick={() => { dispatch(get_rdp(item)); toggle(item); }}>
+                  <i className="fa fa-edit"></i>
+                </Button>
+              ) : (
+                <Button size="sm" className="p-2" color="info" outline={true} onClick={() => { toggle(item); }}>
+                  <i className="fa fa-shopping-cart"></i>
+                </Button>
+              )}
+            </ButtonGroup>
+          </div>
+        ),
+      });
     });
-  });
+
+    setData(tempData);
+  }, [rdps])
 
   return (
     <Fragment>
@@ -102,7 +81,6 @@ const Table = () => {
         columns={tableColumns}
         striped={true}
         center={false}
-        responsive={true}
       />
       <hr className="mt-4 mb-4" />
       <CustomePagination cnt={cnt} func={fetch_rdps} />

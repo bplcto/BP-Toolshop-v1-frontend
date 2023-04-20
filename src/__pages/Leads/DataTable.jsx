@@ -12,83 +12,89 @@ const moment = require("moment");
 
 const Table = () => {
   const dispatch = useDispatch();
+  
+  const { leads, cnt } = useSelector((state) => state.lead);
+  const { user } = useSelector((state) => state.auth);
 
-  const [modal, setModal] = useState(false);
+  const [ modal, setModal ] = useState(false);
+  const [ data, setData ] = useState([]);
+
   const searchParams = new URL(window.location.href).searchParams;
 
   const filter = {};
+  
+  let tempData = [];
 
   for (const key of searchParams.keys()) {
     filter[key] = searchParams.get(key);
   }
-
-  const toggle = () => {
-    setModal(!modal);
-  };
-
+  
   useEffect(() => {
     dispatch(fetch_leads(filter));
   }, []);
 
-  const { leads, cnt } = useSelector((state) => state.lead);
-  const { user } = useSelector((state) => state.auth);
-
-  let data = [];
-  leads.map((item) => {
-    data.push({
-      country: item.country,
-      description: item.description,
-      emailn: item.emailn,
-      seller: item.seller,
-      price: `$ ${item.price}`,
-      added_on: moment(item.date).format("yyyy.MM.DD hh:mm:ss A"),
-      action: (
-        <div className="btn-group-showcase">
-          <ButtonGroup
-            className="btn-group-pill"
-            style={{ display: "contents" }}
-          >
-            <Btn
-              attrBtn={{
-                size: "sm",
-                className: "p-2",
-                color: "success",
-                outline: true,
-              }}
+  useEffect(() => {
+    leads.map((item) => {
+      tempData.push({
+        country: item.country,
+        description: item.description,
+        emailn: item.emailn,
+        seller: item.seller,
+        price: `$ ${item.price}`,
+        added_on: moment(item.date).format("yyyy.MM.DD hh:mm:ss A"),
+        action: (
+          <div className="btn-group-showcase">
+            <ButtonGroup
+              className="btn-group-pill"
+              style={{ display: "contents" }}
             >
-              <i className="fa fa-paper-plane-o"></i>
-            </Btn>
-            {user && user.role === "admin" ? (
-              <Button
-                size="sm"
-                className="p-2"
-                color="info"
-                outline={true}
-                onClick={() => {
-                  dispatch(get_lead(item));
-                  toggle(item);
-                }}
-              >
-                <i className="fa fa-edit"></i>
-              </Button>
-            ) : (
               <Btn
                 attrBtn={{
                   size: "sm",
                   className: "p-2",
-                  color: "info",
+                  color: "success",
                   outline: true,
-                  onClick: toggle(item),
                 }}
               >
-                <i className="fa fa-shopping-cart"></i>
+                <i className="fa fa-paper-plane-o"></i>
               </Btn>
-            )}
-          </ButtonGroup>
-        </div>
-      ),
+              {user && user.role === "admin" ? (
+                <Button
+                  size="sm"
+                  className="p-2"
+                  color="info"
+                  outline={true}
+                  onClick={() => {
+                    dispatch(get_lead(item));
+                    toggle(item);
+                  }}
+                >
+                  <i className="fa fa-edit"></i>
+                </Button>
+              ) : (
+                <Btn
+                  attrBtn={{
+                    size: "sm",
+                    className: "p-2",
+                    color: "info",
+                    outline: true,
+                    // onClick: toggle(item),
+                  }}
+                >
+                  <i className="fa fa-shopping-cart"></i>
+                </Btn>
+              )}
+            </ButtonGroup>
+          </div>
+        ),
+      });
     });
-  })
+    setData(tempData);
+  }, [leads])
+  
+  const toggle = () => {
+    setModal(!modal);
+  };
 
   return (
     <Fragment>

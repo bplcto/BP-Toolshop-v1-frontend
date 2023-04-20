@@ -54,7 +54,6 @@ const Filter = () => {
               value={filter.country}
               onChange={onChange}
               className="form-control digits"
-              defaultValue="All"
             >
               <option>{"All"}</option>
               {country &&
@@ -91,7 +90,6 @@ const Filter = () => {
               value={filter.seller}
               onChange={onChange}
               className="form-control digits"
-              defaultValue="All"
             >
               <option value={"All"}>{"All"}</option>
               {seller &&

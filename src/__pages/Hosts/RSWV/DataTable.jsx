@@ -5,7 +5,7 @@ import { Card, Button, ButtonGroup } from "reactstrap";
 import CustomePagination from "../../../__components/CustomePagination";
 import { fetch_vps, get_vps } from "../../../redux/actions/vps";
 import { Btn } from "../../../AbstractElements";
-import { tableColumns } from './const';
+import { tableColumns } from "./const";
 import EditModal from "./EditModal";
 
 const moment = require("moment");
@@ -14,11 +14,19 @@ const Table = () => {
   const dispatch = useDispatch();
 
   const [modal, setModal] = useState(false);
+  const [data, setData] = useState([]);
+
+  const { vps, cnt } = useSelector((state) => state.vps);
+  const { user } = useSelector((state) => state.auth);
+
   const searchParams = new URL(window.location.href).searchParams;
+  
   const filter = {};
+  
   for (const key of searchParams.keys()) {
     filter[key] = searchParams.get(key);
   }
+  
   const toggle = () => {
     setModal(!modal);
   };
@@ -27,68 +35,68 @@ const Table = () => {
     dispatch(fetch_vps(filter));
   }, []);
 
-  const { vps, cnt } = useSelector((state) => state.vps);
-  const { user } = useSelector((state) => state.auth);
+  let tempData = [];
 
-  let data = [];
-
-  vps.map((item) => {
-    data.push({
-      country: item.country,
-      login: item.login,
-      information: item.information,
-      ram: item.ram,
-      detect_hosting: item.detect_hosting,
-      seller: item.seller,
-      price: item.price,
-      added_on: item.date,
-      action: (
-        <div className="btn-group-showcase">
-          <ButtonGroup
-            className="btn-group-pill"
-            style={{ display: "contents" }}
-          >
-            <Btn
-              attrBtn={{
-                size: "sm",
-                className: "p-2",
-                color: "success",
-                outline: true,
-              }}
+  useEffect(() => {
+    vps.map((item) => {
+      tempData.push({
+        country: item.country,
+        login: item.login,
+        information: item.information,
+        ram: item.ram,
+        detect_hosting: item.detect_hosting,
+        seller: item.seller,
+        price: item.price,
+        added_on: item.date,
+        action: (
+          <div className="btn-group-showcase">
+            <ButtonGroup
+              className="btn-group-pill"
+              style={{ display: "contents" }}
             >
-              <i className="fa fa-paper-plane-o"></i>
-            </Btn>
-            {user && user.role === "admin" ? (
-              <Button
-                size="sm"
-                className="p-2"
-                color="info"
-                outline={true}
-                onClick={() => {
-                  dispatch(get_vps(item));
-                  toggle(item);
-                }}
-              >
-                <i className="fa fa-edit"></i>
-              </Button>
-            ) : (
               <Btn
                 attrBtn={{
                   size: "sm",
                   className: "p-2",
-                  color: "info",
+                  color: "success",
                   outline: true,
-                  onClick: toggle(item),
                 }}
               >
-                <i className="fa fa-shopping-cart"></i>
+                <i className="fa fa-paper-plane-o"></i>
               </Btn>
-            )}
-          </ButtonGroup>
-        </div>
-      ),
+              {user && user.role === "admin" ? (
+                <Button
+                  size="sm"
+                  className="p-2"
+                  color="info"
+                  outline={true}
+                  onClick={() => {
+                    dispatch(get_vps(item));
+                    toggle(item);
+                  }}
+                >
+                  <i className="fa fa-edit"></i>
+                </Button>
+              ) : (
+                <Btn
+                  attrBtn={{
+                    size: "sm",
+                    className: "p-2",
+                    color: "info",
+                    outline: true,
+                    // onClick: {},
+                  }}
+                >
+                  <i className="fa fa-shopping-cart"></i>
+                </Btn>
+              )}
+            </ButtonGroup>
+          </div>
+        ),
+      });
+      setData(tempData);
     });
-  });
+  }, [vps]);
 
   return (
     <Fragment>

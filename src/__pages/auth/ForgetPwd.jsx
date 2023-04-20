@@ -1,11 +1,24 @@
 import React, { Fragment, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { Btn, H4, H6, P } from '../../AbstractElements';
 import { Login } from '../../Constant';
 
 const ForgetPwd = () => {
+  const [email, setEmail] = useState('');
   const [togglePassword, setTogglePassword] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/api/users/forgotPassword', { email });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
   return (
     <Fragment>
       <section>
@@ -15,45 +28,16 @@ const ForgetPwd = () => {
               <div className='login-card'>
                 <div>
                   <div className='login-main'>
-                    <Form className='theme-form login-form'>
+                    <Form className='theme-form login-form' onSubmit={handleSubmit}>
                       <H4>Reset Your Password</H4>
                       <FormGroup>
-                        <Label className='m-0 col-form-label'>Enter Your Mobile Number</Label>
-                        <Row>
-                          <Col xs='4' sm='3'>
-                            <Input className='form-control' type='text' value='+ 91' />
-                          </Col>
-                          <Col xs='8' sm='9'>
-                            <Input className='form-control' type='tel' value='000-000-0000' />
-                          </Col>
-                        </Row>
+                        <Label className='m-0 col-form-label'>Enter Your Email</Label>
+                        <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                       </FormGroup>
                       <FormGroup className='text-end'>
                         <Btn attrBtn={{ className: 'btn-block ', color: 'primary', type: 'submit' }}>Send</Btn>
                       </FormGroup>
-                      <FormGroup className='mb-4 mt-4'>
-                        <span className='reset-password-link'>
-                          If don't receive OTP?  
-                          <a className='btn-link text-danger' href='#javascript'>
-                            Resend
-                          </a>
-                        </span>
-                      </FormGroup>
-                      <FormGroup>
-                        <Label>Enter OTP</Label>
-                        <Row>
-                          <Col>
-                            <Input className='form-control text-center opt-text' type='text' value='00' maxlength='2' />
-                          </Col>
-                          <Col>
-                            <Input className='form-control text-center opt-text' type='text' value='00' maxlength='2' />
-                          </Col>
-                          <Col>
-                            <Input className='form-control text-center opt-text' type='text' value='00' maxlength='2' />
-                          </Col>
-                        </Row>
-                      </FormGroup>
-                      <H6 attrH6={{ className: 'mt-4' }}>Create Your Password</H6>
+                      {/* <H6 attrH6={{ className: 'mt-4' }}>Create Your Password</H6>
                       <FormGroup className='position-relative'>
                         <Label className='col-form-label m-0'>New Password</Label>
                         <div className='position-relative'>
@@ -77,7 +61,7 @@ const ForgetPwd = () => {
                       </FormGroup>
                       <FormGroup>
                         <Btn attrBtn={{ color: 'primary', className: 'btn d-block w-100', type: 'submit' }}>Done</Btn>
-                      </FormGroup>                      
+                      </FormGroup>                       */}
                       <P attrPara={{ className: 'text-center mb-0 mt-4' }}>
                         Already have an password?
                         <Link className='ms-2' to='/login'>
