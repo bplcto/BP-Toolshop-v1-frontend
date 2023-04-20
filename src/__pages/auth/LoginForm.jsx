@@ -31,7 +31,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      history('/dashboard');
+      window.location.href = "/dashboard";
     }
   }, [isAuthenticated]);
 
@@ -72,19 +72,19 @@ const LoginForm = () => {
               value={password} 
               required
               />
-            <div className='show-hide' onClick={() => setTogglePassword(!togglePassword)}>
+            <div className='show-hide text-black' onClick={() => setTogglePassword(!togglePassword)}>
               {togglePassword ? <i className='fa fa fa-eye-slash'></i> : <i className='fa fa-eye'></i>}
             </div>
           </div>
         </FormGroup>
         <FormGroup className='position-relative'>
           <div className='checkbox'>
-            <Input id='checkbox1' type='checkbox' />
+            {/* <Input id='checkbox1' type='checkbox' />
             <Label className='text-muted' for='checkbox1'>
             {RememberPassword}
-            </Label>
+            </Label> */}
           </div>
-          <Link className='link' to='/forget_password'>
+          <Link to='/forget_password'>
             {ForgotPassword}
           </Link>
         </FormGroup>

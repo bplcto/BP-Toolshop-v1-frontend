@@ -101,7 +101,7 @@ const RegisterForm = () => {
               minLength={6}
               />
             {/* <div className="invalid-feedback">{"Please input at least 6 characters"}</div> */}
-            <div className='show-hide' onClick={() => setTogglePassword(!togglePassword)}>
+            <div className='show-hide text-black' onClick={() => setTogglePassword(!togglePassword)}>
               {togglePassword ? <i className='fa fa fa-eye-slash'></i> : <i className='fa fa-eye'></i>}
             </div>
           </div>
@@ -117,7 +117,7 @@ const RegisterForm = () => {
               value={confirmPassword} 
               required
               />
-            <div className='show-hide' onClick={() => setToggleConfirmPassword(!toggleConfirmPassword)}>
+            <div className='show-hide text-black' onClick={() => setToggleConfirmPassword(!toggleConfirmPassword)}>
               {toggleConfirmPassword ? <i className='fa fa fa-eye-slash'></i> : <i className='fa fa-eye'></i>}
             </div>
             {/* <div className="invalid-feedback">{"Please input at least 6 characters"}</div> */}
