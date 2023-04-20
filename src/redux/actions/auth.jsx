@@ -10,6 +10,8 @@ import {
   LOGOUT
 } from './types';
 
+const autoClose = 3000;
+
 /*
   NOTE: we don't need a config object for axios as the
  default headers in axios are already Content-Type: application/json
@@ -34,22 +36,21 @@ export const loadUser = () => async (dispatch) => {
 };
 
 // Register User
-export const register = (formData) => async (dispatch) => {
+export const register = (formData, role) => async (dispatch) => {
   try {
-    const res = await api.post('/auth/register', formData);
+    const res = await api.post(`/auth/register/${role}`, formData);
 
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data
     });
-    // dispatch(loadUser());
-    toast.success("Registered Successfully! Please Login.", {autoClose: 3000})
+    toast.success("Registered Successfully! Please Login.", {autoClose})
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
       errors.forEach((error) => {
-        toast.error(error.msg, {autoClose: 2000})
+        toast.error(error.msg, {autoClose})
       });
     }
 
@@ -77,7 +78,7 @@ export const login = (email, password) => async (dispatch) => {
 
     if (errors) {
       errors.forEach((error) => {
-        toast.error(error.msg, {autoClose: 2000})
+        toast.error(error.msg, {autoClose})
       });
     }
 
