@@ -8,8 +8,10 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  background: url('../../images/login/login_bg.jpg');
+  background: url('../../images/auth-page-bg.svg');
   background-position: center;
+  background-size: cover;
+  width: 100vw;
   padding: 30px 12px;
 
   .logo {
@@ -39,9 +41,11 @@
     width: 450px;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 0 37px rgba(8, 21, 66, 0.05);
+    box-shadow: 0 0 37px rgba(255, 255, 255, 0.3);
+    color: white;
+    border: 2px solid;
     margin: 0 auto;
-    background-color: $white;
+    // background-color: $white;
 
     .theme-form {
       h4 {
@@ -108,13 +112,15 @@
     }
     &.login-tab {
       position: relative;
-      border-top-left-radius: 0;
+      // border-top-left-radius: 0;
       height: 100%;
+      color: white;
+      border: 2px solid;
       .nav-tabs {
         border-bottom: none;
         position: absolute;
         background-color: $white;
-        box-shadow: 0 0 37px rgba(8, 21, 66, 0.05);
+        box-shadow: 0 0 37px rgba(255, 255, 255, 0.3);
         left: -70px;
         top: 0;
         margin-bottom: 0;

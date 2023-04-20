@@ -46,3 +46,8 @@
 .dark-only .dMPDOg div {
     color: white;
 }
+
+.dark-only .login-card .login-main {
+    background: transparent;
+    border: 2px solid;
+}
