@@ -1,9 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Alerts, Btn, P } from "../../../AbstractElements";
 import { addBtnStyle } from "../../../assets/additionalStyle";
-import CommonModal from "../../../Components/UiKits/Modals/common/modal";
 import {
-  Card,
   Form,
   FormGroup,
   Input,
@@ -23,21 +21,21 @@ import Scrollbars from "react-custom-scrollbars-2";
 
 function Add() {
   const [modal, setModal] = useState(false);
-  const [smtps, setSmtps] = useState(null);
+  // const [smtps, setSmtps] = useState(null);
 
   const toggle = () => setModal(!modal);
   const [active, setActive] = useState("inputs");
 
   const onChange = (e) => {
-    const values = e.target.value.split('\n');
-    const smpts = [];
+    // const values = e.target.value.split('\n');
+    // const smpts = [];
 
-    values.forEach(value => {
-      let item = value.split('|');
-      smtps.push({
-        detect_hosting: item[0],
-      })
-    });
+    // values.forEach(value => {
+    //   let item = value.split('|');
+    //   smtps.push({
+    //     detect_hosting: item[0],
+    //   })
+    // });
   }
 
   const types = [

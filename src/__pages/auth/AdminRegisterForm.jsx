@@ -24,7 +24,6 @@ const AdminRegisterForm = () => {
   
   const [togglePassword, setTogglePassword] = useState(false);
   const [toggleConfirmPassword, setToggleConfirmPassword] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
   
   const [formData, setFormData] = useState({
     name: '',
@@ -38,13 +37,8 @@ const AdminRegisterForm = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const {
-    // register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     const isMatched = password === confirmPassword;
     if (isMatched) {
       dispatch(register({name, email, password}, "admin"));
@@ -55,9 +49,7 @@ const AdminRegisterForm = () => {
 
   return (
     <Fragment>
-      {/* handleSubmit(onSubmit) */}
-      {/* was-validated */}
-      <Form className='theme-form' onSubmit={handleSubmit(onSubmit)}>
+      <Form className='theme-form' onSubmit={onSubmit}>
         <H4 attrH4={{ className: 'text-center' }}>
           <i className="fa fa-shopping-cart"></i>&nbsp;
           bpltoolshop - Admin Register
@@ -72,7 +64,6 @@ const AdminRegisterForm = () => {
             onChange={onChange} 
             value={name} 
             />
-          {/* <div className="invalid-feedback">{"Please input name"}</div> */}
         </FormGroup>
         <FormGroup>
           <Label className='col-form-label'>{EmailAddress}</Label>
@@ -84,7 +75,6 @@ const AdminRegisterForm = () => {
             value={email} 
             required
             />
-          {/* <div className="invalid-feedback">{"Please input email or valid email"}</div> */}
         </FormGroup>
         <FormGroup className='position-relative'>
           <Label className='col-form-label'>{Password}</Label>
@@ -98,7 +88,6 @@ const AdminRegisterForm = () => {
               required
               minLength={6}
               />
-            {/* <div className="invalid-feedback">{"Please input at least 6 characters"}</div> */}
             <div className='show-hide text-black' onClick={() => setTogglePassword(!togglePassword)}>
               {togglePassword ? <i className='fa fa fa-eye-slash'></i> : <i className='fa fa-eye'></i>}
             </div>
@@ -118,7 +107,6 @@ const AdminRegisterForm = () => {
             <div className='show-hide' onClick={() => setToggleConfirmPassword(!toggleConfirmPassword)}>
               {toggleConfirmPassword ? <i className='fa fa fa-eye-slash'></i> : <i className='fa fa-eye'></i>}
             </div>
-            {/* <div className="invalid-feedback">{"Please input at least 6 characters"}</div> */}
           </div>
         </FormGroup>
         <div className='position-relative form-group mb-0'>

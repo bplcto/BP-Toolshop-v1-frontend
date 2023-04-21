@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
-import { authHeader, handleResponse } from '../Services/fack.backend';
-import Loader from '../Layout/Loader'
+// import { authHeader, handleResponse } from '../Services/fack.backend';
+// import Loader from '../Layout/Loader'
 
 const PrivateRoute = () => {
-  const { isAuthenticated } = useSelector(state => state.auth);
+  // const { isAuthenticated } = useSelector(state => state.auth);
   // const [login, setLogin] = useState(JSON.parse(localStorage.getItem('login')));
   // const [authenticated, setAuthenticated] = useState(false);
   const jwt_token = localStorage.getItem('token');

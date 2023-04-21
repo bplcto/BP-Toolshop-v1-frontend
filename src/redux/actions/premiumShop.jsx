@@ -62,7 +62,7 @@ export const add_premiumShop = (data) => async (dispatch) => {
 export const edit_premiumShop = (premiumShop) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/premiumShop/edit/${premiumShop._id}`, { premiumShop });
+    await axios.post(`/api/premiumShop/edit/${premiumShop._id}`, { premiumShop });
 
     dispatch({
       type: EDIT_PREMIUMSHOPDATA,

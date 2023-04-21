@@ -42,7 +42,7 @@ const Table = () => {
 
   useEffect(() => {
     premiumShops.map((item) => {
-      tempData.push({
+      return tempData.push({
         country: item.country,
         site_name: item.sitename,
         information: item.information,

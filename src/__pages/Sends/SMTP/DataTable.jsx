@@ -4,7 +4,7 @@ import DataTable from "react-data-table-component";
 import { Button, ButtonGroup } from "reactstrap";
 import { Btn } from "../../../AbstractElements";
 import CustomePagination from "../../../__components/CustomePagination";
-import { dummytabledata, tableColumns } from "./const";
+import { tableColumns } from "./const";
 import { fetch_smtps, get_smtp } from "../../../redux/actions/smtp";
 import EditModal from "./EditModal";
 
@@ -35,7 +35,7 @@ const Table = () => {
 
   useEffect(() => {
     smtps.map((item) => {
-      tempData.push({
+      return tempData.push({
         smtpid: item.smtpid,
         country: item.country,
         domain: item.domain,

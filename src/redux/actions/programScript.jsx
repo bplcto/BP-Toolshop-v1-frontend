@@ -62,7 +62,7 @@ export const add_programScript = (data) => async (dispatch) => {
 export const edit_programScript = (programScript) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/programScript/edit/${programScript._id}`, { programScript });
+    await axios.post(`/api/programScript/edit/${programScript._id}`, { programScript });
 
     dispatch({
       type: EDIT_PROGRAMSCRIPTDATA,

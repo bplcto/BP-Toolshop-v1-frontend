@@ -6,7 +6,7 @@ import CubaIcon from '../../assets/images/logo/logo.png';
 import CustomizerContext from '../../_helper/Customizer';
 
 const SidebarLogo = () => {
-  const { mixLayout, toggleSidebar, layout, layoutURL } = useContext(CustomizerContext);
+  const { mixLayout, toggleSidebar, layout } = useContext(CustomizerContext);
   const [toggle, setToggle] = useState(false);
 
   const openCloseSidebar = () => {

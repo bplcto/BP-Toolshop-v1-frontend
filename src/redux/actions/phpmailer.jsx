@@ -62,7 +62,7 @@ export const add_phpmailer = (data) => async (dispatch) => {
 export const edit_phpmailer = (phpmailer) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/phpmailer/edit/${phpmailer._id}`, { phpmailer });
+    await axios.post(`/api/phpmailer/edit/${phpmailer._id}`, { phpmailer });
 
     dispatch({
       type: EDIT_PHPMAILERDATA,

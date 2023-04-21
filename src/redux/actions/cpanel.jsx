@@ -62,7 +62,7 @@ export const add_cpanel = (data) => async (dispatch) => {
 export const edit_cpanel = (cpanel) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/cpanel/edit/${cpanel._id}`, { cpanel });
+    await axios.post(`/api/cpanel/edit/${cpanel._id}`, { cpanel });
 
     dispatch({
       type: EDIT_CPANELDATA,

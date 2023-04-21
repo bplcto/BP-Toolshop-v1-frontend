@@ -33,8 +33,6 @@ import store from './redux/store'
 import { LOGOUT } from './redux/actions/types';
 import { loadUser } from './redux/actions/auth';
 import setAuthToken from './utils/setAuthToken';
-import Alert from './__components/Alert';
-import { useNavigate } from 'react-router-dom';
 
 const App = () => {
   useEffect(() => {

@@ -62,7 +62,7 @@ export const add_vps = (data) => async (dispatch) => {
 export const edit_vps = (vps) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/vps/edit/${vps._id}`, { vps });
+    await axios.post(`/api/vps/edit/${vps._id}`, { vps });
 
     dispatch({
       type: EDIT_VPSDATA,

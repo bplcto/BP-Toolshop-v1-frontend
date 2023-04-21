@@ -35,7 +35,7 @@ const Table = () => {
 
   useEffect(() => {
     leads.map((item) => {
-      tempData.push({
+      return tempData.push({
         country: item.country,
         description: item.description,
         emailn: item.emailn,

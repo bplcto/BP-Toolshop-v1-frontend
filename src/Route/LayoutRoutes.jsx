@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { routes } from './Routes';
 import AppLayout from '../Layout/Layout';
 import { useEffect } from 'react';
-import { loadUser } from '../redux/actions/auth';
+// import { loadUser } from '../redux/actions/auth';
 import Loader from '../__components/Loader';
 
 const LayoutRoutes = () => {
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { isAuthenticated } = useSelector(state => state.auth);
   const { loading } = useSelector(state => state.app);
 

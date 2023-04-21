@@ -62,7 +62,7 @@ export const add_lead = (data) => async (dispatch) => {
 export const edit_lead = (lead) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/lead/edit/${lead._id}`, { lead });
+    await axios.post(`/api/lead/edit/${lead._id}`, { lead });
 
     dispatch({
       type: EDIT_LEADDATA,

@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import SweetAlert from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "react-data-table-component";
-import { Btn } from "../../../AbstractElements";
 import {
   change_user_status,
   fetch_users,
@@ -16,7 +15,7 @@ const UserTable = () => {
   const dispatch = useDispatch();
 
   const [popover, setPopover] = useState(false);
-  const Toggle = () => setPopover(!popover);
+  // const Toggle = () => setPopover(!popover);
 
   useEffect(() => {
     dispatch(fetch_users());
@@ -44,7 +43,7 @@ const UserTable = () => {
   let data = [];
 
   users.map((user) => {
-    data.push({
+    return data.push({
       name: user.name,
       email: user.email,
       status: (

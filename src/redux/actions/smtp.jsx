@@ -62,7 +62,7 @@ export const add_smtp = (data) => async (dispatch) => {
 export const edit_smtp = (smtp) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/smtp/edit/${smtp._id}`, { smtp });
+    await axios.post(`/api/smtp/edit/${smtp._id}`, { smtp });
 
     dispatch({
       type: EDIT_SMTPDATA,

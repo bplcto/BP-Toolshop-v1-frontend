@@ -65,7 +65,7 @@ export const add_shell = (data) => async (dispatch) => {
 export const edit_shell = (shell) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/shell/edit/${shell._id}`, { shell });
+    await axios.post(`/api/shell/edit/${shell._id}`, { shell });
 
     dispatch({
       type: EDIT_SHELLDATA,

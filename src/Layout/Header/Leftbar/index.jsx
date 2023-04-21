@@ -4,10 +4,10 @@ import { AlignCenter } from 'react-feather';
 import { Link } from 'react-router-dom';
 import { Image } from '../../../AbstractElements';
 import CustomizerContext from '../../../_helper/Customizer';
-import NotificationSlider from './NotificationSlider';
+// import NotificationSlider from './NotificationSlider';
 
 const Leftbar = () => {
-  const { layoutURL, toggleSidebar } = useContext(CustomizerContext);
+  const { /*layoutURL,*/ toggleSidebar } = useContext(CustomizerContext);
   const [sidebartoggle, setSidebartoggle] = useState(true);
   const width = useWindowSize();
 

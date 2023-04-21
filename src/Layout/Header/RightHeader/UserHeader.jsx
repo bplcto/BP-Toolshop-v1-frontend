@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Image, LogIn, PlusCircle, Settings, ShoppingCart } from 'react-feather';
+import { /*Image, */LogIn, PlusCircle, Settings, ShoppingCart } from 'react-feather';
 
 import { LI, UL } from '../../../AbstractElements';
 import { LogOut } from '../../../Constant';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../../redux/actions/auth';
-import man from '../../../assets/images/dashboard/profile.png';
+// import man from '../../../assets/images/dashboard/profile.png';
 
 const UserHeader = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('Emay Walter');
-  const [profile, setProfile] = useState('');
-  const authenticated = JSON.parse(localStorage.getItem('authenticated'));
-  const auth0_profile = JSON.parse(localStorage.getItem('auth0_profile'));
+  // const [profile, setProfile] = useState('');
+  // const authenticated = JSON.parse(localStorage.getItem('authenticated'));
+  // const auth0_profile = JSON.parse(localStorage.getItem('auth0_profile'));
 
   useEffect(() => {
-    setProfile(localStorage.getItem('profileURL') || man);
+    // setProfile(localStorage.getItem('profileURL') || man);
     setName(localStorage.getItem('Name') ? localStorage.getItem('Name') : name);
   }, []);
 

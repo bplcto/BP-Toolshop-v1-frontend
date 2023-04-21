@@ -92,6 +92,7 @@ const Table = () => {
         ),
       });
       setData(tempData);
+      return tempData;
     });
   }, [phpmailers])
 

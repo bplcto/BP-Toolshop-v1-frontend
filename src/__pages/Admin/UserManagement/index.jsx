@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Card, CardBody, CardHeader, Row } from 'reactstrap';
+import { Card, CardBody, Row } from 'reactstrap';
 import UserTable from './UserTable';
 // import Filter from './Filter';
 

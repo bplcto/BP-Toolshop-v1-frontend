@@ -63,7 +63,7 @@ export const add_method = (data) => async (dispatch) => {
 export const edit_method = (method) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/method/edit/${method._id}`, { method });
+    await axios.post(`/api/method/edit/${method._id}`, { method });
 
     dispatch({
       type: EDIT_METHODDATA,

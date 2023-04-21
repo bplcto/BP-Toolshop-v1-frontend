@@ -35,7 +35,7 @@ const Table = () => {
 
   useEffect(() => {
     programScripts.map((item) => {
-      tempData.push({
+      return tempData.push({
         country: item.country,
         description: item.description,
         seller: item.seller,

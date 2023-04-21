@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+// import ReCAPTCHA from 'react-google-recaptcha';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Form, FormGroup, Input, Label } from 'reactstrap';
@@ -8,19 +9,18 @@ import {
   EmailAddress, 
   ForgotPassword, 
   LOGIN,
-  Password, 
-  RememberPassword,  
+  Password,
 } from '../../Constant';
 
-import { useNavigate } from 'react-router-dom';
 import { login } from '../../redux/actions/auth';
 
 const LoginForm = () => {
 
   const dispatch = useDispatch();
-  const history = useNavigate();
 
   const [togglePassword, setTogglePassword] = useState(false);
+  // const [isVerified, setIsVerified] = useState(false);
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -38,14 +38,24 @@ const LoginForm = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  // const handleVerify = (response) => {
+  //   setIsVerified(true);
+  // };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    // if (isVerified) {
+      dispatch(login(email, password));
+    // }
   };
 
   return (
     <Fragment>
       <Form className='theme-form' onSubmit={onSubmit}>
+        {/* <ReCAPTCHA
+          sitekey="s6LdcuKUlAAAAACvQAdzBKeOuHTPbupE_iTFwnlxA"
+          onChange={handleVerify}
+        /> */}
         <H4 attrH4={{ className: 'text-center' }}>
           <i className="fa fa-shopping-cart"></i>&nbsp;
           bpltoolshop - Login

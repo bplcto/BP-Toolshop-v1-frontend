@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router';
 
 const CheckLayout = () => {
   const { addSidebarLayouts } = useContext(CustomizerContext);
-  const history = useNavigate();
+  // const history = useNavigate();
   const sidebarSettings = ConfigDB.data.sidebar_setting || localStorage.getItem('sidebar_Settings');
 
   useEffect(() => {

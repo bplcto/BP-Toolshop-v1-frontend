@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import { Btn } from "../../../AbstractElements";
 import { Close, SaveChanges } from "../../../Constant";
-import Scrollbars from "react-custom-scrollbars-2";
+// import Scrollbars from "react-custom-scrollbars-2";
 import { edit_phpmailer } from "../../../redux/actions/phpmailer";
 
 const EditModal = (props) => {

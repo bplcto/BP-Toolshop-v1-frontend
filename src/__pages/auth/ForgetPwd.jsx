@@ -2,12 +2,12 @@ import React, { Fragment, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
-import { Btn, H4, H6, P } from '../../AbstractElements';
+import { Btn, H4, P } from '../../AbstractElements';
 import { Login } from '../../Constant';
 
 const ForgetPwd = () => {
   const [email, setEmail] = useState('');
-  const [togglePassword, setTogglePassword] = useState(false);
+  // const [togglePassword, setTogglePassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

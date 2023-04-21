@@ -12,7 +12,7 @@ import ThemeCustomize from '../Layout/ThemeCustomizer';
 import CustomizerContext from '../_helper/Customizer';
 import AnimationThemeContext from '../_helper/AnimationTheme';
 import ConfigDB from '../Config/ThemeConfig';
-import Loader from './Loader';
+// import Loader from './Loader';
 const AppLayout = ({ children, classNames, ...rest }) => {
   const { layout } = useContext(CustomizerContext);
   const { sidebarIconType } = useContext(CustomizerContext);

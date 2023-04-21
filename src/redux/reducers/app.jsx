@@ -12,7 +12,6 @@ const appReducer = (state = initialState, action) => {
         ...state,
         loading: true
       }
-      break;
     case APP_LOADING_END:
       return {
         ...state,

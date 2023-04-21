@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { Alerts, Btn, P } from '../../../AbstractElements'
 import { addBtnStyle } from '../../../assets/additionalStyle'
-import CommonModal from '../../../Components/UiKits/Modals/common/modal';
-import { Card, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import { Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { Cancel, INPUTS, LOGS, Submit } from '../../../Constant';
 import Scrollbars from 'react-custom-scrollbars-2';
 

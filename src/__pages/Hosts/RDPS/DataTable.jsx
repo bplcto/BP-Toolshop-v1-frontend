@@ -39,7 +39,7 @@ const Table = () => {
 
   useEffect(() => {
     rdps.map((item) => {
-      tempData.push({
+      return tempData.push({
         country: item.country,
         ip: item.ip,
         windows: item.windows,
@@ -61,7 +61,7 @@ const Table = () => {
                   <i className="fa fa-edit"></i>
                 </Button>
               ) : (
-                <Button size="sm" className="p-2" color="info" outline={true} onClick={() => { toggle(item); }}>
+                <Button size="sm" className="p-2" color="info" outline={true}>
                   <i className="fa fa-shopping-cart"></i>
                 </Button>
               )}

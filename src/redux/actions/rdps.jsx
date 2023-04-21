@@ -62,7 +62,7 @@ export const add_rdp = (data) => async (dispatch) => {
 export const edit_rdp = (rdp) => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await axios.post(`/api/rdps/edit/${rdp._id}`, { rdp });
+    await axios.post(`/api/rdps/edit/${rdp._id}`, { rdp });
 
     dispatch({
       type: EDIT_RDPSDATA,

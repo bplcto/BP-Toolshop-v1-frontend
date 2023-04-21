@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ArrowRight, ArrowLeft } from 'react-feather';
+// import { ArrowRight, ArrowLeft } from 'react-feather';
 import CustomizerContext from '../../_helper/Customizer';
 import SidebarMenuItems from './SidebarMenuItems';
 

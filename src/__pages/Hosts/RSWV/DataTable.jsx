@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "react-data-table-component";
-import { Card, Button, ButtonGroup } from "reactstrap";
+import { Button, ButtonGroup } from "reactstrap";
 import CustomePagination from "../../../__components/CustomePagination";
 import { fetch_vps, get_vps } from "../../../redux/actions/vps";
 import { Btn } from "../../../AbstractElements";
@@ -47,7 +47,7 @@ const Table = () => {
         detect_hosting: item.detect_hosting,
         seller: item.seller,
         price: item.price,
-        added_on: item.date,
+        added_on: moment(item.date).format("yyyy.MM.DD hh:mm:ss A"),
         action: (
           <div className="btn-group-showcase">
             <ButtonGroup
@@ -95,6 +95,7 @@ const Table = () => {
         ),
       });
       setData(tempData);
+      return tempData;
     });
   }, [vps]);
 
