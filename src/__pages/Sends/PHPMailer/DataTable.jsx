@@ -38,7 +38,7 @@ const Table = () => {
 
   useEffect(() => {
     phpmailers.map((item) => {
-      tempData.push({
+      return tempData.push({
         id: item.id,
         country: item.country,
         detect_hosting: item.detect_hosting,
@@ -91,9 +91,8 @@ const Table = () => {
           </div>
         ),
       });
-      setData(tempData);
-      return tempData;
     });
+    setData(tempData);
   }, [phpmailers])
 
   const toggle = () => {

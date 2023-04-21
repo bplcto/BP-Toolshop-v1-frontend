@@ -35,7 +35,7 @@ const Table = () => {
 
   useEffect(() => {
     shells.map((item) => {
-      tempData.push({
+      return tempData.push({
         country: item.country,
         domain: item.domain,
         tld: item.tld,

@@ -39,7 +39,7 @@ const Table = () => {
 
   useEffect(() => {
     vps.map((item) => {
-      tempData.push({
+      return tempData.push({
         country: item.country,
         login: item.login,
         information: item.information,
@@ -94,9 +94,8 @@ const Table = () => {
           </div>
         ),
       });
-      setData(tempData);
-      return tempData;
     });
+    setData(tempData);
   }, [vps]);
 
   return (
