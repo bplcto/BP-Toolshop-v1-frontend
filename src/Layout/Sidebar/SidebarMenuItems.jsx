@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import SvgIcon from '../../Components/Common/Component/SvgIcon';
 import CustomizerContext from '../../_helper/Customizer';
-import { MENUITEMS } from './Menu';
+import { MENUITEMS, AdminSide } from './Menu';
 import { service } from '../../redux/actions/service';
 
 const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClass }) => {
@@ -12,11 +12,17 @@ const SidebarMenuItems = ({ setMainMenu, sidebartoogle, setNavActive, activeClas
   const { layout } = useContext(CustomizerContext);
   const layout1 = localStorage.getItem('sidebar_layout') || layout;
 
+  const { counters } = useSelector(state => state.service);
+  const { user } = useSelector(state => state.auth);
+
   useEffect(() => {
     dispatch(service());
   }, []);
 
-  const { counters } = useSelector(state => state.service);
+  useEffect(() => {
+    if(user && user.role === "admin")
+      MENUITEMS.push(AdminSide);
+  }, [user])
 
   // const id = window.location.pathname.split('/').pop();
   // const layoutId = id;

@@ -67,28 +67,6 @@ export const MENUITEMS = [
       },
     ],
   },
-  {
-    menutitle: "AdminSide",
-    menucontent: "admin",
-    Items: [
-      {
-        title: "admin",
-        icon: 'user',
-        type: 'sub',
-        active: false,
-        children: [
-          { path: '/admin/user-manager', title: "User Manager", icon: 'fa fa-user-o', type: 'link'},
-          { path: '/admin/manage', title: "Manage", icon: 'fa fa-cog', type: 'link'},
-          { path: '/admin/smtps', title: "Smtps", icon: 'fa fa-envelope-o', type: 'link'},
-          { path: '/admin/phpMailers', title: "PhpMailers", icon: 'fa fa-paper-plane-o', type: 'link'},
-          { path: '/admin/shells', title: "Shells", icon: 'fa fa-code', type: 'link'},
-          { path: '/admin/leads', title: "Leads", icon: 'fa fa-desktop', type: 'link'},
-          { path: '/admin/cpanels', title: "CPanels", icon: 'icofont icofont-drwaing-tablet', type: 'link'},
-          { path: '/admin/rdps', title: "Rdps", icon: 'fa fa-laptop', type: 'link'},
-        ]
-      }
-    ]
-  },
   // {
   //   menutitle: 'General',
   //   menucontent: 'Dashboards,Widgets',
@@ -520,3 +498,26 @@ export const MENUITEMS = [
   //   ],
   // },
 ];
+
+export const AdminSide = {
+  menutitle: "AdminSide",
+  menucontent: "admin",
+  Items: [
+    {
+      title: "admin",
+      icon: 'user',
+      type: 'sub',
+      active: false,
+      children: [
+        { path: '/admin/user-manager', title: "User Manager", icon: 'fa fa-user-o', type: 'link'},
+        { path: '/admin/manage', title: "Manage", icon: 'fa fa-cog', type: 'link'},
+        { path: '/admin/smtps', title: "Smtps", icon: 'fa fa-envelope-o', type: 'link'},
+        { path: '/admin/phpMailers', title: "PhpMailers", icon: 'fa fa-paper-plane-o', type: 'link'},
+        { path: '/admin/shells', title: "Shells", icon: 'fa fa-code', type: 'link'},
+        { path: '/admin/leads', title: "Leads", icon: 'fa fa-desktop', type: 'link'},
+        { path: '/admin/cpanels', title: "CPanels", icon: 'icofont icofont-drwaing-tablet', type: 'link'},
+        { path: '/admin/rdps', title: "Rdps", icon: 'fa fa-laptop', type: 'link'},
+      ]
+    }
+  ]
+};
