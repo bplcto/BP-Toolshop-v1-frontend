@@ -3,28 +3,16 @@ import { Spinner } from '../AbstractElements'
 
 function Loader() {
 
-  const loaderBoxStyle = {
-    backgroundColor: "white",
-    width: '100%',
-    height: '100%',
-    position: "fixed",
-    top: "0",
-    right: "0",
-    zIndex: 999
-  }
-
   const loaderStyle = {
-    width: "100px",
-    height: "100px",
     fontSize: "100px",
-    borderWidth: "20px"
+    borderRadius: '5px'
   }
 
   return (
     <Fragment>
       <div>
-        <div style={ loaderBoxStyle } className="loader-box">
-          <Spinner attrSpinner={{ className: "loader-1", style: loaderStyle }} />
+        <div className="loader-box custom-loader-box">
+          <Spinner attrSpinner={{ className: "loader-15", style: loaderStyle }} />
         </div>
       </div>
     </Fragment>
