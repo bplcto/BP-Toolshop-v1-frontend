@@ -31,9 +31,9 @@ const CustomePagination = (props) => {
   return (
     <Fragment>
       <Row>
-        <Col sm={4} lg={3} md={4}>
+        <Col sm={4} lg={3} md={4} className="text-center">
           <FormGroup className="row">
-            <Label className="col-sm-3 col-form-label" htmlFor="inputEmail3">
+            <Label className="col-sm-3 col-form-label text-center">
               Show
             </Label>
             <Col sm="4">
@@ -64,7 +64,7 @@ const CustomePagination = (props) => {
             </Col>
           </FormGroup>
         </Col>
-        <Col sm={4} lg={6} md={4}>
+        <Col sm={4} lg={6} md={4} className="text-center">
           <ReactPaginate
             pageCount={cnt < show ? 1 : cnt / show}
             pageRangeDisplayed={3}
@@ -86,7 +86,7 @@ const CustomePagination = (props) => {
             nextLabel=">"
           />
         </Col>
-        <Col sm={4} lg={3} md={4}>
+        <Col sm={4} lg={3} md={4} className="text-center">
           <P>
             Showing {(page - 1) * show + 1} to{" "}
             {page * show > cnt ? cnt : page * show} of {cnt} entries
