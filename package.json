@@ -156,5 +156,5 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "0bec-188-43-136-43.ngrok-free.app"
 }
