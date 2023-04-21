@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { routes } from './Routes';
 import AppLayout from '../Layout/Layout';
 import { useEffect } from 'react';

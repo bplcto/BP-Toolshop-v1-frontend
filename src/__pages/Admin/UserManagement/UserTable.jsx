@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import SweetAlert from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "react-data-table-component";
@@ -14,7 +14,7 @@ const moment = require("moment");
 const UserTable = () => {
   const dispatch = useDispatch();
 
-  const [popover, setPopover] = useState(false);
+  // const [popover, setPopover] = useState(false);
   // const Toggle = () => setPopover(!popover);
 
   useEffect(() => {

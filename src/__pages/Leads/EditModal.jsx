@@ -22,7 +22,7 @@ import {
   SaveChanges,
   Seller,
 } from "../../Constant";
-import Scrollbars from "react-custom-scrollbars-2";
+// import Scrollbars from "react-custom-scrollbars-2";
 import { edit_lead } from "../../redux/actions/lead";
 
 const EditModal = (props) => {
