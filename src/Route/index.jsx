@@ -10,7 +10,6 @@ import AdminRegister from '../__pages/auth/AdminRegister';
 import ForgetPwd from '../__pages/auth/ForgetPwd';
 
 import PrivateRoute from './PrivateRoute';
-import ReactTable from '../__components/ReactTable';
 
 const Routers = () => {
   return (
