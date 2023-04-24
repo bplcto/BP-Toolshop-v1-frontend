@@ -9,42 +9,42 @@ export const tableColumns = [
     {
         name: `TLD`,
         selector: row => row.tld,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: `SSL`,
         selector: row => row['ssl'],
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: 'DetectHosting',
         selector: row => row.detect_hosting,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '20%'
     },
     {
         name: 'Seller',
         selector: row => row.seller,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: 'Addedon',
         selector: row => row.added_on,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '20%'
     },
     {
         name: 'Price',
         selector: row => row.price,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '5%'
     },

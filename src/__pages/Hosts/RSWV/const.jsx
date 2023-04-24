@@ -9,49 +9,49 @@ export const tableColumns = [
     {
         name: 'Login',
         selector: row => `${row.login}`,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: 'Information',
         selector: row => `${row.information}`,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: 'RAM',
         selector: row => `${row.ram}`,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: 'Detect Hosting',
         selector: row => row.detect_hosting,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '13%'
     },
     {
         name: 'Seller',
         selector: row => row.seller,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: 'Price',
         selector: row => row.price,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '7%'
     },
     {
         name: 'Added on',
         selector: row => row.added_on,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '20%'
     },

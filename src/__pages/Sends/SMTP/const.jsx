@@ -9,7 +9,7 @@ export const tableColumns = [
     {
         name: 'Country',
         selector: row => row['country'],
-        sortable: true,
+        sortable: false,
         
         width: '10%'
     },
@@ -58,7 +58,7 @@ export const tableColumns = [
     {
         name: 'Action',
         selector: row => row['action'],
-        sortable: true,
+        sortable: false,
         
         width: '8%'
     },

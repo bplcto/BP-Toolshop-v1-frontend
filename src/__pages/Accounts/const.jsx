@@ -9,35 +9,35 @@ export const tableColumns = [
     {
         name: "SiteName",
         selector: row => row.site_name,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '20%'
     },
     {
         name: "AvailableInformation",
         selector: row => row.information,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '30%'
     },
     {
         name: "Seller",
         selector: row => row.seller,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: "Price",
         selector: row => row.price,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '5%'
     },
     {
         name: "Addedon",
         selector: row => row.added_on,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '15%'
     },

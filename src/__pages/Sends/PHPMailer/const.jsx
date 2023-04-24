@@ -2,7 +2,7 @@ export const tableColumns = [
     {
         name: 'ID',
         selector: row => row.id,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
@@ -16,35 +16,35 @@ export const tableColumns = [
     {
         name: 'DetectHosting',
         selector: row => row.detect_hosting,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '25%'
     },
     {
         name: 'Seller',
         selector: row => row.seller,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: 'Price',
         selector: row => row.price,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '10%'
     },
     {
         name: 'Added on',
         selector: row => row.added_on,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '20%'
     },
     {
         name: 'Action',
         selector: row => row['action'],
-        sortable: false,
+        sortable: true,
         center: false,
         width: '15%'
     }

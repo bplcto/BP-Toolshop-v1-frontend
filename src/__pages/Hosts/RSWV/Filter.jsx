@@ -4,6 +4,7 @@ import { Col, FormGroup, Input, Label, Row } from "reactstrap";
 import { Btn } from "../../../AbstractElements";
 import { fetch_select_options, fetch_vps } from "../../../redux/actions/vps";
 import { FilterTxt } from "../../../Constant";
+const { getName } = require('country-list');
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const Filter = () => {
               {country &&
                 country.map((c, index) => (
                   <option value={c} key={index}>
-                    {c}
+                    {getName(c)}
                   </option>
                 ))}
             </Input>

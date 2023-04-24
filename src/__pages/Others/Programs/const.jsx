@@ -9,28 +9,28 @@ export const tableColumns = [
     {
         name: "Description",
         selector: row => row.description,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '55%'
     },
     {
         name: "Seller",
         selector: row => row.seller,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '5%'
     },
     {
         name: "Price",
         selector: row => row.price,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '5%'
     },
     {
         name: "Addedon",
         selector: row => row.added_on,
-        sortable: false,
+        sortable: true,
         center: false,
         width: '15%'
     },

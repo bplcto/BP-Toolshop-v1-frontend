@@ -13,6 +13,7 @@ import {
   fetch_phpmailers,
   fetch_select_options,
 } from "../../../redux/actions/phpmailer";
+const { getName } = require('country-list');
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -79,7 +80,7 @@ const Filter = () => {
               {country &&
                 country.map((c, index) => (
                   <option value={c} key={index}>
-                    {c}
+                    {getName(c)}
                   </option>
                 ))}
             </Input>
