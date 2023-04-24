@@ -25,7 +25,6 @@ const Routers = () => {
           <Route exact path={`/register`} element={<Register />} />
           <Route exact path={`/admin/register`} element={<AdminRegister />} />
           <Route exact path={`/forget_password`} element={<ForgetPwd />} />
-          <Route exact path={`/table`} element={<ReactTable />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
