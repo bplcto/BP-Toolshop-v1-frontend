@@ -58,7 +58,7 @@ const LoginForm = () => {
         /> */}
         <H4 attrH4={{ className: 'text-center' }}>
           <i className="fa fa-shopping-cart"></i>&nbsp;
-          bpltoolshop - Login hello
+          bpltoolshop - Login
         </H4>
         <FormGroup>
           <Label className='col-form-label'>{EmailAddress}</Label>
