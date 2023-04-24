@@ -8,7 +8,7 @@ import Taptop from './TapTop';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import ThemeCustomize from '../Layout/ThemeCustomizer';
-// import Footer from './Footer';
+import Footer from './Footer';
 import CustomizerContext from '../_helper/Customizer';
 import AnimationThemeContext from '../_helper/AnimationTheme';
 import ConfigDB from '../Config/ThemeConfig';
@@ -42,7 +42,7 @@ const AppLayout = ({ children, classNames, ...rest }) => {
               </CSSTransition>
             </TransitionGroup>
           </div>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </div>
       <ThemeCustomize />

@@ -25,22 +25,6 @@ const Table = () => {
               center={false}
               pagination
               responsive={true}
-              highlightOnHover
-              customStyles={{
-                headCells: {
-                    style: {
-                        whiteSpace: 'pre',
-                        justifyContent: 'center',
-                        padding: '0px 2px',
-                    }
-                },
-                cells: {
-                    style: {
-                        padding: '0px 2px!important',
-                        whiteSpace: 'pre!important',
-                    }
-                }
-              }}
             />
         </Fragment>
     )

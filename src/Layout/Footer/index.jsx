@@ -4,13 +4,14 @@ import { Col, Container, Row } from 'reactstrap';
 import { P } from '../../AbstractElements';
 
 const Footer = () => {
+  const date = new Date();
   return (
     <Fragment>
       <footer className="footer">
         <Container fluid={true}>
           <Row>
             <Col md="12" className="footer-copyright text-center">
-              <P attrPara={{ className: "mb-0" }}>{'Copyright 2022 © Cuba theme by pixelstrap.'}</P>
+              <P attrPara={{ className: "mb-0" }}>{`Copyright ${date.getFullYear()} © Bpl toolshop by Galaxy.`}</P>
             </Col>
           </Row>
         </Container>

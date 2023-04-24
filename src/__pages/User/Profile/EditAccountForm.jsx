@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
-import { ConfirmPassword, CurrentPassword, EmailAddress, NewPassword, UpdateInformation } from '../../../Constant'
+import { ConfirmPassword, CurrentPassword, /*EmailAddress,*/ NewPassword, UpdateInformation } from '../../../Constant'
 import { Btn } from '../../../AbstractElements';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
@@ -17,7 +17,7 @@ const EditAccountForm = () => {
     confirmPassword: ''
   });
 
-  const { email, newPassword, confirmPassword, currentPassword } = formData;
+  const { /*email,*/ newPassword, confirmPassword, currentPassword } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
