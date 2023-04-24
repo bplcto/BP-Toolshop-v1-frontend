@@ -15,7 +15,7 @@ import {
 
 import { register } from '../../redux/actions/auth';
 
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 const RegisterForm = () => {
 
@@ -48,6 +48,7 @@ const RegisterForm = () => {
 
   return (
     <Fragment>
+      <ToastContainer />
       <Form className='theme-form' onSubmit={onSubmit}>
         <H4 attrH4={{ className: 'text-center' }}>
           <i className="fa fa-shopping-cart"></i>&nbsp;

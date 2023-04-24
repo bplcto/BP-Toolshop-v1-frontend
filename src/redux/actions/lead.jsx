@@ -61,7 +61,7 @@ export const add_lead = (data) => async (dispatch) => {
 
 export const edit_lead = (lead) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/lead/edit/${lead._id}`, { lead });
 
     dispatch({
@@ -69,7 +69,7 @@ export const edit_lead = (lead) => async (dispatch) => {
       payload: { id: lead._id, lead },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

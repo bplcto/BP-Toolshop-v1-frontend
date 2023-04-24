@@ -35,6 +35,7 @@
     "node-sass": "^7.0.3",
     "pigeon-maps": "^0.21.0",
     "query-string": "^8.1.0",
+    "rc-table": "^7.31.1",
     "react-ace": "^9.5.0",
     "react-apexcharts": "^1.4.0",
     "react-big-calendar": "^0.40.0",
@@ -156,5 +157,5 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "proxy": "https://bpltoolshop1-jamesgaylor721.b4a.run"
+  "proxy": "http://localhost:5000"
 }

@@ -61,7 +61,7 @@ export const add_programScript = (data) => async (dispatch) => {
 
 export const edit_programScript = (programScript) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/programScript/edit/${programScript._id}`, { programScript });
 
     dispatch({
@@ -69,7 +69,7 @@ export const edit_programScript = (programScript) => async (dispatch) => {
       payload: { id: programScript._id, programScript },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

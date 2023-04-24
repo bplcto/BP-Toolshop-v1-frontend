@@ -61,7 +61,7 @@ export const add_rdp = (data) => async (dispatch) => {
 
 export const edit_rdp = (rdp) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/rdps/edit/${rdp._id}`, { rdp });
 
     dispatch({
@@ -69,7 +69,7 @@ export const edit_rdp = (rdp) => async (dispatch) => {
       payload: { id: rdp._id, rdp },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

@@ -13,6 +13,7 @@ import {
 } from '../../Constant';
 
 import { login } from '../../redux/actions/auth';
+import { ToastContainer } from 'react-toastify';
 
 const LoginForm = () => {
 
@@ -51,6 +52,7 @@ const LoginForm = () => {
 
   return (
     <Fragment>
+      <ToastContainer />
       <Form className='theme-form' onSubmit={onSubmit}>
         {/* <ReCAPTCHA
           sitekey="s6LdcuKUlAAAAACvQAdzBKeOuHTPbupE_iTFwnlxA"

@@ -22,7 +22,8 @@ const UserHeader = () => {
   }, []);
 
   const Logout = () => {
-    dispatch(logout())
+    dispatch(logout());
+    window.location.href = '/login'
   };
 
   const UserMenuRedirect = (redirect) => {

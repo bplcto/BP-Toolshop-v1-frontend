@@ -25,6 +25,7 @@ import FaqProvider from './_helper/Faq/FaqProvider';
 import AnimationThemeProvider from './_helper/AnimationTheme/AnimationThemeProvider';
 import CustomizerProvider from './_helper/Customizer/CustomizerProvider';
 
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Redux
@@ -79,6 +80,7 @@ const App = () => {
                                                 <ChartistProvider>
                                                   <AnimationThemeProvider>
                                                     <Routers />
+                                                    {/* <ToastContainer /> */}
                                                   </AnimationThemeProvider>
                                                 </ChartistProvider>
                                               </ChartjsProvider>

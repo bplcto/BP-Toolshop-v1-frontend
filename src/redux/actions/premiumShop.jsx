@@ -61,7 +61,7 @@ export const add_premiumShop = (data) => async (dispatch) => {
 
 export const edit_premiumShop = (premiumShop) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/premiumShop/edit/${premiumShop._id}`, { premiumShop });
 
     dispatch({
@@ -69,7 +69,7 @@ export const edit_premiumShop = (premiumShop) => async (dispatch) => {
       payload: { id: premiumShop._id, premiumShop },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

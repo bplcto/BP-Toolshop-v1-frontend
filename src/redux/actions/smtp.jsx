@@ -61,7 +61,7 @@ export const add_smtp = (data) => async (dispatch) => {
 
 export const edit_smtp = (smtp) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/smtp/edit/${smtp._id}`, { smtp });
 
     dispatch({
@@ -69,7 +69,7 @@ export const edit_smtp = (smtp) => async (dispatch) => {
       payload: { id: smtp._id, smtp },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

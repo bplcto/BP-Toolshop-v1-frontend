@@ -61,7 +61,7 @@ export const add_cpanel = (data) => async (dispatch) => {
 
 export const edit_cpanel = (cpanel) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/cpanel/edit/${cpanel._id}`, { cpanel });
 
     dispatch({
@@ -69,7 +69,7 @@ export const edit_cpanel = (cpanel) => async (dispatch) => {
       payload: { id: cpanel._id, cpanel },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

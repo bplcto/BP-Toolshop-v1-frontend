@@ -62,7 +62,7 @@ export const add_method = (data) => async (dispatch) => {
 
 export const edit_method = (method) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/method/edit/${method._id}`, { method });
 
     dispatch({
@@ -70,7 +70,7 @@ export const edit_method = (method) => async (dispatch) => {
       payload: { id: method._id, method },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

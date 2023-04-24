@@ -64,7 +64,7 @@ export const add_shell = (data) => async (dispatch) => {
 
 export const edit_shell = (shell) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/shell/edit/${shell._id}`, { shell });
 
     dispatch({
@@ -72,7 +72,7 @@ export const edit_shell = (shell) => async (dispatch) => {
       payload: { id: shell._id, shell },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

@@ -4,7 +4,7 @@ import { LOGOUT } from '../redux/actions/types';
 
 // Create an instance of axios
 const api = axios.create({
-  baseURL: `${process.env.REACT_APP_BASE_URL}/api`,
+  baseURL: `/api`,
   headers: {
     'Content-Type': 'application/json'
   }

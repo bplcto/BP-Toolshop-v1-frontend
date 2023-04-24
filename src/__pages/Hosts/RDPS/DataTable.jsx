@@ -81,6 +81,7 @@ const Table = () => {
         columns={tableColumns}
         striped={true}
         center={false}
+        responsive={true}
       />
       <hr className="mt-4 mb-4" />
       <CustomePagination cnt={cnt} func={fetch_rdps} />

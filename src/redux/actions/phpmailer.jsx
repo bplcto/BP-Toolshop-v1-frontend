@@ -61,7 +61,7 @@ export const add_phpmailer = (data) => async (dispatch) => {
 
 export const edit_phpmailer = (phpmailer) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/phpmailer/edit/${phpmailer._id}`, { phpmailer });
 
     dispatch({
@@ -69,7 +69,7 @@ export const edit_phpmailer = (phpmailer) => async (dispatch) => {
       payload: { id: phpmailer._id, phpmailer },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

@@ -61,7 +61,7 @@ export const add_vps = (data) => async (dispatch) => {
 
 export const edit_vps = (vps) => async (dispatch) => {
   try {
-    dispatch(setLoading());
+    // dispatch(setLoading());
     await axios.post(`/api/vps/edit/${vps._id}`, { vps });
 
     dispatch({
@@ -69,7 +69,7 @@ export const edit_vps = (vps) => async (dispatch) => {
       payload: { id: vps._id, vps },
     });
 
-    dispatch(releaseLoading());
+    // dispatch(releaseLoading());
     toast.success("Updated successfully!");
   } catch (err) {
     toast.error(err.response.data.msg, { autoClose });

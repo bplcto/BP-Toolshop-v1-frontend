@@ -1,24 +1,39 @@
 import React, { Fragment, useState } from 'react'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
-import { CurrentPassword, EmailAddress, NewPassword, UpdateInformation } from '../../../Constant'
+import { ConfirmPassword, CurrentPassword, EmailAddress, NewPassword, UpdateInformation } from '../../../Constant'
 import { Btn } from '../../../AbstractElements';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { change_password } from '../../../redux/actions/user';
 
 const EditAccountForm = () => {
 
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
-    old_password: '',
+    newPassword: '',
+    currentPassword: '',
+    confirmPassword: ''
   });
 
-  const { email, password, old_password } = formData;
+  const { email, newPassword, confirmPassword, currentPassword } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
-    
+    if(newPassword !== confirmPassword){
+      toast.error("New password doesn't match!");
+      return;
+    }
+    const data = {
+      currentPassword,
+      newPassword
+    };
+
+    dispatch(change_password(data));
   };
 
   return (
@@ -29,9 +44,9 @@ const EditAccountForm = () => {
           <Input 
             className='form-control' 
             type='password' 
-            name='old_password'
+            name='currentPassword'
             onChange={onChange} 
-            value={old_password} 
+            value={currentPassword} 
             required
             />
         </FormGroup>
@@ -40,13 +55,24 @@ const EditAccountForm = () => {
           <Input 
             className='form-control' 
             type='password' 
-            name='password'
+            name='newPassword'
             onChange={onChange} 
-            value={password} 
+            value={newPassword} 
             required
             />
         </FormGroup>
         <FormGroup>
+          <Label className='col-form-label'><i className="fa fa-key"></i>{ConfirmPassword}</Label>
+          <Input 
+            className='form-control' 
+            type='password' 
+            name='confirmPassword'
+            onChange={onChange} 
+            value={confirmPassword} 
+            required
+            />
+        </FormGroup>
+        {/* <FormGroup>
           <Label className='col-form-label'><i className="fa fa-envelope"></i>{EmailAddress}</Label>
           <Input 
             className='form-control' 
@@ -56,7 +82,7 @@ const EditAccountForm = () => {
             value={email} 
             required
             />
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup>
           <Btn attrBtn={{ color:'primary' }}>{UpdateInformation}</Btn>
         </FormGroup>

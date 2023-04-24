@@ -10,6 +10,7 @@ import AdminRegister from '../__pages/auth/AdminRegister';
 import ForgetPwd from '../__pages/auth/ForgetPwd';
 
 import PrivateRoute from './PrivateRoute';
+import ReactTable from '../__components/ReactTable';
 
 const Routers = () => {
   return (
@@ -24,6 +25,7 @@ const Routers = () => {
           <Route exact path={`/register`} element={<Register />} />
           <Route exact path={`/admin/register`} element={<AdminRegister />} />
           <Route exact path={`/forget_password`} element={<ForgetPwd />} />
+          <Route exact path={`/table`} element={<ReactTable />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
