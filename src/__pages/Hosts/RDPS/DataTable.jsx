@@ -1,14 +1,16 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import DataTable from "react-data-table-component";
 import { Button, ButtonGroup } from "reactstrap";
 import { fetch_rdps, get_rdp } from "../../../redux/actions/rdps";
 import { Btn } from "../../../AbstractElements";
+import { tableColumns } from "./const";
+import DataTable from "react-data-table-component";
 import EditModal from "./EditModal";
 import CustomePagination from "../../../__components/CustomePagination";
-import { tableColumns } from "./const";
+import ReactCountryFlag from "react-country-flag"
 
 const moment = require("moment");
+const { getName } = require('country-list');
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -40,7 +42,7 @@ const Table = () => {
   useEffect(() => {
     rdps.map((item) => {
       return tempData.push({
-        country: item.country,
+        country: (<><ReactCountryFlag countryCode={item.country} svg style={{ fontSize: '2em' }}/>&nbsp;<span>{getName(item.country)}</span></>),
         ip: item.ip,
         windows: item.windows,
         ram: item.ram,

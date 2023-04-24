@@ -40,7 +40,7 @@ const RegisterForm = () => {
     e.preventDefault();
     const isMatched = password === confirmPassword;
     if (isMatched) {
-      dispatch(register({name, email, password}));
+      dispatch(register({name, email, password},"user"));
     } else {
       toast.error("Password does not match!");
     }

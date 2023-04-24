@@ -2,7 +2,7 @@ export const tableColumns = [
   {
     name: "Country",
     selector: (row) => row["country"],
-    sortable: true,
+    sortable: false,
     center: false,
     width: "7%",
   },

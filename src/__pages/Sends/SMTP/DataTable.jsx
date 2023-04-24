@@ -1,14 +1,16 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import DataTable from "react-data-table-component";
-import { Button, ButtonGroup } from "reactstrap";
-import { Btn } from "../../../AbstractElements";
-import CustomePagination from "../../../__components/CustomePagination";
 import { tableColumns } from "./const";
 import { fetch_smtps, get_smtp } from "../../../redux/actions/smtp";
+import { Button, ButtonGroup } from "reactstrap";
+import { Btn } from "../../../AbstractElements";
+import DataTable from "react-data-table-component";
+import CustomePagination from "../../../__components/CustomePagination";
 import EditModal from "./EditModal";
+import ReactCountryFlag from "react-country-flag"
 
 const moment = require("moment");
+const { getName } = require('country-list');
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -37,7 +39,7 @@ const Table = () => {
     smtps.map((item) => {
       return tempData.push({
         smtpid: item.smtpid,
-        country: item.country,
+        country: (<><ReactCountryFlag countryCode={item.country} svg style={{ fontSize: '2em' }}/>&nbsp;<span>{getName(item.country)}</span></>),
         domain: item.domain,
         webmail: item.webmail,
         detect_hosting: item.detect_hosting,

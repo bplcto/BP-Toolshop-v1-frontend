@@ -69,3 +69,11 @@
 .dark-only .custom-loader-box {
     background-color: #1d1e26;
 }
+
+body.dark-only .border-tab.nav-tabs .nav-item .nav-link {
+    color: white;
+}
+
+body.dark-only .border-tab.nav-tabs .nav-item .nav-link.active {
+    color: rgba(115, 102, 255, 0.9);
+}

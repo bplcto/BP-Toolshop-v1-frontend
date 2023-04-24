@@ -1,17 +1,16 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import DataTable from "react-data-table-component";
 import { Button, ButtonGroup } from "reactstrap";
-import {
-  fetch_premiumShops,
-  get_premiumShop,
-} from "../../redux/actions/premiumShop";
+import { fetch_premiumShops, get_premiumShop } from "../../redux/actions/premiumShop";
 import { tableColumns } from "./const";
 import { Btn } from "../../AbstractElements";
+import DataTable from "react-data-table-component";
 import CustomePagination from "../../__components/CustomePagination";
 import EditModal from "./EditModal";
+import ReactCountryFlag from "react-country-flag"
 
 const moment = require("moment");
+const { getName } = require('country-list');
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -43,7 +42,7 @@ const Table = () => {
   useEffect(() => {
     premiumShops.map((item) => {
       return tempData.push({
-        country: item.country,
+        country: (<><ReactCountryFlag countryCode={item.country} svg style={{ fontSize: '2em' }}/>&nbsp;<span>{getName(item.country)}</span></>),
         site_name: item.sitename,
         information: item.information,
         seller: item.seller,

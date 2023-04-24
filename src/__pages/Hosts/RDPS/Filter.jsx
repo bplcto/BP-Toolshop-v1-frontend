@@ -6,6 +6,8 @@ import { Btn } from "../../../AbstractElements";
 import { FilterTxt } from "../../../Constant";
 import { fetch_rdps, fetch_select_options } from "../../../redux/actions/rdps";
 
+const { getName } = require('country-list');
+
 const Filter = () => {
   const dispatch = useDispatch();
 
@@ -59,7 +61,7 @@ const Filter = () => {
               {country &&
                 country.map((c, index) => (
                   <option value={c} key={index}>
-                    {c}
+                    {getName(c)}
                   </option>
                 ))}
             </Input>
