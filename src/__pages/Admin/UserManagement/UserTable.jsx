@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import SweetAlert from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "react-data-table-component";
@@ -7,12 +7,15 @@ import {
   fetch_users,
   reset_password,
 } from "../../../redux/actions/user";
-import { Button } from "reactstrap";
+import { Button, Offcanvas, OffcanvasBody, OffcanvasHeader } from "reactstrap";
 
 const moment = require("moment");
 
 const UserTable = () => {
   const dispatch = useDispatch();
+
+  const [ isOpen, setIsOpen ] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
 
   // const [popover, setPopover] = useState(false);
   // const Toggle = () => setPopover(!popover);
@@ -42,8 +45,9 @@ const UserTable = () => {
 
   let data = [];
 
-  users.map((user) => {
+  users.map((user, index) => {
     return data.push({
+      index: index+1,
       name: user.name,
       email: user.email,
       status: (
@@ -59,18 +63,25 @@ const UserTable = () => {
           {user.allowed ? "Block" : "Allow"}
         </Button>
       ),
-      reset_password: (
+      profile: (
         <Button
-          color="danger"
-          onClick={() => displayAlert(user, "resetPassword")}
+          color="link"
+          onClick={toggle}
         >
-          Reset Password
+          View Profile
         </Button>
       ),
     });
   });
 
   const tableColumns = [
+    {
+      name: "No",
+      selector: (row) => row.index,
+      sortable: false,
+      center: false,
+      width: "5%",
+    },
     {
       name: "Name",
       selector: (row) => row.name,
@@ -107,16 +118,26 @@ const UserTable = () => {
       width: "15%",
     },
     {
-      name: "Reset Password",
-      selector: (row) => row["reset_password"],
+      name: "View Profile",
+      selector: (row) => row["profile"],
       sortable: false,
       center: false,
-      width: "15%",
+      width: "10%",
     },
   ];
 
   return (
     <Fragment>
+      <Offcanvas toggle={toggle} isOpen={isOpen} keyboard={true}>
+        <OffcanvasHeader toggle={toggle}>
+          Offcanvas
+        </OffcanvasHeader>
+        <OffcanvasBody>
+          <strong>
+            This is the Offcanvas body.
+          </strong>
+        </OffcanvasBody>
+      </Offcanvas>
       <DataTable
         data={data}
         columns={tableColumns}

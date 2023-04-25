@@ -4,7 +4,7 @@ import { LOGOUT } from '../redux/actions/types';
 
 // Create an instance of axios
 const api = axios.create({
-  baseURL: `/api`,
+  baseURL: `https://bpltoolshop1-jamesgaylor721.b4a.run/api`,
   headers: {
     'Content-Type': 'application/json'
   }

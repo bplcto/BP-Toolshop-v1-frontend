@@ -88,5 +88,17 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
+// Forgot password
+export const forgotPassword = (email) => async (dispatch) => {
+  try {
+    const response = await api.post('users/forgotPassword', { email });
+    toast.success(response.data);
+    console.log(response.data);
+  } catch (error) {
+    toast.error(error.response.data);
+    console.log(error.response.data);
+  }
+}
+
 // Logout
 export const logout = () => ({ type: LOGOUT });

@@ -18,8 +18,8 @@ const Routers = () => {
         <Routes>
           <Route exact path={`/`} element={<Navigate to={`/login`} />} />
           <Route path={'/'} element={<PrivateRoute />}>
-          </Route>
             <Route path={`/*`} element={<LayoutRoutes />} />
+          </Route>
           <Route exact path={`/login`} element={<Login />} />
           <Route exact path={`/register`} element={<Register />} />
           <Route exact path={`/admin/register`} element={<AdminRegister />} />
