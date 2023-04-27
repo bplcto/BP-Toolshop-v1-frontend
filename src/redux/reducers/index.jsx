@@ -13,6 +13,7 @@ import lead from './lead';
 import premiumShop from './premiumShop';
 import programScript from './programScript';
 import method from './method';
+import ticket from './ticket';
 import service from './service';
 
 const rootReducer = combineReducers({
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   premiumShop,
   programScript,
   method,
+  ticket,
   service
 });
 
