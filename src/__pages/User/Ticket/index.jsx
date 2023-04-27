@@ -5,6 +5,7 @@ import Tabs from "./Tab";
 import { H4 } from "../../../AbstractElements";
 
 const Ticket = () => {
+  console.log("hello");
   return (
     <Fragment>
       <Row className='pt-5'>
