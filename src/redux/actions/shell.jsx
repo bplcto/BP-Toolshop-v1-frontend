@@ -42,7 +42,7 @@ export const fetch_shells = (filter) => async (dispatch) => {
   } catch (err) {
     dispatch(releaseLoading());
     console.error(err);
-    // toast.error(err.response.data.msg, { autoClose });
+    toast.error(err.response.data.msg, { autoClose });
   }
 };
 

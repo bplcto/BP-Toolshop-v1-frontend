@@ -13,7 +13,8 @@ export const fetch_users = () => async (dispatch) => {
       payload: res.data,
     });
     dispatch(releaseLoading());
-  } catch (err) {
+} catch (err) {
+    dispatch(releaseLoading());
     console.error(err);
     toast.error(err.response.data.msg);
   }

@@ -40,8 +40,9 @@ export const fetch_premiumShops = (filter) => async (dispatch) => {
     });
     dispatch(releaseLoading());
   } catch (err) {
+    dispatch(releaseLoading());
     console.error(err);
-    // toast.error(err.response.data.msg, { autoClose });
+    toast.error(err.response.data.msg, { autoClose });
   }
 };
 
