@@ -33,13 +33,13 @@ const TicketForm = () => {
           <Col lg='12'>
             <FormGroup>
               <Label>{Title}</Label>
-              <Input className="form-control" valid={ticketData.title} invalid={!ticketData.title} type='text' required name='title' value={ticketData.title} onChange={onChange} placeholder={Title} />
+              <Input className="form-control" type='text' required name='title' value={ticketData.title} onChange={onChange} placeholder={Title} />
             </FormGroup>
           </Col>
           <Col lg='12'>
             <FormGroup>
               <Label>{Message}</Label>
-              <Input className="form-control" valid={ticketData.message} invalid={!ticketData.message} type='textarea' required name='message' value={ticketData.message} onChange={onChange} rows="10" placeholder={Message} />
+              <Input className="form-control" type='textarea' required name='message' value={ticketData.message} onChange={onChange} rows="10" placeholder={Message} />
             </FormGroup>
           </Col>
           <Col lg='12' className='d-flex justify-content-end'>
