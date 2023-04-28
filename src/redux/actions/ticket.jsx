@@ -38,7 +38,7 @@ export const fetch_tickets = () => async (dispatch) => {
 export const fetch_tickets_by_user = () => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const res = await api.post("/ticket/user");
+    const res = await api.get("/ticket/user");
     await dispatch({
       type: FETCH_TICKET_BY_USER,
       payload: res.data,
