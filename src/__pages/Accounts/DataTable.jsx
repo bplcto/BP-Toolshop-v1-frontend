@@ -8,6 +8,7 @@ import DataTable from "react-data-table-component";
 import CustomePagination from "../../__components/CustomePagination";
 import EditModal from "./EditModal";
 import ReactCountryFlag from "react-country-flag"
+import Loader from './../../__components/Loader';
 
 const moment = require("moment");
 const { getName } = require('country-list');
@@ -17,6 +18,7 @@ const Table = () => {
 
   const { premiumShops, cnt } = useSelector((state) => state.premiumShop);
   const { user } = useSelector((state) => state.auth);
+  const { loading } = useSelector((state) => state.app);
 
   const [ modal, setModal ] = useState(false);
   const [ data, setData ] = useState([]);
@@ -100,16 +102,21 @@ const Table = () => {
 
   return (
     <Fragment>
-      <DataTable
-        data={data}
-        columns={tableColumns}
-        striped={true}
-        center={false}
-        responsive={true}
-      />
-      <hr className="mt-4 mb-4" />
-      <CustomePagination cnt={cnt} func={fetch_premiumShops} />
-      <EditModal isOpen={modal} title={"Edit"} toggler={toggle} />
+      {
+        loading ? <Loader /> : 
+        <>
+          <DataTable
+            data={data}
+            columns={tableColumns}
+            striped={true}
+            center={false}
+            responsive={true}
+          />
+          <hr className="mt-4 mb-4" />
+          <CustomePagination cnt={cnt} func={fetch_premiumShops} />
+          <EditModal isOpen={modal} title={"Edit"} toggler={toggle} />
+        </>
+      }
     </Fragment>
   );
 };

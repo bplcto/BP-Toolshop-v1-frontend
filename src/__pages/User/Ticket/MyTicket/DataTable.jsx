@@ -3,12 +3,16 @@ import DataTable from 'react-data-table-component';
 import { tableColumns } from './const';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetch_tickets_by_user } from '../../../../redux/actions/ticket';
+import Loader from "../../../../__components/Loader";
 const moment = require("moment");
 
 const Table = () => {
 
     const dispatch = useDispatch();
+
     const { tickets } = useSelector(state => state.ticket);
+    const { loading } = useSelector((state) => state.app);
+
     const [ data, setData ]  = useState([]);
 
     let tempData = [];
@@ -33,14 +37,19 @@ const Table = () => {
 
     return (
         <Fragment>
-            <DataTable
-              data={data}
-              columns={tableColumns}
-              striped={true}
-              center={false}
-              pagination
-              responsive={true}
-            />
+            {
+                loading ? <Loader /> : 
+                <>
+                    <DataTable
+                        data={data}
+                        columns={tableColumns}
+                        striped={true}
+                        center={false}
+                        pagination
+                        responsive={true}
+                    />
+                </>
+            }
         </Fragment>
     )
 }

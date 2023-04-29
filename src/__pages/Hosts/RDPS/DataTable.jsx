@@ -8,6 +8,7 @@ import DataTable from "react-data-table-component";
 import EditModal from "./EditModal";
 import CustomePagination from "../../../__components/CustomePagination";
 import ReactCountryFlag from "react-country-flag"
+import Loader from "../../../__components/Loader";
 
 const moment = require("moment");
 const { getName } = require('country-list');
@@ -36,6 +37,7 @@ const Table = () => {
 
   const { rdps, cnt } = useSelector((state) => state.rdps);
   const { user } = useSelector((state) => state.auth);
+  const { loading } = useSelector((state) => state.app);
 
   let tempData = [];
 
@@ -78,16 +80,21 @@ const Table = () => {
 
   return (
     <Fragment>
-      <DataTable
-        data={data}
-        columns={tableColumns}
-        striped={true}
-        center={false}
-        responsive={true}
-      />
-      <hr className="mt-4 mb-4" />
-      <CustomePagination cnt={cnt} func={fetch_rdps} />
-      <EditModal isOpen={modal} title={"Edit"} toggler={toggle} />
+      {
+        loading ? <Loader /> : 
+        <>
+          <DataTable
+          data={data}
+          columns={tableColumns}
+          striped={true}
+          center={false}
+          responsive={true}
+          />
+          <hr className="mt-4 mb-4" />
+          <CustomePagination cnt={cnt} func={fetch_rdps} />
+          <EditModal isOpen={modal} title={"Edit"} toggler={toggle} />
+        </>
+      }
     </Fragment>
   );
 };
