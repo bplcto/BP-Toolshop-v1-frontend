@@ -5,6 +5,7 @@ import { Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { Btn, H4, P } from '../../AbstractElements';
 import { Login } from '../../Constant';
 import { forgotPassword } from '../../redux/actions/auth';
+import { ToastContainer } from 'react-toastify';
 
 const ForgetPwd = () => {
 
@@ -21,6 +22,7 @@ const ForgetPwd = () => {
   return (
     <Fragment>
       <section>
+        <ToastContainer />
         <Container className='p-0 login-page' fluid={true}>
           <Row className='m-0'>
             <Col className='p-0'>
