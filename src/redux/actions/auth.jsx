@@ -7,7 +7,8 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  AUTH_LOADING
 } from './types';
 
 const autoClose = 3000;
@@ -65,17 +66,20 @@ export const login = (email, password) => async (dispatch) => {
   const body = { email, password };
 
   try {
+    dispatch(authLoading());
     const res = await api.post('auth/login', body);
 
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data
     });
-
-    // dispatch(loadUser());
+    
+    dispatch(loadUser());
   } catch (err) {
+    dispatch({
+      type: AUTH_ERROR
+    });
     const errors = err.response.data.errors;
-
     if (errors) {
       errors.forEach((error) => {
         toast.error(error.msg, {autoClose})
@@ -92,13 +96,19 @@ export const login = (email, password) => async (dispatch) => {
 export const forgotPassword = (email) => async (dispatch) => {
   try {
     const response = await api.post('users/forgotPassword', { email });
-    toast.success(response.data);
+    toast.success(response.data.message);
     console.log(response.data);
   } catch (error) {
-    toast.error(error.response.data);
+    toast.error(error.response.data.message);
     console.log(error.response.data);
   }
 }
 
 // Logout
 export const logout = () => ({ type: LOGOUT });
+
+const authLoading = () => dispatch => {
+  dispatch({
+    type: AUTH_LOADING
+  })
+}

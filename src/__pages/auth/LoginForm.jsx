@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 // import ReCAPTCHA from 'react-google-recaptcha';
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { Form, FormGroup, Input, Label } from 'reactstrap';
 import { Btn, H4, P } from '../../AbstractElements';
 
@@ -28,11 +28,12 @@ const LoginForm = () => {
   });
 
   const { email, password } = formData;
-  const { isAuthenticated } = useSelector(state => state.auth);
+  const { isAuthenticated, loading } = useSelector(state => state.auth);
 
   useEffect(() => {
     if (isAuthenticated) {
       window.location.href = "/dashboard";
+      // return <Navigate to="/dashboard" />;
     }
   }, [isAuthenticated]);
 
@@ -103,7 +104,8 @@ const LoginForm = () => {
         <FormGroup>
           <Btn attrBtn={{ 
             color: 'primary', 
-            className: 'd-block w-100 mt-2'
+            className: 'd-block w-100 mt-2',
+            disabled: loading
           }}>{LOGIN}</Btn>
         </FormGroup>
         <P attrPara={{ className: 'text-center mb-0 mt-4' }}>
